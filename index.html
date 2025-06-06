@@ -5,63 +5,101 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="EXORA is a vibrant and welcoming dining destination in Benicassim, Spain, where
-      bold flavors, creativity and excellence come together in an experience that transcends
-      time. Rooted in our Romanian heritage and inspired by Mediterranean influences, our bistro offers a diverse menu
-      that balances comfort and innovation. From expertly crafted burgers to premium steaks and fresh seafood,
-      Exora reimagines familiar favorites with a unique twist, inviting guests on a culinary journey
-      that bridges tradition and modernity.">
-  <meta name="keywords" content="">
+  bold flavors, creativity and excellence come together in an experience that transcends
+  time. Rooted in our Romanian heritage and inspired by Mediterranean influences, our bistro offers a diverse menu
+  that balances comfort and innovation. From expertly crafted burgers to premium steaks and fresh seafood,
+  Exora reimagines familiar favorites with a unique twist, inviting guests on a culinary journey
+  that bridges tradition and modernity.">
+  <meta name="keywords" content=""> <!-- TODO: Add keywords for SEO -->
+
   <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-  <meta name="author" content="created by Ioana Beatrice Riess, Florin Cirnicianu">
+  <meta name="author" content="created by Beatrice Riess, Florin Cirnicianu, Cristian Cirnicianu and Ciprian Nicolae">
+
   <title>Exora</title>
 
   <link rel="stylesheet" href="/Exora/styles/general.css">
+  <link rel="stylesheet" href="/Exora/styles/index.css">
 
-  <script defer src="/Exora/scripts/stickyHeader.js"></script>
+  <script defer src="/Exora/scripts/squishables.js"></script>
+  <script defer src="/Exora/scripts/pageClock.js"></script>
 
   <script defer type="module" src="/Exora/modules/line.js"></script>
   <script defer type="module" src="/Exora/modules/navButton.js"></script>
+  <script defer type="module" src="/Exora/modules/infiniCards.js"></script>
 </head>
 
 <body>
-
   <header>
     <nav>
-      <ex-nav-button gap="170px" name="about start">About Us</ex-nav-button>
-      <ex-nav-button gap="60px" name="about experience">Experience</ex-nav-button>
-      <ex-nav-button gap="60px" name="about vision">Vision</ex-nav-button>
-      <ex-nav-button id="navlogo" gap="170px" name="about start"><img src="/Exora/images/Exora Logo Green Point10.webp"
+      <ex-nav-button gap="170px" name="about start">Home</ex-nav-button>
+      <ex-nav-button gap="80px" name="about experience">Experience</ex-nav-button>
+      <ex-nav-button id="navlogo" gap="170px" name="top"><img src="/Exora/images/Exora Logo Green Point10.webp"
           alt="Exora Logo"></ex-nav-button>
-      <ex-nav-button gap="60px" name="about philosophy">Philosophy</ex-nav-button>
-      <ex-nav-button gap="60px" name="about location">Location</ex-nav-button>
-      <ex-nav-button gap="60px" name="about team">Team</ex-nav-button>
+      <ex-nav-button gap="80px" name="about location">Menu</ex-nav-button>
+      <ex-nav-button gap="80px" name="about team">Contact</ex-nav-button>
     </nav>
   </header>
 
   <main>
-    <ex-nav-header name="about start"></ex-nav-header>
-    <h2>ABOUT US</h2>
-    <p>
-      <strong>EXORA</strong> is a vibrant and welcoming dining destination in <strong>Benicassim, Spain</strong>, where
-      <em>bold flavors</em>, <em>creativity</em> and <em>excellence</em> come together in an experience that transcends
-      time. Rooted in our Romanian heritage and inspired by Mediterranean influences, our bistro offers a diverse menu
-      that balances comfort and innovation. From expertly crafted burgers to premium steaks and fresh seafood,
-      <strong>Exora</strong> reimagines familiar favorites with a unique twist, inviting guests on a culinary journey
-      that bridges tradition and modernity.
-    </p>
+    <ex-nav-header name="top"></ex-nav-header>
+    <section id="greet">
+      <h2>THIS IS THE SLOGAN OF THE PAGE. IT CAN NOT BE BIGGER THAN THIS. NO MATTER WHAT.</h2>
+      <h1><a href="#">To Menu</a></h1>
+    </section>
+    <ex-line width="3px" color="rgb(0, 0, 0)"></ex-line>
+    <section>
+      <ex-nav-header name="about start"></ex-nav-header>
+      <h2>ABOUT US</h2>
 
-    <p>We strive to create an atmosphere where each moment feels suspended, where flavors spark emotion, and where
-      hospitality turns meals into memories. <strong>EXORA</strong> comes from the dacian concept of <em>„ora"</em> as a
-      time measure and the latin and greek origins of <em>„Ex"</em> (change) and <em>„Ora"</em> (time and light, as a
-      purifying and spiritually transformative force)
-    </p>
+      <ex-infcard-holder>
+        <ex-infcard>
+          <p>
+            <strong>EXORA</strong> is a vibrant and welcoming dining destination in <strong>Benicassim, Spain</strong>,
+            where <em>bold flavors</em>, <em>creativity</em> and <em>excellence</em> come together in an experience that
+            transcends time. Rooted in our Romanian heritage and inspired by Mediterranean influences, our bistro offers
+            a diverse menu that balances comfort and innovation. From expertly crafted burgers to premium steaks and
+            fresh
+            seafood, <strong>Exora</strong> reimagines familiar favorites with a unique twist, inviting guests on a
+            culinary journey that bridges tradition and modernity.
+          </p>
+        </ex-infcard>
 
-    <p>Founded by <strong>Chef Florin Carnicianu</strong>, a seasoned Executive Chef, restaurant owner and culinary
-      consultant from Romania, <strong>Exora</strong> is built on a shared passion for <em>culinary excellence</em>,
-      <em>warm hospitality</em> and creating <em>unforgettable moments</em>.
-    </p>
+        <ex-infcard>
+          <img src="https://placehold.co/400x600/000000/FFFFFF" alt="Placeholder Image">
+        </ex-infcard>
 
-    <ex-nav-header name="about experience" /></ex-nav-header>
+        <ex-infcard>
+          <p>
+            We strive to create an atmosphere where each moment feels suspended, where flavors spark emotion, and where
+            hospitality turns meals into memories. <strong>EXORA</strong> comes from the dacian concept of
+            <em>„ora"</em>
+            as a time measure and the latin and greek origins of <em>„Ex"</em> (change) and <em>„Ora"</em> (time and
+            light, as a purifying and spiritually transformative force)
+          </p>
+        </ex-infcard>
+
+        <ex-infcard>
+          <img src="https://placehold.co/400x600/000000/FFFFFF" alt="Placeholder Image">
+        </ex-infcard>
+
+        <ex-infcard>
+          <p>
+            Founded by <strong>Chef Florin Carnicianu</strong>, a seasoned Executive Chef, restaurant owner and culinary
+            consultant from Romania, <strong>Exora</strong> is built on a shared passion for <em>culinary
+              excellence</em>,
+            <em>warm hospitality</em> and creating <em>unforgettable moments</em>.
+          </p>
+        </ex-infcard>
+
+        <ex-infcard>
+          <img src="https://placehold.co/400x600/000000/FFFFFF" alt="Placeholder Image">
+        </ex-infcard>
+
+      </ex-infcard-holder>
+    </section>
+
+
+    <ex-nav-header name="about experience"></ex-nav-header>
     <h2>THE EXPERIENCE</h2>
     <p>
       <strong>EXORA</strong> is more than just a place to eat—it is a space where <em>time slows down</em>,
@@ -69,19 +107,23 @@
     </p>
 
     <p>Whether it's a relaxed weekday lunch, an elegant dinner, a special celebration, or a spontaneous gathering with
-      loved ones, every visit to <strong>Exora</strong> is meant to be a <em>refined timeless escape</em>—an experience
+      loved ones, every visit to <strong>Exora</strong> is meant to be a <em>refined timeless escape</em>—an
+      experience
       that lingers long after the last bite.
     </p>
 
-    <ex-nav-header name="about vision" /></ex-nav-header>
+
+    <ex-nav-header name="about vision"></ex-nav-header>
     <h2>THE VISION</h2>
     <p>
       To <strong>redefine dining experiences</strong> by blending <em>tradition</em>, <em>creativity</em> and
-      <em>excellence</em>, offering guests not just meals, but <strong>lasting memories</strong> that transcend time and
+      <em>excellence</em>, offering guests not just meals, but <strong>lasting memories</strong> that transcend time
+      and
       nourish the soul.
     </p>
 
-    <ex-nav-header name="about philosophy" /></ex-nav-header>
+
+    <ex-nav-header name="about philosophy"></ex-nav-header>
     <h2>CULINARY PHILOSOPHY</h2>
     <p>
       At <strong>EXORA</strong>, we believe food should be both <em>exciting</em> and <em>comforting</em>. Our menu
@@ -98,11 +140,12 @@
       history and the present moment.
     </p>
 
-    <ex-nav-header name="about location" /></ex-nav-header>
+    <ex-nav-header name="about location"></ex-nav-header>
     <h2>THE LOCATION</h2>
     <p>
       You'll find <strong>Exora</strong> at <strong>Avenida Barcelona 87</strong>, just a <em>4-minute walk from the
-        beach</em> and <em>6 minutes from Hotel Voramar</em>. We're tucked away in a quieter part of town, close enough
+        beach</em> and <em>6 minutes from Hotel Voramar</em>. We're tucked away in a quieter part of town, close
+      enough
       to
       enjoy the sea breeze, yet away from the busy center.
     </p>
@@ -122,11 +165,32 @@
 
   </main>
   <footer>
-    <ex-nav-button name="aboutloc" gap="20px">About Location</ex-nav-button>
-    <ex-nav-button name="aboutloc" gap="20px">About Location</ex-nav-button>
-    <ex-nav-button name="aboutloc" gap="20px">About Location</ex-nav-button>
-    <ex-nav-button name="aboutloc" gap="20px">About Location</ex-nav-button>
+    <div class="miniFooter">
+      <ex-nav-button gap="170px" name="top">Top</ex-nav-button>
+
+      <div id="ScrollDownArrow">
+        <p>Scroll down for more</p>
+        <span class="ScrollDownArrow"></span>
+      </div>
+
+      <a href="#">Menu</a>
+    </div>
+
+    <div class="megaFooter">
+      <ex-nav-button gap="170px" name="about start">About Us</ex-nav-button>
+      <ex-nav-button gap="80px" name="about experience">Experience</ex-nav-button>
+      <ex-nav-button gap="80px" name="about vision">Vision</ex-nav-button>
+      <ex-nav-button gap="170px" name="top">Top</ex-nav-button>
+      <ex-nav-button gap="80px" name="about philosophy">Philosophy</ex-nav-button>
+      <ex-nav-button gap="80px" name="about location">Location</ex-nav-button>
+      <ex-nav-button gap="80px" name="about team">Team</ex-nav-button>
+    </div>
   </footer>
+
+  <div class="page-clock-bg">
+    <div class="clock-hand"></div>
+  </div>
+
 </body>
 
 </html>

@@ -1,6 +1,17 @@
 :root {
-  --var-outer-separation: 95%;
+  --var-outer-separation: 60%;
   --var-inner-separation: 15px;
+
+  --c-grey: #778087;
+  --c-green-aqua: #0A3021;
+  --c-green-normal: #068131;
+  --c-gold: #EABB6D;
+  --c-light-gold: #F9CE7F;
+}
+
+@font-face {
+  font-family: montserat;
+  src: url(/Exora/fonts/Montserrat-VariableFont_wght.ttf);
 }
 
 * {
@@ -8,32 +19,109 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: 'Times New Roman', Times, serif;
+  color: #0A3021;
+}
+
+html {
+  overflow-x: hidden;
+  box-sizing: border-box;
 }
 
 body {
   z-index: 0;
-  background-color: red;
+  background-color: var(--c-green-aqua);
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
 }
 
+.page-clock-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  /* Behind everything */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  /* Don't interfere with page interactions */
+}
+
+.clock-hand {
+  position: absolute;
+  width: 100%;
+  min-width: 500px;
+  max-width: 900px;
+  height: 3000px;
+  background: linear-gradient(0deg,#c199589e 45%, #f9ce7f94 55%);
+  box-shadow: 0px 0px 20px #eaba6d8c;
+  transform-origin: center center;
+  border-radius: 2px;
+}
+
+ex-nav-button {
+  display: inline-flex;
+  text-decoration: none;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  text-wrap-mode: nowrap;
+  width: 100%;
+  height: 100%;
+
+  color: var(--c-green-aqua);
+  transition: color 0.1s ease-in-out;
+}
+
+ex-nav-button:hover {
+  color: var(--c-green-normal);
+}
+
 header {
   max-width: var(--var-outer-separation);
   width: 100%;
-  height: var(--header-height, 80px);
+  height: 4rem;
   padding: 0px var(--var-inner-separation);
-
   z-index: 75;
   position: fixed;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  top: 0px;
-  background-color: aqua;
+  top: 0rem;
+  background-color: var(--c-gold);
+  border-radius: 8px;
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
+  box-shadow: 0px 0px 8px var(--c-light-gold);
+
+  transition: height 0.1s ease-in-out;
+}
+
+header.large {
+  height: 8rem;
+}
+
+header #navlogo {
+  width: 800px;
+  display: flex;
+  background: none;
+  transition: width 0.1s ease-in-out;
+}
+
+header #navlogo img {
+  width: 100%;
+  justify-self: center;
+  align-self: center;
+}
+
+header.large #navlogo {
+  width: 1600px;
 }
 
 nav {
@@ -48,36 +136,110 @@ main {
   min-height: 100dvh;
   max-width: var(--var-outer-separation);
   width: 100%;
-  padding: 0 var(--var-inner-separation);
   z-index: 25;
-
-  background-color: chartreuse;
+  position: relative;
+  top: 1rem;
+  margin-bottom: 1rem;
 }
 
 footer {
   max-width: var(--var-outer-separation);
   width: 100%;
-  padding: 0 var(--var-inner-separation);
+  padding: var(--var-inner-separation);
   z-index: 50;
+  height: 6rem;
+  border-radius: 8px;
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+  overflow: hidden;
+  box-shadow: 0px 0px 8px var(--c-light-gold);
 
-  background-color: darkorange;
+  background-color: var(--c-gold);
+  transition: height 0.1s ease-in-out;
 }
 
-/* nav buttons */
-ex-nav-button {
-  display: flex;
-}
-
-#navlogo {
-  display: flex;
-  width: 20%;
-  max-width: 200px;
-  min-width: 100px;
-}
-
-#navlogo img{
+footer .miniFooter {
+  display: inline-flex;
+  justify-content: space-between;
   width: 100%;
-  height: 100%;
+}
+
+footer .miniFooter * {
   justify-self: center;
   align-self: center;
+  text-align: center;
+  width: 100%;
+}
+
+footer .megaFooter {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  width: 100%;
+}
+
+
+footer.large {
+  height: 32rem;
+}
+
+footer div#ScrollDownArrow {
+  position: relative;
+  text-wrap-mode: nowrap;
+  height: 100%;
+
+  display: flexbox;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  color: var(--c-green-aqua);
+}
+
+footer.large div#ScrollDownArrow {
+  display: none;
+}
+
+#ScrollDownArrow span {
+  position: absolute;
+  left: 50%;
+  width: 24px;
+  height: 24px;
+  margin-left: -12px;
+  border-left: 1px solid var(--c-green-aqua);
+  border-bottom: 1px solid var(--c-green-aqua);
+  -webkit-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  -webkit-animation: sdb04 2s infinite;
+  animation: sdb04 2s infinite;
+  box-sizing: border-box;
+}
+
+@-webkit-keyframes sdb04 {
+  0% {
+    -webkit-transform: rotate(-45deg) translate(0, 0);
+  }
+
+  20% {
+    -webkit-transform: rotate(-45deg) translate(-10px, 10px);
+  }
+
+  40% {
+    -webkit-transform: rotate(-45deg) translate(0, 0);
+  }
+}
+
+@keyframes sdb04 {
+  0% {
+    transform: rotate(-45deg) translate(0, 0);
+  }
+
+  20% {
+    transform: rotate(-45deg) translate(-10px, 10px);
+  }
+
+  40% {
+    transform: rotate(-45deg) translate(0, 0);
+  }
 }
