@@ -19,6 +19,7 @@ class InfiniCardHolder extends HTMLElement {
     this.scrollDirection = 0; // -1 for left, 1 for right, 0 for neutral
     this.dragThreshold = 5; // Slightly higher threshold to distinguish clicks from drags
     this.hasMoved = false; // Track if user has actually moved during drag
+    this.dragOffset = 0; // Track the offset during dragging to fix infinite loop bug
   }
 
   connectedCallback() {
@@ -119,6 +120,9 @@ class InfiniCardHolder extends HTMLElement {
     this.addEventListener('touchmove', this.dragMove.bind(this), { passive: false });
     this.addEventListener('touchend', this.dragEnd.bind(this), { passive: false });
     
+    // Handle mouse leave to prevent getting stuck when cursor leaves the element
+    this.addEventListener('mouseleave', this.handleMouseLeave.bind(this));
+    
     // Arrow clicks
     this.leftArrow.addEventListener('click', (e) => {
       e.stopPropagation();
@@ -150,6 +154,13 @@ class InfiniCardHolder extends HTMLElement {
     this.addEventListener('contextmenu', e => e.preventDefault());
   }
 
+  handleMouseLeave() {
+    // If user drags outside the element, end the drag and snap to nearest card
+    if (this.isDragging && this.hasMoved) {
+      this.dragEnd();
+    }
+  }
+
   dragStart(e) {
     // Don't start drag if clicking on controls
     if (e.target.closest('.nav-arrow') || e.target.closest('.dots-container')) {
@@ -161,6 +172,7 @@ class InfiniCardHolder extends HTMLElement {
     this.isDragging = true;
     this.hasMoved = false; // Reset movement tracking
     this.startX = this.getPositionX(e);
+    this.dragOffset = 0; // Reset drag offset
     this.setCursor('grabbing');
     
     // Prevent default to avoid text selection and improve responsiveness
@@ -180,6 +192,7 @@ class InfiniCardHolder extends HTMLElement {
       // Prevent default only after we confirm it's a drag, not a click
       e.preventDefault();
       
+      this.dragOffset = diff; // Store the current drag offset
       this.currentTranslate = this.prevTranslate + diff;
       
       // Track scroll direction
@@ -204,11 +217,14 @@ class InfiniCardHolder extends HTMLElement {
       return;
     }
     
-    // Only snap to nearest card if user actually dragged
+    // Always snap to nearest card when user releases after dragging
     this.snapToNearestCard();
   }
 
   snapToNearestCard() {
+    // Ensure we're not already animating
+    if (this.isAnimating) return;
+    
     // Find the nearest card position
     const basePosition = -this.cardWidth * this.originalCards.length * 2;
     const offset = this.currentTranslate - basePosition;
@@ -340,13 +356,31 @@ class InfiniCardHolder extends HTMLElement {
     // More lenient infinite loop handling - always loop when at boundaries
     if (this.currentTranslate > -setWidth * 0.5) {
       // At the right boundary, loop to continue
-      this.currentTranslate -= setWidth * 2;
-      this.prevTranslate = this.currentTranslate;
+      const loopOffset = setWidth * 2;
+      this.currentTranslate -= loopOffset;
+      
+      // Only update prevTranslate if not currently dragging to avoid breaking drag calculations
+      if (!this.isDragging) {
+        this.prevTranslate = this.currentTranslate;
+      } else {
+        // If dragging, adjust the start position to maintain smooth dragging
+        this.prevTranslate -= loopOffset;
+      }
+      
       this.updatePosition();
     } else if (this.currentTranslate < -setWidth * 3.5) {
       // At the left boundary, loop to continue
-      this.currentTranslate += setWidth * 2;
-      this.prevTranslate = this.currentTranslate;
+      const loopOffset = setWidth * 2;
+      this.currentTranslate += loopOffset;
+      
+      // Only update prevTranslate if not currently dragging to avoid breaking drag calculations
+      if (!this.isDragging) {
+        this.prevTranslate = this.currentTranslate;
+      } else {
+        // If dragging, adjust the start position to maintain smooth dragging
+        this.prevTranslate += loopOffset;
+      }
+      
       this.updatePosition();
     }
   }

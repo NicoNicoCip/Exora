@@ -1,6 +1,7 @@
 :root {
   --var-outer-separation: 60%;
   --var-inner-separation: 15px;
+  --var-border-radious: 3px;
 
   --c-grey: #778087;
   --c-green-aqua: #0A3021;
@@ -20,7 +21,8 @@
   padding: 0;
   box-sizing: border-box;
   font-family: 'Times New Roman', Times, serif;
-  color: #0A3021;
+  color: #000000;
+  /* text-shadow: 0px 0px 1.5px; */
 }
 
 html {
@@ -59,9 +61,8 @@ body {
   max-width: 900px;
   height: 3000px;
   background: linear-gradient(0deg,#c199589e 45%, #f9ce7f94 55%);
-  box-shadow: 0px 0px 20px #eaba6d8c;
+  box-shadow: 0px 0px 10px #eaba6d8c;
   transform-origin: center center;
-  border-radius: 2px;
 }
 
 ex-nav-button {
@@ -73,6 +74,7 @@ ex-nav-button {
   text-wrap-mode: nowrap;
   width: 100%;
   height: 100%;
+  text-shadow: 0px 0px 1.2px #1b392b;
 
   color: var(--c-green-aqua);
   transition: color 0.1s ease-in-out;
@@ -95,7 +97,7 @@ header {
   flex-direction: column;
   top: 0rem;
   background-color: var(--c-gold);
-  border-radius: 8px;
+  border-radius: var(--var-border-radious);
   border-top-left-radius: 0px;
   border-top-right-radius: 0px;
   box-shadow: 0px 0px 8px var(--c-light-gold);
@@ -108,28 +110,26 @@ header.large {
 }
 
 header #navlogo {
-  width: 800px;
+  padding: 0px 4px;
+  width: 350px;
   display: flex;
-  background: none;
+  align-items: center;
+  justify-content: center;
   transition: width 0.1s ease-in-out;
 }
 
 header #navlogo img {
   width: 100%;
-  justify-self: center;
-  align-self: center;
 }
 
 header.large #navlogo {
-  width: 1600px;
+  width: 700px;
 }
 
 nav {
   width: 100%;
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  flex-direction: row;
 }
 
 main {
@@ -148,7 +148,7 @@ footer {
   padding: var(--var-inner-separation);
   z-index: 50;
   height: 6rem;
-  border-radius: 8px;
+  border-radius: var(--var-border-radious);
   border-bottom-left-radius: 0px;
   border-bottom-right-radius: 0px;
   overflow: hidden;
@@ -178,7 +178,6 @@ footer .megaFooter {
   position: relative;
   width: 100%;
 }
-
 
 footer.large {
   height: 32rem;
@@ -241,5 +240,20 @@ footer.large div#ScrollDownArrow {
 
   40% {
     transform: rotate(-45deg) translate(0, 0);
+  }
+}
+
+@media only screen and (max-width: 999px) {
+  :root {
+    --var-outer-separation: 90%;
+    --var-inner-separation: 0px;
+  }
+
+  nav {
+    font-size: 12px;
+  }
+
+  header.large {
+    height: 6rem;
   }
 }

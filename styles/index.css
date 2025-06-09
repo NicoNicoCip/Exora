@@ -1,31 +1,43 @@
 section {
   width: 100%;
   height: 100%;
-  min-height: 100dvh;
+  min-height: 60dvh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+section h2 {
+  font-size: 30px;
+  color: var(--c-light-gold);
+  padding: 10px 0px;
 }
 
 /*------------- THE GREETING -----------------*/
 
 #greet {
+  height: 100dvh;
   display: flex;
   justify-content: center;
-  align-items: center;
   flex-direction: column;
   gap: 10rem;
   text-decoration: none;
 }
 
 #greet a {
-  color: var(--c-green-aqua);
+  color: var(--c-light-gold);
+  text-shadow: 0px 0px 10px #cda46245;
   transition: color 0.1s ease-in-out;
 }
 
 #greet a:hover {
-  color: var(--c-green-normal);
+  color: #cb943a;
 }
 
 
 #greet h2 {
+  color: var(--c-light-gold);
   font-size: 30px;
   text-align: center;
 }
@@ -42,6 +54,11 @@ temp {
   --c-light-gold: #F9CE7F;
 }
 
+ex-line {
+  border-radius: 2px;
+  background-color: rgb(255, 209, 102) !important;
+}
+
 /*------------- Cards -----------------*/
 ex-infcard-holder {
   display: block;
@@ -53,7 +70,7 @@ ex-infcard-holder {
   overflow: hidden;
   background-color: #eaba6de6;
   box-shadow: 0px 0px 20px #eaba6de1;
-  border-radius: 8px;
+  border-radius: var(--var-border-radious);
 }
 
 ex-infcard-holder:active {
@@ -62,9 +79,8 @@ ex-infcard-holder:active {
 
 ex-infcard-holder .scroll-container {
   display: flex;
-  align-items: center;
   gap: 1rem;
-  height: 100%;
+  height: 680px;
   user-select: none;
   will-change: transform;
 }
@@ -74,21 +90,37 @@ ex-infcard {
   min-width: 200px;
   max-width: 400px;
   height: 600px;
-  padding: 1rem;
   flex-shrink: 0;
+  padding: 20px 0px;
+  display: flex;
+  justify-content: center;
+  align-items:start;
   pointer-events: none;
+}
+
+ex-infcard ex-line {
+  border-radius: 2px;
+}
+
+ex-infcard ex-line:first-child {
+  margin: 0px 10px !important;
+}
+
+ex-infcard ex-line:last-child{
+  margin: 0px 10px !important;
 }
 
 ex-infcard img{
   width: 100%;
+  align-self: center;
   border-radius: 4px;
-  box-shadow: 0px 0px 20px #F9CE7F;
+  box-shadow: 0px 0px 20px --c-light-gold;
 }
 
 /*------------------ Navigation Arrows ---------------------*/
 .nav-arrow {
   position: absolute;
-  top: 50%;
+  bottom: 0px;
   transform: translateY(-50%);
   width: 60px;
   height: 60px;
@@ -109,8 +141,8 @@ ex-infcard img{
   content: '';
   width: 20px;
   height: 20px;
-  border-top: 3px solid #0a3021b5;
-  border-right: 3px solid #0a3021b5;
+  border-top: 3px solid #0a30218f;
+  border-right: 3px solid #0a30218f;
   transition: all 0.2s ease;
 }
 
@@ -140,11 +172,11 @@ ex-infcard img{
 }
 
 .nav-arrow-left {
-  left: 1rem;
+  left: 0px;
 }
 
 .nav-arrow-right {
-  right: 1rem;
+  right: 0px;
 }
 
 .nav-arrow.thick::before {
