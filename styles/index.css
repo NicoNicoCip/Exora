@@ -80,7 +80,6 @@ ex-infcard-holder:active {
 ex-infcard-holder .scroll-container {
   display: flex;
   gap: 1rem;
-  height: 680px;
   user-select: none;
   will-change: transform;
 }
@@ -89,9 +88,9 @@ ex-infcard {
   width: 100%;
   min-width: 200px;
   max-width: 400px;
-  height: 600px;
   flex-shrink: 0;
   padding: 20px 0px;
+  margin-bottom: 60px;
   display: flex;
   justify-content: center;
   align-items:start;
