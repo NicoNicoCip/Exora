@@ -8,6 +8,7 @@ class InfiniCardHolder extends HTMLElement {
     this.dotsContainer = null;
     this.isDragging = false;
     this.startX = 0;
+    this.startY = 0; // Track Y position for vertical scroll detection
     this.currentTranslate = 0;
     this.prevTranslate = 0;
     this.cardWidth = 416; // Fallback value
@@ -20,6 +21,7 @@ class InfiniCardHolder extends HTMLElement {
     this.dragThreshold = 5; // Slightly higher threshold to distinguish clicks from drags
     this.hasMoved = false; // Track if user has actually moved during drag
     this.dragOffset = 0; // Track the offset during dragging to fix infinite loop bug
+    this.isHorizontalDrag = null; // Track if this is a horizontal or vertical drag
   }
 
   connectedCallback() {
@@ -115,10 +117,10 @@ class InfiniCardHolder extends HTMLElement {
     document.addEventListener('mousemove', this.dragMove.bind(this));
     document.addEventListener('mouseup', this.dragEnd.bind(this));
     
-    // Touch events with passive: false for better responsiveness
-    this.addEventListener('touchstart', this.dragStart.bind(this), { passive: false });
+    // Touch events - use passive: true initially to allow scrolling
+    this.addEventListener('touchstart', this.dragStart.bind(this), { passive: true });
     this.addEventListener('touchmove', this.dragMove.bind(this), { passive: false });
-    this.addEventListener('touchend', this.dragEnd.bind(this), { passive: false });
+    this.addEventListener('touchend', this.dragEnd.bind(this), { passive: true });
     
     // Handle mouse leave to prevent getting stuck when cursor leaves the element
     this.addEventListener('mouseleave', this.handleMouseLeave.bind(this));
@@ -171,32 +173,50 @@ class InfiniCardHolder extends HTMLElement {
     
     this.isDragging = true;
     this.hasMoved = false; // Reset movement tracking
+    this.isHorizontalDrag = null; // Reset drag direction detection
     this.startX = this.getPositionX(e);
+    this.startY = this.getPositionY(e);
     this.dragOffset = 0; // Reset drag offset
     this.setCursor('grabbing');
     
-    // Prevent default to avoid text selection and improve responsiveness
-    e.preventDefault();
+    // Only prevent default for mouse events, not touch events initially
+    if (e.type.includes('mouse')) {
+      e.preventDefault();
+    }
   }
 
   dragMove(e) {
     if (!this.isDragging || !this.isInitialized) return;
     
-    const currentPosition = this.getPositionX(e);
-    const diff = currentPosition - this.startX;
+    const currentX = this.getPositionX(e);
+    const currentY = this.getPositionY(e);
+    const diffX = currentX - this.startX;
+    const diffY = currentY - this.startY;
     
-    // Check if user has moved beyond threshold
-    if (Math.abs(diff) > this.dragThreshold) {
+    // Determine drag direction on first significant movement
+    if (this.isHorizontalDrag === null && (Math.abs(diffX) > 3 || Math.abs(diffY) > 3)) {
+      this.isHorizontalDrag = Math.abs(diffX) > Math.abs(diffY);
+    }
+    
+    // If it's a vertical drag, allow default scrolling behavior
+    if (this.isHorizontalDrag === false) {
+      this.isDragging = false;
+      this.setCursor('grab');
+      return;
+    }
+    
+    // Only handle horizontal drags
+    if (this.isHorizontalDrag === true && Math.abs(diffX) > this.dragThreshold) {
       this.hasMoved = true;
       
-      // Prevent default only after we confirm it's a drag, not a click
+      // Prevent default only for confirmed horizontal drags
       e.preventDefault();
       
-      this.dragOffset = diff; // Store the current drag offset
-      this.currentTranslate = this.prevTranslate + diff;
+      this.dragOffset = diffX; // Store the current drag offset
+      this.currentTranslate = this.prevTranslate + diffX;
       
       // Track scroll direction
-      this.scrollDirection = diff > 0 ? 1 : -1; // 1 for right, -1 for left
+      this.scrollDirection = diffX > 0 ? 1 : -1; // 1 for right, -1 for left
       
       this.updatePosition();
       this.handleInfiniteLoop(); // Handle infinite loop during drag for smoother experience
@@ -207,6 +227,7 @@ class InfiniCardHolder extends HTMLElement {
     if (!this.isDragging) return;
     
     this.isDragging = false;
+    this.isHorizontalDrag = null; // Reset for next interaction
     this.setCursor('grab');
     
     // If user didn't move much, treat it as a click and don't snap
@@ -346,6 +367,10 @@ class InfiniCardHolder extends HTMLElement {
     return e.type.includes('mouse') ? e.clientX : e.touches[0].clientX;
   }
 
+  getPositionY(e) {
+    return e.type.includes('mouse') ? e.clientY : e.touches[0].clientY;
+  }
+
   updatePosition() {
     this.scrollContainer.style.transform = `translate3d(${this.currentTranslate}px, 0, 0)`;
   }
@@ -412,3 +437,4 @@ class InfiniCard extends HTMLElement {
 }
 
 customElements.define("ex-infcard", InfiniCard);
+
