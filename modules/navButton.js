@@ -455,6 +455,11 @@ class ExNavHeader extends HTMLElement {
   connectedCallback() {
     // Add any initialization logic for headers if needed
     this.setAttribute('role', 'heading');
+    this.render()
+  }
+
+  render() {
+    this.innerHTML = ''
   }
 }
 

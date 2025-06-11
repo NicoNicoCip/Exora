@@ -1,4 +1,4 @@
-(() => {
+document.addEventListener("DOMContentLoaded" ,() => {
   const LARGE_CLASS = 'large';
   const SCROLL_THRESHOLD = 10;
   const FADE_DURATION = 300;
@@ -154,4 +154,4 @@
   window.addEventListener('wheel', handleInteraction, { passive: true });
   window.addEventListener('touchend', handleInteraction, { passive: true });
   window.addEventListener('resize', update, { passive: true });
-})();
+});

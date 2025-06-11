@@ -19,43 +19,50 @@
 
   <link rel="stylesheet" href="/Exora/styles/general.css">
   <link rel="stylesheet" href="/Exora/styles/index.css">
+  <link rel="stylesheet" href="/Exora/styles/loading.css">
 
-  <script defer src="/Exora/scripts/squishables.js"></script>
-  <script defer src="/Exora/scripts/pageClock.js"></script>
-
+  <script defer type="module" src="/Exora/modules/exMain.js"></script>
   <script defer type="module" src="/Exora/modules/line.js"></script>
   <script defer type="module" src="/Exora/modules/navButton.js"></script>
   <script defer type="module" src="/Exora/modules/infiniCards.js"></script>
+  <script defer type="module" src="/Exora/modules/loading.js"></script>
+
+  <script defer src="/Exora/scripts/squishables.js"></script>
+  <script defer src="/Exora/scripts/pageClock.js"></script>
 </head>
 
 <body>
-  <header>
-    <nav>
-      <ex-nav-button gap="170px" name="about start">Home</ex-nav-button>
-      <ex-nav-button gap="80px" name="about experience">Experience</ex-nav-button>
-      <ex-nav-button id="navlogo" gap="170px" name="top">
-        <img src="/Exora/images/Exora Logo Green Point10.webp"alt="Exora Logo">
-      </ex-nav-button>
-      <ex-nav-button gap="80px" name="about location">Menu</ex-nav-button>
-      <ex-nav-button gap="80px" name="about team">Contact</ex-nav-button>
-    </nav>
-  </header>
+  <!--
+    <section>
+      <ex-infcard-holder>
+        <ex-infcard> 
+          <ex-line dir="v" width="3px"></ex-line>
 
-  <main>
-    <ex-nav-header name="top"></ex-nav-header>
+          <ex-line dir="v" width="3px"></ex-line>
+        </ex-infcard>
 
-    
+        <ex-infcard>
+          <ex-line dir="v" width="3px"></ex-line>
+          <img src="https://placehold.co/400x600/000000/FFFFFF" alt="Placeholder Image">
+          <ex-line dir="v" width="3px"></ex-line>
+        </ex-infcard>
 
+      </ex-infcard-holder>
+    </section> 
+    -->
+
+  <ex-main>
+    <ex-nav-header name="top">The top of the page.</ex-nav-header>
     <section id="greet">
       <h2>THIS IS THE SLOGAN OF THE PAGE. IT CAN NOT BE BIGGER THAN THIS. NO MATTER WHAT.</h2>
-      <h1><a href="#">To Menu</a><ex-line width="3px"></ex-line></h1>
+      <h1><a href="/Exora/menu.html">To Menu</a><ex-line width="3px"></ex-line></h1>
     </section>
 
     <ex-line width="3px"></ex-line>
-
+    <ex-nav-header
+      name="about start">-------------------------------------------------------------------------------------------</ex-nav-header>
     <section>
-      <ex-nav-header name="about start"></ex-nav-header>
-      <h2>ABOUT US</h2>
+      <h2>About us</h2>
       <ex-infcard-holder>
         <ex-infcard>
           <ex-line dir="v" width="3px"></ex-line>
@@ -100,8 +107,146 @@
           <p>
             Founded by <strong>Chef Florin Carnicianu</strong>, a seasoned Executive Chef, restaurant owner and culinary
             consultant from Romania, <strong>Exora</strong> is built on a shared passion for <em>culinary
-              excellence</em>,
-            <em>warm hospitality</em> and creating <em>unforgettable moments</em>.
+              excellence</em>, <em>warm hospitality</em> and creating <em>unforgettable moments</em>.
+          </p>
+          <ex-line dir="v" width="3px"></ex-line>
+        </ex-infcard>
+
+        <ex-infcard>
+          <ex-line dir="v" width="3px"></ex-line>
+          <img src="https://placehold.co/400x600/000000/FFFFFF" alt="Placeholder Image">
+          <ex-line dir="v" width="3px"></ex-line>
+        </ex-infcard>
+
+      </ex-infcard-holder>
+    </section>
+
+    <ex-line
+      width="3px">---------------------------------------------------------------------------------------------------------------------</ex-line>
+    <ex-nav-header name="about experience">The exora experience section of the page.</ex-nav-header>
+    <section>
+      <h2>The experience</h2>
+      <ex-infcard-holder>
+
+        <ex-infcard>
+          <ex-line dir="v" width="3px"></ex-line>
+          <p>
+            <strong>EXORA</strong> is more than just a place to eat—it is a space where <em>time slows down</em>,
+            <em>sensesawaken</em> and <em>moments turn into lasting memories</em>.
+          </p>
+          <ex-line dir="v" width="3px"></ex-line>
+        </ex-infcard>
+
+        <ex-infcard>
+          <ex-line dir="v" width="3px"></ex-line>
+          <img src="https://placehold.co/400x600/000000/FFFFFF" alt="Placeholder Image">
+          <ex-line dir="v" width="3px"></ex-line>
+        </ex-infcard>
+
+        <ex-infcard>
+          <ex-line dir="v" width="3px"></ex-line>
+          <img src="https://placehold.co/400x600/000000/FFFFFF" alt="Placeholder Image">
+          <ex-line dir="v" width="3px"></ex-line>
+        </ex-infcard>
+
+        <ex-infcard>
+          <ex-line dir="v" width="3px"></ex-line>
+          <p>
+            Whether it's a relaxed weekday lunch, an elegant dinner, a special celebration, or a spontaneous gathering
+            with loved ones, every visit to <strong>Exora</strong> is meant to be a <em>refined timeless escape</em>—an
+            experience that lingers long after the last bite.
+          </p>
+          <ex-line dir="v" width="3px"></ex-line>
+        </ex-infcard>
+
+        <ex-infcard>
+          <ex-line dir="v" width="3px"></ex-line>
+          <img src="https://placehold.co/400x600/000000/FFFFFF" alt="Placeholder Image">
+          <ex-line dir="v" width="3px"></ex-line>
+        </ex-infcard>
+
+        <ex-infcard>
+          <ex-line dir="v" width="3px"></ex-line>
+          <img src="https://placehold.co/400x600/000000/FFFFFF" alt="Placeholder Image">
+          <ex-line dir="v" width="3px"></ex-line>
+        </ex-infcard>
+
+        <ex-infcard>
+          <ex-line dir="v" width="3px"></ex-line>
+          <img src="https://placehold.co/400x600/000000/FFFFFF" alt="Placeholder Image">
+          <ex-line dir="v" width="3px"></ex-line>
+        </ex-infcard>
+
+      </ex-infcard-holder>
+    </section>
+
+    <ex-line
+      width="3px">---------------------------------------------------------------------------------------------------------------------</ex-line>
+    <ex-nav-header name="about vision"></ex-nav-header>
+    <section>
+      <h2>The vision</h2>
+      <ex-infcard-holder>
+        <ex-infcard>
+          <ex-line dir="v" width="3px"></ex-line>
+          <p>
+            To <strong>redefine dining experiences</strong> by blending <em>tradition</em>, <em>creativity</em> and
+            <em>excellence</em>, offering guests not just meals, but <strong>lasting memories</strong> that transcend
+            time and nourish the soul.
+          </p>
+          <ex-line dir="v" width="3px"></ex-line>
+        </ex-infcard>
+
+        <ex-infcard>
+          <ex-line dir="v" width="3px"></ex-line>
+          <img src="https://placehold.co/400x600/000000/FFFFFF" alt="Placeholder Image">
+          <ex-line dir="v" width="3px"></ex-line>
+        </ex-infcard>
+
+        <ex-infcard>
+          <ex-line dir="v" width="3px"></ex-line>
+          <img src="https://placehold.co/400x600/000000/FFFFFF" alt="Placeholder Image">
+          <ex-line dir="v" width="3px"></ex-line>
+        </ex-infcard>
+
+        <ex-infcard>
+          <ex-line dir="v" width="3px"></ex-line>
+          <img src="https://placehold.co/400x600/000000/FFFFFF" alt="Placeholder Image">
+          <ex-line dir="v" width="3px"></ex-line>
+        </ex-infcard>
+
+      </ex-infcard-holder>
+    </section>
+
+    <ex-line
+      width="3px">---------------------------------------------------------------------------------------------------------------------</ex-line>
+    <ex-nav-header name="about philosophy"></ex-nav-header>
+    <section>
+      <h2>Culinary philosophy</h2>
+      <ex-infcard-holder>
+        <ex-infcard>
+          <ex-line dir="v" width="3px"></ex-line>
+          <p>
+            At <strong>EXORA</strong>, we believe food should be both <em>exciting</em> and <em>comforting</em>. Our
+            menu combines <strong>bold flavors</strong>, <strong>playful twists</strong> and <strong>expertly executed
+              dishes</strong>—whether it's a perfectly grilled steak, a juicy burger with unexpected ingredients, or
+            fresh seafood cooked with Mediterranean finesse.
+          </p>
+          <ex-line dir="v" width="3px"></ex-line>
+        </ex-infcard>
+
+        <ex-infcard>
+          <ex-line dir="v" width="3px"></ex-line>
+          <img src="https://placehold.co/400x600/000000/FFFFFF" alt="Placeholder Image">
+          <ex-line dir="v" width="3px"></ex-line>
+        </ex-infcard>
+
+        <ex-infcard>
+          <ex-line dir="v" width="3px"></ex-line>
+          <p>
+            We embrace <em>creativity</em> while staying true to the essence of exceptional cuisine: <strong>quality
+              ingredients</strong>, <strong>precise technique</strong> and <strong>passion on the plate</strong>. Every
+            dish is an invitation to step outside time, to savor each bite and to experience the joy of food as a
+            connection to both history and the present moment.
           </p>
           <ex-line dir="v" width="3px"></ex-line>
         </ex-infcard>
@@ -116,98 +261,98 @@
     </section>
 
 
-    <ex-nav-header name="about experience"></ex-nav-header>
-    <h2>THE EXPERIENCE</h2>
-    <p>
-      <strong>EXORA</strong> is more than just a place to eat—it is a space where <em>time slows down</em>,
-      <em>sensesawaken</em> and <em>moments turn into lasting memories</em>.
-    </p>
-
-    <p>Whether it's a relaxed weekday lunch, an elegant dinner, a special celebration, or a spontaneous gathering with
-      loved ones, every visit to <strong>Exora</strong> is meant to be a <em>refined timeless escape</em>—an
-      experience
-      that lingers long after the last bite.
-    </p>
-
-
-    <ex-nav-header name="about vision"></ex-nav-header>
-    <h2>THE VISION</h2>
-    <p>
-      To <strong>redefine dining experiences</strong> by blending <em>tradition</em>, <em>creativity</em> and
-      <em>excellence</em>, offering guests not just meals, but <strong>lasting memories</strong> that transcend time
-      and
-      nourish the soul.
-    </p>
-
-
-    <ex-nav-header name="about philosophy"></ex-nav-header>
-    <h2>CULINARY PHILOSOPHY</h2>
-    <p>
-      At <strong>EXORA</strong>, we believe food should be both <em>exciting</em> and <em>comforting</em>. Our menu
-      combines <strong>bold flavors</strong>, <strong>playful twists</strong> and <strong>expertly executed
-        dishes</strong>—whether
-      it's a perfectly grilled steak, a juicy burger with unexpected ingredients, or fresh seafood cooked with
-      Mediterranean finesse.
-    </p>
-
-    <p>We embrace <em>creativity</em> while staying true to the essence of exceptional cuisine: <strong>quality
-        ingredients</strong>, <strong>precise technique</strong> and <strong>passion on the plate</strong>. Every dish
-      is
-      an invitation to step outside time, to savor each bite and to experience the joy of food as a connection to both
-      history and the present moment.
-    </p>
-
+    <ex-line
+      width="3px">---------------------------------------------------------------------------------------------------------------------</ex-line>
     <ex-nav-header name="about location"></ex-nav-header>
-    <h2>THE LOCATION</h2>
-    <p>
-      You'll find <strong>Exora</strong> at <strong>Avenida Barcelona 87</strong>, just a <em>4-minute walk from the
-        beach</em> and <em>6 minutes from Hotel Voramar</em>. We're tucked away in a quieter part of town, close
-      enough
-      to
-      enjoy the sea breeze, yet away from the busy center.
-    </p>
+    <section>
+      <h2>The location</h2>
+      <ex-infcard-holder>
+        <ex-infcard>
+          <ex-line dir="v" width="3px"></ex-line>
+          <p>
+            You'll find <strong>Exora</strong> at <strong>Avenida Barcelona 87</strong>, just a <em>4-minute walk from
+              the beach</em> and <em>6 minutes from Hotel Voramar</em>. We're tucked away in a quieter part of town,
+            close
+            enough to enjoy the sea breeze, yet away from the busy center.
+          </p>
+          <ex-line dir="v" width="3px"></ex-line>
+        </ex-infcard>
 
-    <p>
-      <strong>Heads up:</strong> parking's a bit of a treasure hunt <em>:)</em>, so we recommend coming by foot, bike,
-      or
-      catching a ride. Trust us, <strong>the food's worth the adventure!</strong>
-    </p>
+        <ex-infcard>
+          <ex-line dir="v" width="3px"></ex-line>
+          <img src="https://placehold.co/400x600/000000/FFFFFF" alt="Placeholder Image">
+          <ex-line dir="v" width="3px"></ex-line>
+        </ex-infcard>
 
-    <ex-nav-header name="about team" /></ex-nav-header>
-    <h2>MEET THE TEAM:</h2>
-    <strong>CHEF Florin Carnicianu</strong>, <em>Founder and Executive Chef</em><br>
-    <strong>Cristi Cirnicianu</strong>, <em>Founder, Head of Legal & HR</em><br>
-    <strong>Beatrice Riess</strong>, <em>Founder, Head of Guest Experience & Communications</em><br>
-    <strong>Nic Cirnicianu</strong>, <em>Head of Web & UX Design</em><br>
+        <ex-infcard>
+          <ex-line dir="v" width="3px"></ex-line>
+          <p>
+            <strong>Heads up:</strong> parking's a bit of a treasure hunt <em>:)</em>, so we recommend coming by foot,
+            bike, or catching a ride. Trust us, <strong>the food's worth the adventure!</strong>
+          </p>
+          <ex-line dir="v" width="3px"></ex-line>
+        </ex-infcard>
 
-  </main>
-  <footer>
-    <div class="miniFooter">
-      <ex-nav-button gap="170px" name="top">Top</ex-nav-button>
+        <ex-infcard>
+          <ex-line dir="v" width="3px"></ex-line>
+          <img src="https://placehold.co/400x600/000000/FFFFFF" alt="Placeholder Image">
+          <ex-line dir="v" width="3px"></ex-line>
+        </ex-infcard>
 
-      <div id="ScrollDownArrow">
-        <p>Scroll down for more</p>
-        <span class="ScrollDownArrow"></span>
-      </div>
+        <ex-infcard>
+          <ex-line dir="v" width="3px"></ex-line>
+          <img src="https://placehold.co/400x600/000000/FFFFFF" alt="Placeholder Image">
+          <ex-line dir="v" width="3px"></ex-line>
+        </ex-infcard>
 
-      <a href="#">Menu</a>
-    </div>
+      </ex-infcard-holder>
+    </section>
 
-    <div class="megaFooter">
-      <ex-nav-button gap="170px" name="about start">About Us</ex-nav-button>
-      <ex-nav-button gap="80px" name="about experience">Experience</ex-nav-button>
-      <ex-nav-button gap="80px" name="about vision">Vision</ex-nav-button>
-      <ex-nav-button gap="170px" name="top">Top</ex-nav-button>
-      <ex-nav-button gap="80px" name="about philosophy">Philosophy</ex-nav-button>
-      <ex-nav-button gap="80px" name="about location">Location</ex-nav-button>
-      <ex-nav-button gap="80px" name="about team">Team</ex-nav-button>
-    </div>
-  </footer>
+    <ex-line
+      width="3px">---------------------------------------------------------------------------------------------------------------------</ex-line>
+    <ex-nav-header name="about team"></ex-nav-header>
+    <section>
+      <h2>Meet the team!</h2>
+      <ex-infcard-holder>
+        <ex-infcard>
+          <ex-line dir="v" width="3px"></ex-line>
+          <div id="image-with-header">
+            
+            <div><strong>CHEF Florin Carnicianu</strong>, <em>Founder and Executive Chef</em><br></div> 
+            <img src="https://placehold.co/400x600/000000/FFFFFF" alt="Placeholder Image">
+          </div>
+          <ex-line dir="v" width="3px"></ex-line>
+        </ex-infcard>
 
-  <div class="page-clock-bg">
-    <div class="clock-hand"></div>
-  </div>
+        <ex-infcard>
+          <ex-line dir="v" width="3px"></ex-line>
+          <div id="image-with-header">
+            <div><strong>Cristi Cirnicianu</strong>, <em>Founder, Head of Legal & HR</em></div>
+            <img src="https://placehold.co/400x600/000000/FFFFFF" alt="Placeholder Image">
+          </div>
+          <ex-line dir="v" width="3px"></ex-line>
+        </ex-infcard>
 
+        <ex-infcard>
+          <ex-line dir="v" width="3px"></ex-line>
+          <div id="image-with-header">
+            <div><strong>Beatrice Riess</strong>, <em>Founder, Head of Guest Experience & Communications</em><br></div>
+            <img src="https://placehold.co/400x600/000000/FFFFFF" alt="Placeholder Image">
+          </div>
+          <ex-line dir="v" width="3px"></ex-line>
+        </ex-infcard>
+
+        <ex-infcard>
+          <ex-line dir="v" width="3px"></ex-line>
+          <div id="image-with-header">
+            <div><strong>Nic Cirnicianu</strong>, <em>Head of Web & UX Design</em><br></div>
+            <img src="https://placehold.co/400x600/000000/FFFFFF" alt="Placeholder Image">
+          </div>
+          <ex-line dir="v" width="3px"></ex-line>
+        </ex-infcard>
+      </ex-infcard-holder>
+    </section>
+  </ex-main>
 </body>
 
 </html>

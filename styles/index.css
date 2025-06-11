@@ -1,7 +1,6 @@
 section {
   width: 100%;
-  height: 100%;
-  min-height: 60dvh;
+  height: 100dvh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -12,6 +11,7 @@ section h2 {
   font-size: 30px;
   color: var(--c-light-gold);
   padding: 10px 0px;
+  text-align: center;
 }
 
 /*------------- THE GREETING -----------------*/
@@ -54,11 +54,6 @@ temp {
   --c-light-gold: #F9CE7F;
 }
 
-ex-line {
-  border-radius: 2px;
-  background-color: rgb(255, 209, 102) !important;
-}
-
 /*------------- Cards -----------------*/
 ex-infcard-holder {
   display: block;
@@ -69,7 +64,7 @@ ex-infcard-holder {
   outline: none;
   overflow: hidden;
   background-color: #eaba6de6;
-  box-shadow: 0px 0px 20px #eaba6de1;
+  box-shadow: 0px 0px 4px #eaba6de1;
   border-radius: var(--var-border-radious);
 }
 
@@ -90,11 +85,19 @@ ex-infcard {
   max-width: 400px;
   flex-shrink: 0;
   padding: 20px 0px;
-  margin-bottom: 60px;
-  display: flex;
+  margin-bottom: 20px;
+  display: inline-flex;
+  flex-direction: row;
   justify-content: center;
   align-items:start;
   pointer-events: none;
+}
+
+#image-with-header {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  height: 100%;
 }
 
 ex-infcard ex-line {
@@ -120,7 +123,6 @@ ex-infcard img{
 .nav-arrow {
   position: absolute;
   bottom: 0px;
-  transform: translateY(-50%);
   width: 60px;
   height: 60px;
   background: transparent;
@@ -172,10 +174,13 @@ ex-infcard img{
 
 .nav-arrow-left {
   left: 0px;
+  z-index: 20;
 }
 
 .nav-arrow-right {
   right: 0px;
+  z-index: 20;
+
 }
 
 .nav-arrow.thick::before {
@@ -186,13 +191,14 @@ ex-infcard img{
 
 /* Dots Container */
 .dots-container {
-  position: absolute;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
+  position: relative;
   display: flex;
+  justify-content: center;
+  align-items: center;
+  bottom: 20px;
   gap: 12px;
   z-index: 10;
+  width: 100%;
 }
 
 /* Individual Dots */

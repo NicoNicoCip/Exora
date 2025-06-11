@@ -1,79 +1,72 @@
 class Line extends HTMLElement {
   constructor() {
     super();
+    this.attachShadow({ mode: 'open' });
+    this._direction = 'horizontal';
+    this._width = '1px';
+    this._color = '#000000';
+    this._margin = '0';
   }
 
   connectedCallback() {
     this.render();
-    // Re-render if attributes change
-    this.observer = new MutationObserver(() => this.render());
-    this.observer.observe(this, { attributes: true });
+    this.setupObserver();
   }
 
   disconnectedCallback() {
-    if (this.observer) {
-      this.observer.disconnect();
-    }
+    this.observer?.disconnect();
+  }
+
+  static get observedAttributes() {
+    return ['dir', 'width', 'color', 'margin'];
+  }
+
+  attributeChangedCallback(name, oldValue, newValue) {
+    if (oldValue === newValue) return;
+    this.updateStyles();
   }
 
   render() {
-    const direction = this.getAttribute("dir") || "horizontal";
-    const width = this.getAttribute("width") || "1px";
-    const color = this.getAttribute("color") || "#000000";
-    const margin = this.getAttribute("margin") || "0";
-        
-    // Store values as instance properties
-    this._direction = direction;
-    this._width = width;
-    this._color = color;
-    this._margin = margin;
-
-    // Set styles with lower priority so CSS can override
-    this.style.setProperty('background-color', this._color);
-    this.style.setProperty('margin', this._margin);
-    this.style.setProperty('flex-shrink', '0');
-    this.style.setProperty('border', 'none');
-    this.style.setProperty('padding', '0');
-
-    if (this._direction.toLowerCase().startsWith("h")) {
-      // Horizontal line
-      this.style.setProperty('display', 'block');
-      this.style.setProperty('width', '100%');
-      this.style.setProperty('height', this._width);
-      this.style.setProperty('min-height', this._width);
-      // Remove vertical-specific styles
-      this.style.removeProperty('min-width');
-      this.style.removeProperty('vertical-align');
-    } else if (this._direction.toLowerCase().startsWith("v")) {
-      // Vertical line
-      this.style.setProperty('display', 'inline-block');
-      this.style.setProperty('width', this._width);
-      this.style.setProperty('height', '100%');
-      this.style.setProperty('min-width', this._width);
-      this.style.setProperty('vertical-align', 'top');
-      // Remove horizontal-specific styles
-      this.style.removeProperty('min-height');
-    }
+    this.shadowRoot.innerHTML = `
+      <style>
+        :host {
+          display: block;
+          flex-shrink: 0;
+          border: none;
+          padding: 0;
+          margin: var(--line-margin, ${this._margin});
+          background-color: var(--line-color, ${this._color});
+          ${this.getDirectionStyles()}
+        }
+      </style>
+    `;
   }
 
-  // Getter methods for accessing current values
-  get direction() {
-    return this._direction;
+  getDirectionStyles() {
+    return this._direction === 'horizontal' ? `
+      width: 100%;
+      height: var(--line-width, ${this._width});
+      min-height: var(--line-width, ${this._width});
+    ` : `
+      display: inline-block;
+      vertical-align: top;
+      width: var(--line-width, ${this._width});
+      min-width: var(--line-width, ${this._width});
+      height: 100%;
+    `;
   }
 
-  get lineWidth() {
-    return this._width;
+  updateStyles() {
+    this._direction = this.getAttribute('dir') || 'horizontal';
+    this._width = this.getAttribute('width') || '1px';
+    this._color = this.getAttribute('color') || '#000000';
+    this._margin = this.getAttribute('margin') || '0';
+    this.render();
   }
 
-  get lineColor() {
-    return this._color;
-  }
-
-  // Method to update attributes programmatically
-  setAttributes(attrs) {
-    Object.entries(attrs).forEach(([key, value]) => {
-      this.setAttribute(key, value);
-    });
+  setupObserver() {
+    this.observer = new MutationObserver(() => this.updateStyles());
+    this.observer.observe(this, { attributes: true });
   }
 }
 

@@ -60,21 +60,65 @@ body {
   min-width: 500px;
   max-width: 900px;
   height: 3000px;
-  background: linear-gradient(0deg, #c199589e 45%, #f9ce7f94 55%);
-  box-shadow: 0px 0px 10px #eaba6d8c;
+  background: linear-gradient(0deg, #c199589e 40%, #f9ce7f94 45%);
+  box-shadow: 0px 0px 5px #eaba6d8c;
   transform-origin: center center;
+}
+
+ex-loading {
+  width: 100dvw;
+  height: 100dvh;
+  background-color: var(--c-green-aqua);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.3s ease;
+}
+
+#loadingScreen {
+  width: 100%;
+  height: 100dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.spinner {
+  width: 48px;
+  height: 48px;
+  border: 4px solid #5f6e65;
+  border-top: 4px solid #0c923b;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+/* Animation */
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+ex-line {
+  border-radius: 2px;
+  background-color: rgba(255, 209, 102, 0.663) !important;
 }
 
 ex-nav-button {
   display: inline-flex;
   text-decoration: none;
-  justify-content: center;
-  align-items: center;
   cursor: pointer;
   text-wrap-mode: nowrap;
   width: 100%;
-  height: 100%;
-  text-shadow: 0px 0px 1.2px #1b392b;
+  text-shadow: 0px 0px 1px #1b392b;
 
   color: var(--c-green-aqua);
   transition: color 0.1s ease-in-out;
@@ -91,7 +135,7 @@ header {
   padding: 0px var(--var-inner-separation);
   z-index: 75;
   position: fixed;
-  display: flex;
+  display: inline-flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
@@ -100,9 +144,25 @@ header {
   border-radius: var(--var-border-radious);
   border-top-left-radius: 0px;
   border-top-right-radius: 0px;
-  box-shadow: 0px 0px 8px var(--c-light-gold);
+  box-shadow: 0px 0px 4px var(--c-light-gold);
+  z-index: 100;
 
   transition: height 0.1s ease-in-out;
+}
+
+header a {
+  width: 100%;
+  height: 100%;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  text-shadow: 0px 0px 1px #1b392b;
+
+  color: var(--c-green-aqua);
+}
+
+header a:hover {
+  color: var(--c-green-normal);
 }
 
 header.large {
@@ -111,7 +171,7 @@ header.large {
 
 header #navlogo {
   padding: 0px 4px;
-  width: 350px;
+  width: 800px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -120,10 +180,19 @@ header #navlogo {
 
 header #navlogo img {
   width: 100%;
+  max-width: 400px;
+  max-height: 600px;
 }
 
 header.large #navlogo {
-  width: 700px;
+  width: 1000px;
+}
+
+header ex-nav-button {
+  justify-content: center;
+  height: 100%;
+  align-items: center;
+
 }
 
 nav {
@@ -152,11 +221,24 @@ footer {
   border-bottom-left-radius: 0px;
   border-bottom-right-radius: 0px;
   overflow: hidden;
-  box-shadow: 0px 0px 8px var(--c-light-gold);
+  box-shadow: 0px 0px 4px var(--c-light-gold);
 
   background-color: var(--c-gold);
   transition: height 0.1s ease-in-out;
 }
+
+footer a {
+  width: 100%;
+  display: inline-flex;
+  text-shadow: 0px 0px 1px #1b392b;
+
+  color: var(--c-green-aqua);
+}
+
+footer a:hover {
+  color: var(--c-green-normal);
+}
+
 
 footer .miniFooter {
   display: inline-flex;
@@ -165,22 +247,23 @@ footer .miniFooter {
 }
 
 footer .miniFooter * {
-  justify-self: center;
-  align-self: center;
+  justify-content: center;
   text-align: center;
   width: 100%;
 }
 
 footer .megaFooter {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  position: relative;
   width: 100%;
+  justify-content: space-between;
+  display: inline-flex;
+  margin: 10px;
 }
 
 footer.large {
   height: 32rem;
+  display: inline-flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
 }
 
 footer div#ScrollDownArrow {
@@ -213,6 +296,73 @@ footer.large div#ScrollDownArrow {
   -webkit-animation: sdb04 2s infinite;
   animation: sdb04 2s infinite;
   box-sizing: border-box;
+}
+
+#sidenavigator {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+#links {
+  width: 300%;
+  height: 100%;
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  padding: 20px;
+}
+
+#links h2 {
+  margin-top: 20px;
+}
+
+#links p {
+  margin-bottom: 20px;
+}
+
+#policies {
+  height: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#policies a {
+  justify-content: center;
+}
+
+#socials {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+#socials a {
+  align-items: center;
+  justify-content: center;
+}
+
+.social-link {
+  display: inline-block;
+  text-decoration: none;
+  margin: 0 10px;
+}
+
+.icon {
+  width: 40px;
+  height: 40px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.social-link:hover .icon{
+  transform: scale(1.1);
 }
 
 @-webkit-keyframes sdb04 {
@@ -251,6 +401,14 @@ footer.large div#ScrollDownArrow {
 
   nav {
     font-size: 12px;
+  }
+
+  footer .miniFooter {
+    font-size: 12px;
+  }
+
+  footer {
+    height: 4rem;
   }
 
   header.large {
