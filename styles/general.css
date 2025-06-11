@@ -136,9 +136,7 @@ header {
   z-index: 75;
   position: fixed;
   display: inline-flex;
-  justify-content: center;
   align-items: center;
-  flex-direction: column;
   top: 0rem;
   background-color: var(--c-gold);
   border-radius: var(--var-border-radious);
@@ -150,11 +148,21 @@ header {
   transition: height 0.1s ease-in-out;
 }
 
+header #left {
+  display: inline-flex;
+  width: 60%;
+}
+
+header #right {
+  display: inline-flex;
+  width: 60%;
+}
+
 header a {
   width: 100%;
   height: 100%;
   display: inline-flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   text-shadow: 0px 0px 1px #1b392b;
 
@@ -171,8 +179,8 @@ header.large {
 
 header #navlogo {
   padding: 0px 4px;
-  width: 800px;
-  display: flex;
+  width: 300px;
+  display: inline-flex;
   align-items: center;
   transition: width 0.1s ease-in-out;
 
@@ -180,12 +188,10 @@ header #navlogo {
 
 header #navlogo img {
   width: 100%;
-  max-width: 400px;
-  max-height: 600px;
 }
 
 header.large #navlogo {
-  width: 1000px;
+  width: 500px;
 }
 
 header ex-nav-button {
@@ -197,6 +203,7 @@ header ex-nav-button {
 
 nav {
   width: 100%;
+  height: 100%;
   display: flex;
   justify-content: space-between;
 }
@@ -400,30 +407,32 @@ footer.large div#ScrollDownArrow {
   }
 
   nav {
-    font-size: 12px;
+    font-size: 11px;
   }
 
   footer {
-    font-size: 12px;
+    font-size: 11px;
   }
 
   footer {
-    height: 4rem;
+    height: 3rem;
   }
 
   header.large {
     height: 6rem;
   }
 
-  #socials {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  header #navlogo {
+    width: 150px;
   }
 
+  header.large #navlogo {
+    width: 200px;
+  }
+
+  #socials {
+    flex-direction: column;
+  }
 
   .clock-hand {
     width: 70%;

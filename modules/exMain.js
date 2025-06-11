@@ -17,13 +17,17 @@ class ExMain extends HTMLElement {
 
       <header>
         <nav>
-          <ex-nav-button gap="80px" name="about start">Home</ex-nav-button>
-          <ex-nav-button gap="80px" name="about experience">Experience</ex-nav-button>
+          <div id="left">
+            <ex-nav-button gap="80px" name="about start">Home</ex-nav-button>
+            <ex-nav-button gap="80px" name="about experience">Experience</ex-nav-button>
+          </div>
           <ex-nav-button id="navlogo" gap="170px" name="top">
             <img src="/Exora/images/Exora Logo Green Point10.webp"alt="Exora Logo">
           </ex-nav-button>
-          <a href="/Exora/menu.html">Menu</a>
-          <ex-nav-button gap="80px" name="bottom">Contact</ex-nav-button>
+          <div id="right">
+            <a href="/Exora/menu.html">Menu</a>
+            <ex-nav-button gap="80px" name="bottom">Contact</ex-nav-button>
+          </div>
         </nav>
       </header>
 
