@@ -43,7 +43,7 @@ class Line extends HTMLElement {
   }
 
   getDirectionStyles() {
-    return this._direction === 'horizontal' ? `
+    return this._direction.startsWith('h') ? `
       width: 100%;
       height: var(--line-width, ${this._width});
       min-height: var(--line-width, ${this._width});

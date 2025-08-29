@@ -1,196 +1,330 @@
 /**
- * InfiniCardHolder - A custom HTML element for infinite card carousels
- * Supports touch/mouse dragging, arrow navigation, and dot indicators
+ * InfiniCardHolder - Optimized infinite card carousel
+ * Improvements: Performance optimizations, better event handling, accessibility, and bug fixes
  */
 class InfiniCardHolder extends HTMLElement {
   constructor() {
     super();
     
-    // Core configuration
+    // Configuration
     this.config = {
       cardWidth: 416,
       totalSets: 5,
-      dragThreshold: 5,
-      arrowHoldDelay: 150,
-      animationSpeed: 0.25
+      animationSpeed: 0.25,
+      arrowHoldDelay: 250,
+      snapThreshold: 0.3, // Threshold for snapping to next/prev card
+      dragThreshold: 10    // Minimum drag distance to trigger navigation
     };
     
     // State management
     this.state = {
       currentIndex: 0,
       currentTranslate: 0,
-      prevTranslate: 0,
-      isInitialized: false,
       isAnimating: false,
       isDragging: false,
-      isHorizontalDrag: null
-    };
-    
-    // Drag tracking
-    this.drag = {
-      startX: 0,
-      startY: 0,
+      isHorizontalDrag: null,
+      dragStartX: 0,
+      dragStartY: 0,
+      dragStartTranslate: 0,
       hasMoved: false,
-      offset: 0
+      isInitialized: false
     };
     
     // DOM references
-    this.elements = {};
+    this.refs = {
+      scrollContainer: null,
+      dotsContainer: null,
+      leftArrow: null,
+      rightArrow: null
+    };
+    
+    // Cache original cards
     this.originalCards = [];
     
     // Utilities
-    this.resizeObserver = null;
     this.arrowHoldInterval = null;
+    this.resizeObserver = null;
+    this.animationFrameId = null;
     
-    // Bind methods
-    this.handleDrag = this.handleDrag.bind(this);
-    this.handleDragEnd = this.handleDragEnd.bind(this);
+    // Throttled functions
+    this.throttledResize = this.throttle(this.handleResize.bind(this), 100);
+    this.debouncedCalculateDimensions = this.debounce(this.calculateDimensions.bind(this), 50);
+    
+    // Bind methods once
+    this.boundMethods = {
+      handleDrag: this.handleDrag.bind(this),
+      handleDragEnd: this.handleDragEnd.bind(this),
+      handleKeyDown: this.handleKeyDown.bind(this),
+      handleFocus: this.handleFocus.bind(this),
+      handleResize: this.throttledResize
+    };
   }
 
-  /**
-   * Initialize component when connected to DOM
-   */
+  // Lifecycle methods
   connectedCallback() {
-    this.originalCards = Array.from(this.children);
-    this.render();
-    this.setupEventListeners();
-    
-    // Calculate dimensions after render
-    requestAnimationFrame(() => {
-      this.calculateDimensions();
-      this.state.isInitialized = true;
-      this.updateDots();
-    });
-  }
+    try {
+      this.originalCards = Array.from(this.children).filter(child => 
+        child.tagName && child.tagName.toLowerCase() === 'ex-infcard'
+      );
+      
+      if (this.originalCards.length === 0) {
+        console.warn('InfiniCardHolder: No ex-infcard elements found');
+        return;
+      }
 
-  /**
-   * Calculate card width and initialize positioning
-   */
-  calculateDimensions() {
-    const firstCard = this.elements.scrollContainer.querySelector('ex-infcard');
-    if (!firstCard) return;
-
-    const cardRect = firstCard.getBoundingClientRect();
-    const computedStyle = getComputedStyle(this.elements.scrollContainer);
-    const gap = parseFloat(computedStyle.gap) || 16;
-
-    if (cardRect.width > 0) {
-      this.config.cardWidth = cardRect.width + gap;
-      this.resetToCenter();
+      this.render();
+      this.setupEventListeners();
+      
+      // Use RAF for initial setup to ensure DOM is ready
+      requestAnimationFrame(() => {
+        this.initialize();
+      });
+    } catch (error) {
+      console.error('InfiniCardHolder initialization failed:', error);
     }
   }
 
-  /**
-   * Reset carousel to center position for seamless infinite scroll
-   */
-  resetToCenter() {
-    const centerOffset = -this.config.cardWidth * this.originalCards.length * 2;
-    this.state.currentTranslate = centerOffset;
-    this.state.prevTranslate = centerOffset;
-    this.updateTransform();
-    this.updateCurrentIndex();
+  disconnectedCallback() {
+    this.cleanup();
   }
 
-  /**
-   * Render carousel structure and navigation elements
-   */
+  // Initialization
+  async initialize() {
+    await this.calculateDimensions();
+    this.resetToCenter();
+    this.updateDots();
+    this.state.isInitialized = true;
+    
+    // Dispatch ready event
+    this.dispatchEvent(new CustomEvent('carouselReady', {
+      detail: { totalCards: this.originalCards.length }
+    }));
+  }
+
+  // DOM manipulation
   render() {
-    // Create scroll container with duplicated cards
-    const scrollContainer = this.createElement('div', 'scroll-container');
+    const fragment = document.createDocumentFragment();
+    
+    // Create scroll container
+    this.refs.scrollContainer = this.createElement('div', {
+      className: 'scroll-container',
+      role: 'listbox',
+      'aria-label': 'Card carousel'
+    });
+    
+    // Clone cards for infinite scroll
+    this.populateScrollContainer();
+    
+    // Create navigation elements
+    const navigation = this.createNavigation();
+    
+    // Assemble DOM
+    fragment.appendChild(this.refs.scrollContainer);
+    fragment.appendChild(navigation.leftArrow);
+    fragment.appendChild(navigation.rightArrow);
+    fragment.appendChild(navigation.dotsContainer);
+    
+    // Replace content
+    this.innerHTML = '';
+    this.appendChild(fragment);
+    
+    // Store navigation references
+    this.refs.leftArrow = navigation.leftArrow;
+    this.refs.rightArrow = navigation.rightArrow;
+    this.refs.dotsContainer = navigation.dotsContainer;
+  }
+
+  populateScrollContainer() {
+    const fragment = document.createDocumentFragment();
     
     for (let set = 0; set < this.config.totalSets; set++) {
       this.originalCards.forEach((card, index) => {
         const clone = card.cloneNode(true);
-        clone.dataset.set = set;
-        clone.dataset.originalIndex = index;
-        scrollContainer.appendChild(clone);
+        clone.setAttribute('data-set', set);
+        clone.setAttribute('data-original-index', index);
+        clone.setAttribute('role', 'option');
+        clone.setAttribute('tabindex', '-1');
+        fragment.appendChild(clone);
       });
     }
-
-    // Create navigation controls
-    const leftArrow = this.createElement('button', 'nav-arrow nav-arrow-left', '', 'Previous card');
-    const rightArrow = this.createElement('button', 'nav-arrow nav-arrow-right', '', 'Next card');
-    const dotsContainer = this.createElement('div', 'dots-container');
-
-    // Create dot indicators
-    this.originalCards.forEach((_, index) => {
-      const dot = this.createElement('button', 'dot', '', `Go to card ${index + 1}`);
-      dot.dataset.index = index;
-      dotsContainer.appendChild(dot);
-    });
-
-    // Update DOM
-    this.innerHTML = '';
-    this.appendChild(scrollContainer);
-    this.appendChild(leftArrow);
-    this.appendChild(rightArrow);
-    this.appendChild(dotsContainer);
-
-    // Store element references
-    this.elements = {
-      scrollContainer,
-      leftArrow,
-      rightArrow,
-      dotsContainer
-    };
+    
+    this.refs.scrollContainer.appendChild(fragment);
   }
 
-  /**
-   * Create DOM element with specified attributes
-   */
-  createElement(tag, className, innerHTML = '', ariaLabel = '') {
+  createNavigation() {
+    // Left arrow
+    const leftArrow = this.createElement('button', {
+      className: 'nav-arrow nav-arrow-left',
+      'aria-label': 'Previous card',
+      type: 'button'
+    });
+    
+    // Right arrow  
+    const rightArrow = this.createElement('button', {
+      className: 'nav-arrow nav-arrow-right',
+      'aria-label': 'Next card',
+      type: 'button'
+    });
+    
+    // Dots container
+    const dotsContainer = this.createElement('div', {
+      className: 'dots-container',
+      role: 'tablist',
+      'aria-label': 'Card indicators'
+    });
+    
+    // Create dots
+    this.originalCards.forEach((_, index) => {
+      const dot = this.createElement('button', {
+        className: 'dot',
+        'aria-label': `Go to card ${index + 1}`,
+        'data-index': index,
+        type: 'button',
+        role: 'tab',
+        'aria-selected': index === 0 ? 'true' : 'false'
+      });
+      dotsContainer.appendChild(dot);
+    });
+    
+    return { leftArrow, rightArrow, dotsContainer };
+  }
+
+  // Utility methods
+  createElement(tag, attributes = {}) {
     const element = document.createElement(tag);
-    element.className = className;
-    element.innerHTML = innerHTML;
-    if (ariaLabel) element.setAttribute('aria-label', ariaLabel);
+    Object.entries(attributes).forEach(([key, value]) => {
+      if (key === 'className') {
+        element.className = value;
+      } else {
+        element.setAttribute(key, value);
+      }
+    });
     return element;
   }
 
-  /**
-   * Setup all event listeners
-   */
+  throttle(func, delay) {
+    let timeoutId;
+    let lastExecTime = 0;
+    return (...args) => {
+      const currentTime = Date.now();
+      if (currentTime - lastExecTime > delay) {
+        func.apply(this, args);
+        lastExecTime = currentTime;
+      } else {
+        clearTimeout(timeoutId);
+        timeoutId = setTimeout(() => {
+          func.apply(this, args);
+          lastExecTime = Date.now();
+        }, delay - (currentTime - lastExecTime));
+      }
+    };
+  }
+
+  debounce(func, delay) {
+    let timeoutId;
+    return (...args) => {
+      clearTimeout(timeoutId);
+      timeoutId = setTimeout(() => func.apply(this, args), delay);
+    };
+  }
+
+  // Dimension calculations
+  async calculateDimensions() {
+    const firstCard = this.refs.scrollContainer?.querySelector('ex-infcard');
+    if (!firstCard) return;
+
+    // Force layout if needed
+    if (firstCard.offsetWidth === 0) {
+      await new Promise(resolve => {
+        const observer = new ResizeObserver(() => {
+          observer.disconnect();
+          resolve();
+        });
+        observer.observe(firstCard);
+      });
+    }
+
+    const cardRect = firstCard.getBoundingClientRect();
+    const containerStyle = getComputedStyle(this.refs.scrollContainer);
+    const gap = parseFloat(containerStyle.gap) || 16;
+
+    if (cardRect.width > 0) {
+      const newCardWidth = cardRect.width + gap;
+      if (Math.abs(newCardWidth - this.config.cardWidth) > 1) {
+        this.config.cardWidth = newCardWidth;
+        if (this.state.isInitialized) {
+          this.resetToCenter();
+        }
+      }
+    }
+  }
+
+  resetToCenter() {
+    const centerOffset = -this.config.cardWidth * this.originalCards.length * 2;
+    this.state.currentTranslate = centerOffset;
+    this.updateTransform(false);
+    this.updateCurrentIndex();
+  }
+
+  // Event handling
   setupEventListeners() {
     // Drag events
     this.addEventListener('mousedown', this.handleDragStart.bind(this));
     this.addEventListener('touchstart', this.handleDragStart.bind(this), { passive: true });
     
-    document.addEventListener('mousemove', this.handleDrag);
-    document.addEventListener('mouseup', this.handleDragEnd);
-    document.addEventListener('touchmove', this.handleDrag, { passive: false });
-    document.addEventListener('touchend', this.handleDragEnd);
+    // Global drag events
+    document.addEventListener('mousemove', this.boundMethods.handleDrag, { passive: false });
+    document.addEventListener('mouseup', this.boundMethods.handleDragEnd);
+    document.addEventListener('touchmove', this.boundMethods.handleDrag, { passive: false });
+    document.addEventListener('touchend', this.boundMethods.handleDragEnd);
 
-    // Arrow navigation
+    // Arrow controls
     this.setupArrowControls();
     
     // Dot navigation
-    this.elements.dotsContainer.addEventListener('mouseover', this.handleDotClick.bind(this));
+    this.refs.dotsContainer.addEventListener('click', this.handleDotClick.bind(this));
+    
+    // Keyboard navigation
+    this.addEventListener('keydown', this.boundMethods.handleKeyDown);
+    this.addEventListener('focusin', this.boundMethods.handleFocus);
     
     // Responsive handling
     this.setupResizeObserver();
     
-    // Prevent context menu
-    this.addEventListener('contextmenu', e => e.preventDefault());
+    // Prevent context menu on drag areas
+    this.addEventListener('contextmenu', e => {
+      if (this.state.isDragging) {
+        e.preventDefault();
+      }
+    });
+
+    // Accessibility - manage focus
+    this.setAttribute('tabindex', '0');
   }
 
-  /**
-   * Setup arrow button controls with hold functionality
-   */
   setupArrowControls() {
     const arrows = [
-      { element: this.elements.leftArrow, direction: 'left' },
-      { element: this.elements.rightArrow, direction: 'right' }
+      { element: this.refs.leftArrow, direction: 1 },
+      { element: this.refs.rightArrow, direction: -1 }
     ];
 
     arrows.forEach(({ element, direction }) => {
+      // Click events
+      element.addEventListener('click', (e) => {
+        e.stopPropagation();
+        this.navigate(direction);
+      });
+
+      // Hold functionality
       ['mousedown', 'touchstart'].forEach(eventType => {
         element.addEventListener(eventType, (e) => {
           e.stopPropagation();
           e.preventDefault();
           this.startArrowHold(direction);
-        });
+        }, { passive: false });
       });
 
-      ['mouseup', 'mouseleave', 'touchend'].forEach(eventType => {
+      ['mouseup', 'mouseleave', 'touchend', 'touchcancel'].forEach(eventType => {
         element.addEventListener(eventType, () => {
           this.stopArrowHold();
         });
@@ -198,262 +332,263 @@ class InfiniCardHolder extends HTMLElement {
     });
   }
 
-  /**
-   * Handle drag start
-   */
   handleDragStart(e) {
-    if (e.target.closest('.nav-arrow, .dots-container') || !this.state.isInitialized) {
-      return;
-    }
+    if (e.target.closest('.nav-arrow, .dots-container')) return;
 
     this.state.isDragging = true;
     this.state.isHorizontalDrag = null;
-    this.drag.hasMoved = false;
-    this.drag.startX = this.getEventX(e);
-    this.drag.startY = this.getEventY(e);
-    this.drag.offset = 0;
+    this.state.hasMoved = false;
+    this.state.dragStartX = this.getEventX(e);
+    this.state.dragStartY = this.getEventY(e);
+    this.state.dragStartTranslate = this.state.currentTranslate;
     
-    this.setCursor('grabbing');
+    this.style.cursor = 'grabbing';
+    this.style.userSelect = 'none';
 
     if (e.type === 'mousedown') {
       e.preventDefault();
     }
   }
 
-  /**
-   * Handle drag movement
-   */
   handleDrag(e) {
-    if (!this.state.isDragging || !this.state.isInitialized) return;
+    if (!this.state.isDragging) return;
 
     const currentX = this.getEventX(e);
     const currentY = this.getEventY(e);
-    const diffX = currentX - this.drag.startX;
-    const diffY = currentY - this.drag.startY;
+    const diffX = currentX - this.state.dragStartX;
+    const diffY = currentY - this.state.dragStartY;
 
-    // Determine drag direction
-    if (this.state.isHorizontalDrag === null && (Math.abs(diffX) > 3 || Math.abs(diffY) > 3)) {
+    // Determine drag direction on first significant movement
+    if (this.state.isHorizontalDrag === null && (Math.abs(diffX) > 5 || Math.abs(diffY) > 5)) {
       this.state.isHorizontalDrag = Math.abs(diffX) > Math.abs(diffY);
     }
 
-    // Handle vertical drag (allow default scrolling)
+    // Allow vertical scrolling
     if (this.state.isHorizontalDrag === false) {
-      this.state.isDragging = false;
-      this.setCursor('grab');
+      this.handleDragEnd();
       return;
     }
 
     // Handle horizontal drag
-    if (this.state.isHorizontalDrag === true && Math.abs(diffX) > this.config.dragThreshold) {
-      this.drag.hasMoved = true;
+    if (this.state.isHorizontalDrag === true) {
       e.preventDefault();
-
-      this.drag.offset = diffX;
-      this.state.currentTranslate = this.state.prevTranslate + diffX;
       
-      this.updateTransform();
+      if (Math.abs(diffX) > this.config.dragThreshold) {
+        this.state.hasMoved = true;
+      }
+
+      this.state.currentTranslate = this.state.dragStartTranslate + diffX;
+      this.updateTransform(false);
       this.handleInfiniteLoop();
     }
   }
 
-  /**
-   * Handle drag end
-   */
   handleDragEnd() {
     if (!this.state.isDragging) return;
 
     this.state.isDragging = false;
     this.state.isHorizontalDrag = null;
-    this.setCursor('grab');
+    this.style.cursor = '';
+    this.style.userSelect = '';
 
-    if (this.drag.hasMoved) {
+    if (this.state.hasMoved) {
       this.snapToNearestCard();
-    } else {
-      // Reset position for clean click behavior
-      this.state.currentTranslate = this.state.prevTranslate;
-      this.updateTransform();
     }
   }
 
-  /**
-   * Snap to the nearest card position
-   */
-  snapToNearestCard() {
-    if (this.state.isAnimating) return;
+  handleKeyDown(e) {
+    if (!this.state.isInitialized) return;
 
-    const basePosition = -this.config.cardWidth * this.originalCards.length * 2;
-    const offset = this.state.currentTranslate - basePosition;
-    const nearestIndex = Math.round(-offset / this.config.cardWidth);
-    const targetPosition = basePosition - (nearestIndex * this.config.cardWidth);
-
-    this.animateToPosition(targetPosition, () => {
-      this.state.prevTranslate = this.state.currentTranslate;
-      this.updateCurrentIndex();
-    });
+    switch (e.key) {
+      case 'ArrowLeft':
+        e.preventDefault();
+        this.navigate(1);
+        break;
+      case 'ArrowRight':
+        e.preventDefault();
+        this.navigate(-1);
+        break;
+      case 'Home':
+        e.preventDefault();
+        this.goToIndex(0);
+        break;
+      case 'End':
+        e.preventDefault();
+        this.goToIndex(this.originalCards.length - 1);
+        break;
+    }
   }
 
-  /**
-   * Navigate to previous card
-   */
-  navigateLeft() {
-    if (this.state.isAnimating) return;
+  handleFocus() {
+    // Ensure current card is announced to screen readers
+    this.updateAriaLive();
+  }
+
+  handleDotClick(e) {
+    if (e.target.classList.contains('dot')) {
+      const index = parseInt(e.target.dataset.index, 10);
+      if (!isNaN(index)) {
+        this.goToIndex(index);
+      }
+    }
+  }
+
+  handleResize() {
+    this.debouncedCalculateDimensions();
+  }
+
+  // Navigation methods
+  navigate(direction) {
+    if (this.state.isAnimating || !this.state.isInitialized) return;
     
-    const targetPosition = this.state.currentTranslate + this.config.cardWidth;
-    this.animateToPosition(targetPosition, () => {
-      this.state.prevTranslate = this.state.currentTranslate;
-      this.updateCurrentIndex();
-    });
+    const newIndex = this.getValidIndex(this.state.currentIndex - direction);
+    this.goToIndex(newIndex);
   }
 
-  /**
-   * Navigate to next card
-   */
-  navigateRight() {
-    if (this.state.isAnimating) return;
-    
-    const targetPosition = this.state.currentTranslate - this.config.cardWidth;
-    this.animateToPosition(targetPosition, () => {
-      this.state.prevTranslate = this.state.currentTranslate;
-      this.updateCurrentIndex();
-    });
-  }
-
-  /**
-   * Navigate directly to a specific card index
-   */
   goToIndex(index, animate = true) {
-    if (index < 0 || index >= this.originalCards.length) return;
+    if (!this.state.isInitialized || index < 0 || index >= this.originalCards.length) return;
+    if (index === this.state.currentIndex && animate) return;
 
     this.state.currentIndex = index;
     const targetPosition = -this.config.cardWidth * (this.originalCards.length * 2 + index);
 
     if (animate && !this.state.isAnimating) {
-      this.animateToPosition(targetPosition, () => {
-        this.state.prevTranslate = this.state.currentTranslate;
-      });
-    } else if (!animate) {
+      this.animateToPosition(targetPosition);
+    } else {
       this.state.currentTranslate = targetPosition;
-      this.state.prevTranslate = targetPosition;
-      this.updateTransform();
+      this.updateTransform(false);
     }
 
     this.updateDots();
+    this.updateAriaLive();
+    
+    // Dispatch navigation event
+    this.dispatchEvent(new CustomEvent('cardChanged', {
+      detail: { 
+        currentIndex: this.state.currentIndex,
+        totalCards: this.originalCards.length 
+      }
+    }));
   }
 
-  /**
-   * Animate to target position with easing
-   */
+  snapToNearestCard() {
+    if (this.state.isAnimating) return;
+
+    const basePosition = -this.config.cardWidth * this.originalCards.length * 2;
+    const offset = this.state.currentTranslate - basePosition;
+    const cardPosition = -offset / this.config.cardWidth;
+    
+    // Determine snap direction based on drag distance and velocity
+    const snapIndex = Math.round(cardPosition);
+    const targetPosition = basePosition - (snapIndex * this.config.cardWidth);
+
+    this.animateToPosition(targetPosition, () => {
+      this.updateCurrentIndex();
+    });
+  }
+
   animateToPosition(targetPosition, callback) {
+    if (this.state.isAnimating) return;
+    
     this.state.isAnimating = true;
-
+    const startPosition = this.state.currentTranslate;
+    const distance = targetPosition - startPosition;
+    
     const animate = () => {
-      const diff = targetPosition - this.state.currentTranslate;
-
-      if (Math.abs(diff) < 1) {
+      const remaining = targetPosition - this.state.currentTranslate;
+      
+      if (Math.abs(remaining) < 0.5) {
         this.state.currentTranslate = targetPosition;
         this.state.isAnimating = false;
-        this.updateTransform();
+        this.updateTransform(false);
         this.handleInfiniteLoop();
         callback?.();
       } else {
-        this.state.currentTranslate += diff * this.config.animationSpeed;
-        this.updateTransform();
-        requestAnimationFrame(animate);
+        this.state.currentTranslate += remaining * this.config.animationSpeed;
+        this.updateTransform(false);
+        this.animationFrameId = requestAnimationFrame(animate);
       }
     };
 
-    animate();
+    this.animationFrameId = requestAnimationFrame(animate);
   }
 
-  /**
-   * Handle infinite loop by repositioning when at boundaries
-   */
+  // Infinite scroll logic
   handleInfiniteLoop() {
     const setWidth = this.config.cardWidth * this.originalCards.length;
-    const loopOffset = setWidth * 2;
+    const centerSetStart = -setWidth * 2;
+    const loopDistance = setWidth;
 
-    if (this.state.currentTranslate > -setWidth * 0.5) {
-      this.state.currentTranslate -= loopOffset;
-      if (!this.state.isDragging) {
-        this.state.prevTranslate = this.state.currentTranslate;
-      } else {
-        this.state.prevTranslate -= loopOffset;
-      }
-      this.updateTransform();
-    } else if (this.state.currentTranslate < -setWidth * 3.5) {
-      this.state.currentTranslate += loopOffset;
-      if (!this.state.isDragging) {
-        this.state.prevTranslate = this.state.currentTranslate;
-      } else {
-        this.state.prevTranslate += loopOffset;
-      }
-      this.updateTransform();
+    if (this.state.currentTranslate > centerSetStart + loopDistance * 0.5) {
+      this.state.currentTranslate -= loopDistance;
+    } else if (this.state.currentTranslate < centerSetStart - loopDistance * 0.5) {
+      this.state.currentTranslate += loopDistance;
     }
   }
 
-  /**
-   * Update current card index based on position
-   */
+  // State updates
   updateCurrentIndex() {
     const basePosition = -this.config.cardWidth * this.originalCards.length * 2;
     const offset = this.state.currentTranslate - basePosition;
     const cardIndex = Math.round(-offset / this.config.cardWidth);
 
-    let newIndex = cardIndex % this.originalCards.length;
-    if (newIndex < 0) {
-      newIndex += this.originalCards.length;
-    }
+    const newIndex = this.getValidIndex(cardIndex);
 
     if (newIndex !== this.state.currentIndex) {
       this.state.currentIndex = newIndex;
       this.updateDots();
+      this.updateAriaLive();
     }
   }
 
-  /**
-   * Update dot indicator states
-   */
   updateDots() {
-    const dots = this.elements.dotsContainer.querySelectorAll('.dot');
+    if (!this.refs.dotsContainer) return;
+    
+    const dots = this.refs.dotsContainer.querySelectorAll('.dot');
     dots.forEach((dot, index) => {
-      dot.classList.toggle('active', index === this.state.currentIndex);
+      const isActive = index === this.state.currentIndex;
+      dot.classList.toggle('active', isActive);
+      dot.setAttribute('aria-selected', isActive ? 'true' : 'false');
     });
   }
 
-  /**
-   * Handle dot navigation clicks
-   */
-  handleDotClick(e) {
-    if (e.target.classList.contains('dot')) {
-      const index = parseInt(e.target.dataset.index);
-      this.goToIndex(index);
+  updateAriaLive() {
+    // Announce current position to screen readers
+    const announcement = `Card ${this.state.currentIndex + 1} of ${this.originalCards.length}`;
+    
+    // Create or update aria-live region
+    let liveRegion = this.querySelector('.sr-only');
+    if (!liveRegion) {
+      liveRegion = this.createElement('div', {
+        className: 'sr-only',
+        'aria-live': 'polite',
+        'aria-atomic': 'true'
+      });
+      this.appendChild(liveRegion);
+    }
+    
+    liveRegion.textContent = announcement;
+  }
+
+  updateTransform(handleLoop = true) {
+    if (!this.refs.scrollContainer) return;
+    
+    this.refs.scrollContainer.style.transform = `translate3d(${this.state.currentTranslate}px, 0, 0)`;
+    
+    if (handleLoop) {
+      this.handleInfiniteLoop();
     }
   }
 
-  /**
-   * Start arrow hold for continuous navigation
-   */
+  // Arrow hold functionality
   startArrowHold(direction) {
-    // Immediate action
-    if (direction === 'left') {
-      this.navigateLeft();
-    } else {
-      this.navigateRight();
-    }
-
-    // Continuous action
+    this.navigate(direction);
+    
     this.arrowHoldInterval = setInterval(() => {
-      if (direction === 'left') {
-        this.navigateLeft();
-      } else {
-        this.navigateRight();
-      }
+      this.navigate(direction);
     }, this.config.arrowHoldDelay);
   }
 
-  /**
-   * Stop arrow hold
-   */
   stopArrowHold() {
     if (this.arrowHoldInterval) {
       clearInterval(this.arrowHoldInterval);
@@ -461,61 +596,64 @@ class InfiniCardHolder extends HTMLElement {
     }
   }
 
-  /**
-   * Setup resize observer for responsive behavior
-   */
+  // Resize handling
   setupResizeObserver() {
-    if (window.ResizeObserver) {
-      this.resizeObserver = new ResizeObserver(() => {
-        this.calculateDimensions();
-      });
-      this.resizeObserver.observe(this);
-    }
-  }
-
-  /**
-   * Update transform position
-   */
-  updateTransform() {
-    this.elements.scrollContainer.style.transform = `translate3d(${this.state.currentTranslate}px, 0, 0)`;
-  }
-
-  /**
-   * Set cursor style
-   */
-  setCursor(cursor) {
-    this.style.cursor = cursor;
-    document.body.style.cursor = cursor === 'grab' ? '' : cursor;
-  }
-
-  /**
-   * Get X coordinate from mouse or touch event
-   */
-  getEventX(e) {
-    return e.type.includes('mouse') ? e.clientX : e.touches[0].clientX;
-  }
-
-  /**
-   * Get Y coordinate from mouse or touch event
-   */
-  getEventY(e) {
-    return e.type.includes('mouse') ? e.clientY : e.touches[0].clientY;
-  }
-
-  /**
-   * Cleanup when component is removed
-   */
-  disconnectedCallback() {
-    document.removeEventListener('mousemove', this.handleDrag);
-    document.removeEventListener('mouseup', this.handleDragEnd);
-    document.removeEventListener('touchmove', this.handleDrag);
-    document.removeEventListener('touchend', this.handleDragEnd);
+    if (!window.ResizeObserver) return;
     
+    this.resizeObserver = new ResizeObserver(this.boundMethods.handleResize);
+    this.resizeObserver.observe(this);
+  }
+
+  // Utility functions
+  getValidIndex(index) {
+    const length = this.originalCards.length;
+    return ((index % length) + length) % length;
+  }
+
+  getEventX(e) {
+    return e.type.includes('mouse') ? e.clientX : e.touches[0]?.clientX ?? 0;
+  }
+
+  getEventY(e) {
+    return e.type.includes('mouse') ? e.clientY : e.touches[0]?.clientY ?? 0;
+  }
+
+  // Cleanup
+  cleanup() {
+    // Remove global event listeners
+    document.removeEventListener('mousemove', this.boundMethods.handleDrag);
+    document.removeEventListener('mouseup', this.boundMethods.handleDragEnd);
+    document.removeEventListener('touchmove', this.boundMethods.handleDrag);
+    document.removeEventListener('touchend', this.boundMethods.handleDragEnd);
+    
+    // Clear intervals and timeouts
     this.stopArrowHold();
     
+    if (this.animationFrameId) {
+      cancelAnimationFrame(this.animationFrameId);
+    }
+    
+    // Disconnect observers
     if (this.resizeObserver) {
       this.resizeObserver.disconnect();
     }
+  }
+
+  // Public API methods
+  getCurrentIndex() {
+    return this.state.currentIndex;
+  }
+
+  getTotalCards() {
+    return this.originalCards.length;
+  }
+
+  next() {
+    this.navigate(-1);
+  }
+
+  prev() {
+    this.navigate(1);
   }
 }
 

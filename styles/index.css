@@ -1,6 +1,6 @@
 section {
   width: 100%;
-  height: 100dvh;
+  height: 80dvh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -17,12 +17,7 @@ section h2 {
 /*------------- THE GREETING -----------------*/
 
 #greet {
-  height: 100dvh;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
   gap: 10rem;
-  text-decoration: none;
 }
 
 #greet a {
@@ -33,13 +28,6 @@ section h2 {
 
 #greet a:hover {
   color: #cb943a;
-}
-
-
-#greet h2 {
-  color: var(--c-light-gold);
-  font-size: 30px;
-  text-align: center;
 }
 
 #greet h1 {
@@ -60,16 +48,11 @@ ex-infcard-holder {
   width: 100%;
   height: fit-content;
   position: relative;
-  cursor: grab;
   outline: none;
   overflow: hidden;
   background-color: #eaba6de6;
   box-shadow: 0px 0px 4px #eaba6de1;
   border-radius: var(--var-border-radious);
-}
-
-ex-infcard-holder:active {
-  cursor: grabbing;
 }
 
 ex-infcard-holder .scroll-container {
@@ -128,7 +111,6 @@ ex-infcard img{
   background: transparent;
   border: none;
   cursor: pointer;
-  z-index: 10;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -142,8 +124,8 @@ ex-infcard img{
   content: '';
   width: 20px;
   height: 20px;
-  border-top: 3px solid #0a30218f;
-  border-right: 3px solid #0a30218f;
+  border-top: 2px solid #0a30218f;
+  border-right: 2px solid #0a30218f;
   transition: all 0.2s ease;
 }
 
@@ -206,7 +188,7 @@ ex-infcard img{
   width: 12px;
   height: 12px;
   border-radius: 50%;
-  border: 2px solid #0a3021a2;
+  border: 1.5px solid #0a3021a2;
   background: #0a30214b;
   cursor: pointer;
   transition: all 0.3s ease;
