@@ -21,7 +21,7 @@ class ExMain extends HTMLElement {
             <ex-nav-button gap="80px" name="about start">Home</ex-nav-button>
           </div>
           <ex-nav-button id="navlogo" gap="170px" name="top">
-            <img src="/Exora/images/ExoraLogo.webp?quality=auto&format=webp"alt="Exora Logo">
+            <img loading="lazy" src="/Exora/images/ExoraLogo.webp?quality=auto&format=webp"alt="Exora Logo">
           </ex-nav-button>
           <div id="right">
             <ex-nav-button gap="80px" name="menu">Menu</ex-nav-button>
@@ -84,7 +84,7 @@ class ExMain extends HTMLElement {
             <button id="pop-legal-btn">Legal Advice</button>
             <button id="pop-cookie-btn">Cookie Policy</button>
           </div>
-          
+
           <ex-line width="3px"></ex-line>
 
           <p>© Copyright Exora 2025. All rights reserved.</p>

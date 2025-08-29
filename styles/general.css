@@ -20,12 +20,8 @@
 /* Font imports */
 @font-face {
   font-family: montserrat;
+  font-display: swap;
   src: url(/Exora/fonts/Montserrat-VariableFont_wght.ttf);
-}
-
-@font-face {
-  font-family: josefin;
-  src: url(/Exora/fonts/JosefinSans-Light.ttf);
 }
 
 /* Reset and base styles */
