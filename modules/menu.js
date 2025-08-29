@@ -1,24 +1,23 @@
 // menu.js - Restaurant Menu Module
-allergyList = {
-  "allergens" : {
-    "celery" : "",
-    "cereal" : "",
-    "crustaceans" : "",
-    "eggs" : "",
-    "fish" : "",
-    "lupin" : "",
-    "milk" : "",
-    "molluscs" : "",
-    "nuts" : "",
-    "peanuts" : "",
-    "sesame" : "",
-    "soya" : "",
-    "sulphites" : ""
-  }
-}
 
 // Custom element class for ex-menu
 class ExMenuElement extends HTMLElement {
+  allergyList = {
+    celery : "/Exora/images/allergyIcons/celery-min.webp?quality=auto&format=webp",
+    cereal : "/Exora/images/allergyIcons/wheat-min.webp?quality=auto&format=webp",
+    crustaceans : "/Exora/images/allergyIcons/shrimp-min.webp?quality=auto&format=webp",
+    eggs : "/Exora/images/allergyIcons/eggs-min.webp?quality=auto&format=webp",
+    fish : "/Exora/images/allergyIcons/fish-min.webp?quality=auto&format=webp",
+    lupin : "/Exora/images/allergyIcons/lupin-min.webp?quality=auto&format=webp",
+    milk : "/Exora/images/allergyIcons/milk-min.webp?quality=auto&format=webp",
+    molluscs : "/Exora/images/allergyIcons/shell-min.webp?quality=auto&format=webp",
+    nuts : "/Exora/images/allergyIcons/walnut-min.webp?quality=auto&format=webp",
+    peanuts : "/Exora/images/allergyIcons/peanut-min.webp?quality=auto&format=webp",
+    sesame : "/Exora/images/allergyIcons/sesame-min.webp?quality=auto&format=webp",
+    soya : "/Exora/images/allergyIcons/soya-min.webp?quality=auto&format=webp",
+    sulphites : "/Exora/images/allergyIcons/sulphites-min.webp?quality=auto&format=webp"
+  }
+
   connectedCallback() {
     this.classList.add('menu-container');
     this.processItems();

@@ -22,7 +22,7 @@ class ExMain extends HTMLElement {
             <ex-nav-button gap="80px" name="about experience">Experience</ex-nav-button>
           </div>
           <ex-nav-button id="navlogo" gap="170px" name="top">
-            <img src="/Exora/images/ExoraLogo.webp"alt="Exora Logo">
+            <img src="/Exora/images/ExoraLogo.webp?quality=auto&format=webp"alt="Exora Logo">
           </ex-nav-button>
           <div id="right">
             <ex-nav-button gap="80px" name="menu">Menu</ex-nav-button>

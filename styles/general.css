@@ -184,7 +184,6 @@ header #navlogo {
   display: inline-flex;
   align-items: center;
   transition: width 0.1s ease-in-out;
-
 }
 
 header #navlogo img {
