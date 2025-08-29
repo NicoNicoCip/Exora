@@ -25,9 +25,11 @@
   <script defer type="module" src="/Exora/modules/navButton.js"></script>
   <script defer type="module" src="/Exora/modules/infiniCards.js"></script>
   <script defer type="module" src="/Exora/modules/loading.js"></script>
+  <script defer type="module" src="/Exora/modules/exPopup.js"></script>
 
   <script defer src="/Exora/scripts/squishables.js"></script>
   <script defer src="/Exora/scripts/pageClock.js"></script>
+  <script defer src="/Exora/scripts/popups.js"></script>
 </head>
 
 <body>
@@ -50,12 +52,37 @@
     </section> 
     -->
 
+  <div class="page-leaves-bg">
+    <div class="leaves-left"></div>
+    <div class="leaves-right"></div>
+  </div>
+
+  <ex-popup id="pop-contact" popupTitle="Contact Us">
+    <p>This is where the contact information goes.</p>
+  </ex-popup>
+
+  <ex-popup id="pop-privacy" popupTitle="Privacy Policy">
+    <p>This is where the privacy policy information goes.</p>
+  </ex-popup>
+
+  <ex-popup id="pop-legal" popupTitle="Legal Advice">
+    <p>This is where the legal advice information goes.</p>
+  </ex-popup>
+
+  <ex-popup id="pop-cookie" popupTitle="Cookie Polocy">
+    <p>This is where the cookie policy information goes.</p>
+  </ex-popup>
+
   <ex-main>
     <ex-nav-header name="top">This is the top of the page</ex-nav-header>
     <ex-nav-header name="menu"><a href="/Exora/menu.html"></a></ex-nav-header>
     <section id="greet">
       <h2>THIS IS THE SLOGAN OF THE PAGE. IT CAN NOT BE BIGGER THAN THIS. NO MATTER WHAT.</h2>
       <h1><a href="/Exora/menu.html">To Menu</a><ex-line width="2px"></ex-line></h1>
+      <div id="ScrollDownArrow">
+        <ex-nav-button name="about start"></ex-nav-button>
+        <span class="ScrollDownArrow"></span>
+      </div>
     </section>
 
     <ex-line width="2px"></ex-line>
@@ -119,6 +146,12 @@
         </ex-infcard>
 
       </ex-infcard-holder>
+
+      <div id="ScrollDownArrow">
+        <ex-nav-button name="about experience"></ex-nav-button>
+        <span class="ScrollDownArrow"></span>
+      </div>
+
     </section>
 
     <ex-line
@@ -178,6 +211,11 @@
         </ex-infcard>
 
       </ex-infcard-holder>
+
+      <div id="ScrollDownArrow">
+        <ex-nav-button name="about vision"></ex-nav-button>
+        <span class="ScrollDownArrow"></span>
+      </div>
     </section>
 
     <ex-line
@@ -215,6 +253,11 @@
         </ex-infcard>
 
       </ex-infcard-holder>
+
+      <div id="ScrollDownArrow">
+        <ex-nav-button name="about philosophy"></ex-nav-button>
+        <span class="ScrollDownArrow"></span>
+      </div>
     </section>
 
     <ex-line
@@ -258,6 +301,11 @@
         </ex-infcard>
 
       </ex-infcard-holder>
+
+      <div id="ScrollDownArrow">
+        <ex-nav-button name="about location"></ex-nav-button>
+        <span class="ScrollDownArrow"></span>
+      </div>
     </section>
 
 
@@ -306,6 +354,11 @@
         </ex-infcard>
 
       </ex-infcard-holder>
+
+      <div id="ScrollDownArrow">
+        <ex-nav-button name="about team"></ex-nav-button>
+        <span class="ScrollDownArrow"></span>
+      </div>
     </section>
 
     <ex-line
@@ -351,8 +404,12 @@
           <ex-line dir="v" width="2px"></ex-line>
         </ex-infcard>
       </ex-infcard-holder>
+
+      <div id="ScrollDownArrow">
+        <ex-nav-button name="bottom"></ex-nav-button>
+        <span class="ScrollDownArrow"></span>
+      </div>
     </section>
-    <ex-line dir="h" width="3px"></ex-line>
   </ex-main>
 </body>
 
