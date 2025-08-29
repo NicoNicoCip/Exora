@@ -34,8 +34,8 @@ class Line extends HTMLElement {
           flex-shrink: 0;
           border: none;
           padding: 0;
-          margin: var(--line-margin, ${this._margin});
-          background-color: var(--line-color, ${this._color});
+          margin: ${this._margin};
+          background-color: ${this._color};
           ${this.getDirectionStyles()}
         }
       </style>
@@ -45,13 +45,13 @@ class Line extends HTMLElement {
   getDirectionStyles() {
     return this._direction.startsWith('h') ? `
       width: 100%;
-      height: var(--line-width, ${this._width});
-      min-height: var(--line-width, ${this._width});
+      height: ${this._width};
+      min-height: ${this._width};
     ` : `
       display: inline-block;
       vertical-align: top;
-      width: var(--line-width, ${this._width});
-      min-width: var(--line-width, ${this._width});
+      width: ${this._width};
+      min-width: ${this._width};
       height: 100%;
     `;
   }

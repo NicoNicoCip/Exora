@@ -3,19 +3,19 @@
 // Custom element class for ex-menu
 class ExMenuElement extends HTMLElement {
   allergyList = {
-    celery : "/Exora/images/allergyIcons/celery-min.webp?quality=auto&format=webp",
-    cereal : "/Exora/images/allergyIcons/wheat-min.webp?quality=auto&format=webp",
-    crustaceans : "/Exora/images/allergyIcons/shrimp-min.webp?quality=auto&format=webp",
-    eggs : "/Exora/images/allergyIcons/eggs-min.webp?quality=auto&format=webp",
-    fish : "/Exora/images/allergyIcons/fish-min.webp?quality=auto&format=webp",
-    lupin : "/Exora/images/allergyIcons/lupin-min.webp?quality=auto&format=webp",
-    milk : "/Exora/images/allergyIcons/milk-min.webp?quality=auto&format=webp",
-    molluscs : "/Exora/images/allergyIcons/shell-min.webp?quality=auto&format=webp",
-    nuts : "/Exora/images/allergyIcons/walnut-min.webp?quality=auto&format=webp",
-    peanuts : "/Exora/images/allergyIcons/peanut-min.webp?quality=auto&format=webp",
-    sesame : "/Exora/images/allergyIcons/sesame-min.webp?quality=auto&format=webp",
-    soya : "/Exora/images/allergyIcons/soya-min.webp?quality=auto&format=webp",
-    sulphites : "/Exora/images/allergyIcons/sulphites-min.webp?quality=auto&format=webp"
+    celery: "/Exora/images/allergyIcons/celery-min.webp?quality=auto&format=webp",
+    cereal: "/Exora/images/allergyIcons/wheat-min.webp?quality=auto&format=webp",
+    crustaceans: "/Exora/images/allergyIcons/shrimp-min.webp?quality=auto&format=webp",
+    eggs: "/Exora/images/allergyIcons/eggs-min.webp?quality=auto&format=webp",
+    fish: "/Exora/images/allergyIcons/fish-min.webp?quality=auto&format=webp",
+    lupin: "/Exora/images/allergyIcons/lupin-min.webp?quality=auto&format=webp",
+    milk: "/Exora/images/allergyIcons/milk-min.webp?quality=auto&format=webp",
+    molluscs: "/Exora/images/allergyIcons/shell-min.webp?quality=auto&format=webp",
+    nuts: "/Exora/images/allergyIcons/walnut-min.webp?quality=auto&format=webp",
+    peanuts: "/Exora/images/allergyIcons/peanut-min.webp?quality=auto&format=webp",
+    sesame: "/Exora/images/allergyIcons/sesame-min.webp?quality=auto&format=webp",
+    soya: "/Exora/images/allergyIcons/soya-min.webp?quality=auto&format=webp",
+    sulphites: "/Exora/images/allergyIcons/sulphites-min.webp?quality=auto&format=webp"
   }
 
   connectedCallback() {
@@ -60,24 +60,52 @@ class ExMenuElement extends HTMLElement {
 
     itemDiv.appendChild(headerDiv);
 
-    // Create allergens container
-    if (allergensEl) {
-      const allergensContainer = document.createElement('div');
-      allergensContainer.className = 'allergens-container';
-
-      const allergenElements = allergensEl.querySelectorAll('allergen');
-      allergenElements.forEach(allergenEl => {
-        const iconSpan = document.createElement('span');
-        iconSpan.className = 'allergen-icon';
-        iconSpan.textContent = allergenEl.textContent || '⚠️';
-        allergensContainer.appendChild(iconSpan);
-      });
-
-      itemDiv.appendChild(allergensContainer);
+    // Process allergens
+    if (allergensEl && allergensEl.textContent.trim() !== '?' && allergensEl.textContent.trim() !== '') {
+      const allergensContainer = this.createAllergensContainer(allergensEl.textContent);
+      if (allergensContainer.children.length > 0) {
+        itemDiv.appendChild(allergensContainer);
+      }
     }
 
     // Replace original item with processed div
     item.parentNode.replaceChild(itemDiv, item);
+  }
+
+  createAllergensContainer(allergensText) {
+    const allergensContainer = document.createElement('div');
+    allergensContainer.className = 'allergens-container';
+
+    // Split by comma, clean up, and filter valid allergens
+    const allergenNames = allergensText
+      .split(',')
+      .map(name => name.trim().toLowerCase())
+      .filter(name => name && name !== '?' && this.allergyList.hasOwnProperty(name))
+      .sort(); // Sort alphabetically
+
+    // Create image elements for each valid allergen
+    allergenNames.forEach(allergenName => {
+      const img = document.createElement('img');
+      img.src = this.allergyList[allergenName];
+      img.alt = `${allergenName} allergen`;
+      img.className = 'allergen-icon';
+      img.title = allergenName.charAt(0).toUpperCase() + allergenName.slice(1); // Capitalize for tooltip
+      
+      // Add error handling for broken images
+      img.onerror = function() {
+        console.warn(`Failed to load allergen icon for: ${allergenName}`);
+        // Fallback to text if image fails
+        const span = document.createElement('span');
+        span.className = 'allergen-icon allergen-text';
+        span.textContent = allergenName.charAt(0).toUpperCase();
+        span.title = allergenName.charAt(0).toUpperCase() + allergenName.slice(1);
+        this.parentNode.replaceChild(span, this);
+      };
+
+      allergensContainer.appendChild(img);
+    });
+
+    return allergensContainer;
   }
 }
 
@@ -129,13 +157,9 @@ class RestaurantMenu {
       item.appendChild(price);
     }
 
-    if (itemData.allergens && itemData.allergens.length > 0) {
+    if (itemData.allergens) {
       const allergens = document.createElement('allergens');
-      itemData.allergens.forEach(allergenText => {
-        const allergen = document.createElement('allergen');
-        allergen.textContent = allergenText;
-        allergens.appendChild(allergen);
-      });
+      allergens.textContent = itemData.allergens; // Support comma-separated string
       item.appendChild(allergens);
     }
 
@@ -145,6 +169,15 @@ class RestaurantMenu {
 
   createMenu() {
     return document.createElement('ex-menu');
+  }
+
+  // Helper method to get available allergen names
+  getAvailableAllergens() {
+    const menuElement = document.querySelector('ex-menu');
+    if (menuElement) {
+      return Object.keys(menuElement.allergyList).sort();
+    }
+    return [];
   }
 }
 

@@ -23,7 +23,6 @@ section h2 {
 #greet a {
   color: var(--c-light-gold);
   text-shadow: 0px 0px 10px #cda46245;
-  transition: color 0.1s ease-in-out;
 }
 
 #greet a:hover {
