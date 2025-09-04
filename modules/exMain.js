@@ -82,7 +82,7 @@ class ExMain extends HTMLElement {
             <button id="pop-contact-btn">Contact Us</button>
             <button id="pop-privacy-btn">Privacy Policy</button>
             <button id="pop-legal-btn">Legal Advice</button>
-            <button id="pop-cookie-btn">Cookie Policy</button>
+            <button id="pop-cookie-btn">Cookie Settings</button>
           </div>
 
           <ex-line width="3px"></ex-line>

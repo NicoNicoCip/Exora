@@ -48,10 +48,7 @@
 
   <script defer src="/Exora/scripts/squishables.js"></script>
   <script defer src="/Exora/scripts/pageClock.js"></script>
-  <script defer src="/Exora/scripts/popups.js"></script>
 </head>
-
-
 
 <body>
   <!-- Google Tag Manager (noscript) -->
@@ -76,8 +73,21 @@
     <p>This is where the legal advice information goes.</p>
   </ex-popup>
 
-  <ex-popup id="pop-cookie" popupTitle="Cookie Polocy">
-    <p>This is where the cookie policy information goes.</p>
+  <!-- Cookie Consent Popup -->
+  <ex-popup id="pop-cookie-consent" popupTitle="Cookie Settings" style="display: none;">
+    <p>
+      We use cookies to store your consent preferences to analyze site usage.<br> 
+      You can modify these settings anytime via "Cookie Settings" below.<br>
+      Closing this popup without selection will decline optional cookies.
+    </p>
+    <p>
+      if you wish to review the Privacy Policy before makingh a decision,<br> 
+      you can read them <button id="pop-consent-privacy-btn">here.</button>
+    </p>
+    <div class="cookie-buttons">
+      <button id="pop-consent-accept">Accept</button>
+      <button id="pop-consent-reject">Reject</button>
+    </div>
   </ex-popup>
 
   <ex-main>

@@ -180,22 +180,25 @@ ex-popup {
   background: rgba(0, 0, 0, 0.5);
   z-index: 1000;
   display: none;
+  text-shadow: var(--text-shadow);
 }
 
 .popup-container {
   position: absolute;
-  background: white;
-  border: 1px solid #ccc;
+  background:var(--c-light-gold);
   border-radius: 4px;
-  min-width: 300px;
+  border: 0px;
+  min-width: 200px;
   min-height: 200px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  box-shadow: var(--shadow-gold);
 }
 
 .popup-header {
-  background: #f5f5f5;
+  background: var(--c-gold);
+  border-radius: 4px;
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
   padding: 10px 15px;
-  border-bottom: 1px solid #ddd;
   cursor: move;
   display: flex;
   justify-content: space-between;
@@ -222,12 +225,66 @@ ex-popup {
 }
 
 .popup-close:hover {
-  background: #e0e0e0;
+  background: var(--c-light-gold);
   border-radius: 50%;
 }
 
 .popup-content {
   padding: 20px;
+}
+
+/* Cookie Banner Styles */
+
+.cookie-banner-content {
+  background: white;
+  padding: 30px;
+  border-radius: 8px;
+  max-width: 500px;
+  margin: 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.cookie-buttons {
+  margin-top: 1rem;
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.cookie-buttons button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+#pop-consent-accept {
+  background-color: #068131;
+  color: white;
+}
+
+#pop-consent-accept:hover {
+  background-color: #0ab446;
+}
+
+#pop-consent-reject {
+  background-color: #810606;
+  color: white;
+}
+
+#pop-consent-reject:hover {
+  background-color: #b40a0a;
+}
+
+#pop-consent-privacy-btn {
+  background-color: #00000000;
+  border: 0;
+  color: var(--c-green-normal);
+  cursor: pointer;
+  font-size:medium;
 }
 
 /* Header */
@@ -474,6 +531,10 @@ footer button:hover {
 @media only screen and (max-width: 999px) {
   :root {
     --var-outer-separation: 90%;
+  }
+
+  * {
+    font-size: 95%;
   }
 
   header.large {
