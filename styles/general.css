@@ -21,7 +21,7 @@
 @font-face {
   font-family: montserrat;
   font-display: swap;
-  src: url(/Exora/fonts/Montserrat-VariableFont_wght.ttf);
+  src: url(/fonts/Montserrat-VariableFont_wght.ttf);
 }
 
 /* Reset and base styles */
@@ -75,7 +75,7 @@ body {
   top: 0;
   width: 300px;
   height: 100%;
-  background-image: url(/Exora/images/oliveLeaves-2.webp);
+  background-image: url(/images/oliveLeaves-2.webp);
   background-repeat: repeat-y;
   background-size: 100%;
   background-position: center;

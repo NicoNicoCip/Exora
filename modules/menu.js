@@ -3,19 +3,19 @@
 // Custom element class for ex-menu
 class ExMenuElement extends HTMLElement {
   allergyList = {
-    celery: "/Exora/images/allergyIcons/celery-min.webp?quality=auto&format=webp",
-    cereal: "/Exora/images/allergyIcons/wheat-min.webp?quality=auto&format=webp",
-    crustaceans: "/Exora/images/allergyIcons/shrimp-min.webp?quality=auto&format=webp",
-    eggs: "/Exora/images/allergyIcons/eggs-min.webp?quality=auto&format=webp",
-    fish: "/Exora/images/allergyIcons/fish-min.webp?quality=auto&format=webp",
-    lupin: "/Exora/images/allergyIcons/lupin-min.webp?quality=auto&format=webp",
-    milk: "/Exora/images/allergyIcons/milk-min.webp?quality=auto&format=webp",
-    molluscs: "/Exora/images/allergyIcons/shell-min.webp?quality=auto&format=webp",
-    nuts: "/Exora/images/allergyIcons/walnut-min.webp?quality=auto&format=webp",
-    peanuts: "/Exora/images/allergyIcons/peanut-min.webp?quality=auto&format=webp",
-    sesame: "/Exora/images/allergyIcons/sesame-min.webp?quality=auto&format=webp",
-    soya: "/Exora/images/allergyIcons/soya-min.webp?quality=auto&format=webp",
-    sulphites: "/Exora/images/allergyIcons/sulphites-min.webp?quality=auto&format=webp"
+    celery: "/images/allergyIcons/celery-min.webp?quality=auto&format=webp",
+    cereal: "/images/allergyIcons/wheat-min.webp?quality=auto&format=webp",
+    crustaceans: "/images/allergyIcons/shrimp-min.webp?quality=auto&format=webp",
+    eggs: "/images/allergyIcons/eggs-min.webp?quality=auto&format=webp",
+    fish: "/images/allergyIcons/fish-min.webp?quality=auto&format=webp",
+    lupin: "/images/allergyIcons/lupin-min.webp?quality=auto&format=webp",
+    milk: "/images/allergyIcons/milk-min.webp?quality=auto&format=webp",
+    molluscs: "/images/allergyIcons/shell-min.webp?quality=auto&format=webp",
+    nuts: "/images/allergyIcons/walnut-min.webp?quality=auto&format=webp",
+    peanuts: "/images/allergyIcons/peanut-min.webp?quality=auto&format=webp",
+    sesame: "/images/allergyIcons/sesame-min.webp?quality=auto&format=webp",
+    soya: "/images/allergyIcons/soya-min.webp?quality=auto&format=webp",
+    sulphites: "/images/allergyIcons/sulphites-min.webp?quality=auto&format=webp"
   }
 
   connectedCallback() {
