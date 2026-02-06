@@ -1,0 +1,472 @@
+/* index.css - Homepage specific styles with variable-width infiniCards support */
+
+/* Universal Section Layout */
+section {
+    width: 100%;
+    min-height: 20dvh;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: var(--spacing-md);
+    margin-top: var(--spacing-3xl);
+}
+
+section h2 {
+    color: var(--c-light-gold);
+    padding: var(--spacing-sm);
+    text-align: center;
+    margin-bottom: var(--spacing-sm);
+    font-size: var(--css-x-large);
+    font-family: 'playfair', Times, serif;
+    font-weight: var(--font-weight-bold);
+}
+
+/* Greeting section with universal scaling */
+#greet {
+    gap: calc(var(--spacing-3xl) * 2 * var(--mobile-comfort));
+    text-wrap-mode: wrap;
+    word-spacing: var(--spacing-sm);
+    height: 81dvh;
+}
+
+#greet a {
+    color: var(--c-light-gold);
+    text-shadow: var(--text-shadow-glow);
+    transition: color var(--animation-duration-fast) ease-out;
+    font-size: var(--css-xx-large);
+    font-weight: var(--font-weight-bold);
+}
+
+#greet a:hover {
+    color: color-mix(in srgb, var(--c-gold), var(--c-green-aqua) 25%);
+}
+
+#greet .cta-link {
+    font-size: var(--css-xx-large);
+    font-weight: var(--font-weight-bold);
+}
+
+#greet h1 {
+    font-size: var(--font-size-h1);
+    font-weight: var(--font-weight-bold);
+    color: var(--c-light-gold);
+}
+
+/* Info Cards - portrait/playing-card proportions, controls below */
+ex-infcard-holder {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: clamp(300px, 65vmin, 550px);
+    position: relative;
+    background-color: color-mix(in srgb, var(--c-gold) 90%, transparent);
+    box-shadow: var(--shadow-md);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+}
+
+ex-infcard-holder .scroll-container {
+    display: flex;
+    gap: 0rem;
+    flex: 1;
+    min-height: 0;
+    align-items: stretch;
+    user-select: none;
+    will-change: transform;
+}
+
+ex-infcard {
+    width: auto;
+    flex-shrink: 0;
+    height: 100%;
+    box-sizing: border-box;
+    padding: var(--spacing-sm);
+    display: inline-flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: stretch;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.image-with-header {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    height: 100%;
+    overflow: hidden;
+}
+
+ex-infcard ex-line:first-child,
+ex-infcard ex-line:last-child {
+    margin: 0 var(--spacing-sm) !important;
+}
+
+ex-infcard img {
+    height: 100%;
+    width: auto;
+    align-self: center;
+    border-radius: 4px;
+    box-shadow: 0px 0px 20px var(--c-light-gold);
+    object-fit: cover;
+}
+
+/* Controls bar - sits below the scroll area */
+.nav-arrow {
+    position: absolute;
+    bottom: 0;
+    width: 40px;
+    height: 36px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all var(--animation-duration-normal);
+    user-select: none;
+    outline: none;
+    font-size: 0;
+    z-index: 20;
+}
+
+.nav-arrow::before {
+    content: '';
+    width: 12px;
+    height: 12px;
+    border-top: 2px solid color-mix(in srgb, var(--c-green-aqua) 56%, transparent);
+    border-right: 2px solid color-mix(in srgb, var(--c-green-aqua) 56%, transparent);
+    transition: all var(--animation-duration-normal);
+}
+
+.nav-arrow-left {
+    left: 0;
+}
+
+.nav-arrow-left::before {
+    transform: rotate(-135deg);
+}
+
+.nav-arrow-right {
+    right: 0;
+}
+
+.nav-arrow-right::before {
+    transform: rotate(45deg);
+}
+
+.nav-arrow:hover::before {
+    border-color: var(--c-green-normal);
+    transform: scale(1.2) rotate(-135deg);
+}
+
+.nav-arrow-right:hover::before {
+    transform: scale(1.2) rotate(45deg);
+}
+
+.nav-arrow:active::before {
+    transform: scale(0.9) rotate(-135deg);
+}
+
+.nav-arrow-right:active::before {
+    transform: scale(0.9) rotate(45deg);
+}
+
+.nav-arrow.thick::before {
+    border-width: 3px;
+    width: 16px;
+    height: 16px;
+}
+
+/* Dots Navigation - dedicated bar below cards */
+.dots-container {
+    flex-shrink: 0;
+    width: 100%;
+    height: 36px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-sm);
+    font-size: 0;
+    position: relative;
+}
+
+.dot {
+    width: clamp(10px, calc(12px * var(--spacing-scale)), 14px);
+    height: clamp(10px, calc(12px * var(--spacing-scale)), 14px);
+    border-radius: 50%;
+    border: 1.5px solid color-mix(in srgb, var(--c-green-aqua) 64%, transparent);
+    background: color-mix(in srgb, var(--c-green-aqua) 29%, transparent);
+    cursor: pointer;
+    transition: all var(--animation-duration-slow);
+}
+
+.dot:hover {
+    background: var(--c-green-aqua);
+    border-color: color-mix(in srgb, var(--c-green-aqua) 78%, transparent);
+    transform: scale(1.2);
+}
+
+.dot.active {
+    background: color-mix(in srgb, var(--c-green-normal) 80%, transparent);
+    border-color: var(--c-green-normal);
+    transform: scale(1.3);
+}
+
+.dot:active {
+    transform: scale(0.9);
+}
+
+/* Universal empty info card - Now responsive to new CSS system */
+.empty-infocard {
+    display: block;
+    flex-direction: column;
+    width: 100%;
+    height: fit-content;
+    position: relative;
+    background-color: hsla(calc(39 + var(--color-warmth)), 61%, calc(55% * var(--color-intensity)), calc(0.9 * var(--color-intensity)));
+    box-shadow: var(--shadow-md);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    padding: var(--padding-loose);
+    margin-top: var(--spacing-xs);
+    margin-bottom: var(--spacing-xs);
+    font-weight: var(--font-weight-normal);
+    line-height: calc(1.6 * var(--text-scale));
+}
+
+/* Desktop adjustments */
+@media only screen and (min-width: 1024px) {
+    #greet {
+        gap: calc(var(--spacing-3xl) * 2.5 * var(--mobile-comfort) * var(--desktop-expansion));
+    }
+}
+
+/* Tablet / small desktop */
+@media only screen and (max-width: 768px) {
+    section {
+        margin-top: var(--spacing-xl);
+        margin-bottom: var(--spacing-sm);
+    }
+
+    #greet {
+        gap: calc(var(--spacing-3xl) * 0.6);
+        word-spacing: var(--spacing-xs);
+    }
+
+    .empty-infocard {
+        padding: var(--padding-normal);
+    }
+
+    [class^="art-deco-"] {
+        padding: var(--spacing-md) 0;
+    }
+}
+
+/* Small phones */
+@media only screen and (max-width: 480px) {
+    section {
+        margin-top: var(--spacing-lg);
+        margin-bottom: var(--spacing-xs);
+    }
+
+    #greet {
+        word-spacing: 0;
+        gap: var(--spacing-2xl);
+    }
+
+    [class^="art-deco-"] {
+        padding: var(--spacing-sm) 0;
+    }
+
+    .art-deco-diamond .deco-center {
+        width: calc(35px * var(--spacing-scale));
+        height: calc(35px * var(--spacing-scale));
+    }
+
+    .art-deco-fan .deco-center {
+        width: calc(40px * var(--spacing-scale));
+        height: calc(20px * var(--spacing-scale));
+    }
+
+    .art-deco-chevron .deco-spacer {
+        width: calc(28px * var(--spacing-scale));
+    }
+
+    .art-deco-chevron::before {
+        width: calc(18px * var(--spacing-scale));
+        height: calc(18px * var(--spacing-scale));
+    }
+}
+
+/* Landscape phones - prevent greet from being too tall */
+@media only screen and (max-height: 500px) {
+    #greet {
+        height: auto;
+        min-height: 100dvh;
+    }
+}
+
+/* ============================================
+   ART DECO SECTION DIVIDERS
+   ============================================ */
+
+/* Variant A: Diamond divider */
+.art-deco-diamond {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--spacing-xl) 0;
+}
+
+.art-deco-diamond::before,
+.art-deco-diamond::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--c-gold), transparent);
+}
+
+.art-deco-diamond .deco-center {
+    width: calc(50px * var(--spacing-scale));
+    height: calc(50px * var(--spacing-scale));
+    position: relative;
+    margin: 0 var(--spacing-md);
+    flex-shrink: 0;
+}
+
+.art-deco-diamond .deco-center::before {
+    content: '';
+    position: absolute;
+    inset: 15%;
+    border: calc(1.5px * var(--spacing-scale)) solid var(--c-gold);
+    transform: rotate(45deg);
+}
+
+.art-deco-diamond .deco-center::after {
+    content: '';
+    position: absolute;
+    inset: 32%;
+    background: var(--c-gold);
+    transform: rotate(45deg);
+    opacity: 0.5;
+}
+
+/* Variant B: Chevron divider */
+.art-deco-chevron {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--spacing-xl) 0;
+    position: relative;
+}
+
+.art-deco-chevron::before {
+    content: '';
+    position: absolute;
+    width: calc(24px * var(--spacing-scale));
+    height: calc(24px * var(--spacing-scale));
+    border-right: calc(1.5px * var(--spacing-scale)) solid var(--c-gold);
+    border-bottom: calc(1.5px * var(--spacing-scale)) solid var(--c-gold);
+    transform: rotate(-45deg);
+    z-index: 1;
+}
+
+.art-deco-chevron .deco-line-left,
+.art-deco-chevron .deco-line-right {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--c-gold));
+}
+
+.art-deco-chevron .deco-line-right {
+    background: linear-gradient(90deg, var(--c-gold), transparent);
+}
+
+.art-deco-chevron .deco-spacer {
+    width: calc(40px * var(--spacing-scale));
+    flex-shrink: 0;
+}
+
+/* Variant C: Triple-line divider */
+.art-deco-triple {
+    width: 80%;
+    margin: var(--spacing-xl) auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: calc(4px * var(--spacing-scale));
+    padding: var(--spacing-lg) 0;
+}
+
+.art-deco-triple .deco-line {
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent 0%, var(--c-gold) 20%, var(--c-gold) 80%, transparent 100%);
+    opacity: 0.5;
+}
+
+.art-deco-triple .deco-line:nth-child(2) {
+    width: 60%;
+    height: calc(2px * var(--spacing-scale));
+    opacity: 0.8;
+}
+
+/* Variant D: Fan/sunburst accent */
+.art-deco-fan {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--spacing-xl) 0;
+}
+
+.art-deco-fan::before,
+.art-deco-fan::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--c-gold), transparent);
+}
+
+.art-deco-fan .deco-center {
+    width: calc(60px * var(--spacing-scale));
+    height: calc(30px * var(--spacing-scale));
+    position: relative;
+    margin: 0 var(--spacing-md);
+    flex-shrink: 0;
+    overflow: hidden;
+}
+
+.art-deco-fan .deco-center::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: calc(60px * var(--spacing-scale));
+    height: calc(60px * var(--spacing-scale));
+    border: calc(1.5px * var(--spacing-scale)) solid var(--c-gold);
+    border-radius: 50%;
+    opacity: 0.6;
+}
+
+.art-deco-fan .deco-center::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: calc(36px * var(--spacing-scale));
+    height: calc(36px * var(--spacing-scale));
+    border: calc(1px * var(--spacing-scale)) solid var(--c-gold);
+    border-radius: 50%;
+    opacity: 0.4;
+}

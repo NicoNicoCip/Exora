@@ -1,0 +1,361 @@
+/* menu.css - Menu page specific styles with book/carta aesthetic */
+
+/* ============================================
+   MENU PAGE TITLE
+   ============================================ */
+.menu-page-title {
+  text-align: center;
+  font-family: 'playfair', Times, serif;
+  font-size: var(--css-xx-large);
+  color: var(--c-gold);
+  letter-spacing: calc(8px * var(--spacing-scale));
+  text-transform: uppercase;
+  margin-bottom: var(--spacing-xl);
+  text-shadow: var(--text-shadow-glow);
+  font-weight: var(--font-weight-bold);
+}
+
+/* ============================================
+   CATEGORY HEADINGS - Book/carta style
+   ============================================ */
+h2 {
+  color: var(--c-gold);
+  width: 100%;
+  text-align: center;
+  font-size: var(--css-x-large);
+  margin-top: var(--spacing-2xl);
+  margin-bottom: var(--spacing-xl);
+  font-family: 'playfair', Times, serif;
+  font-weight: var(--font-weight-bold);
+  letter-spacing: calc(3px * var(--spacing-scale));
+  text-transform: uppercase;
+  position: relative;
+  padding-bottom: var(--spacing-md);
+}
+
+/* Decorative underline for category headers */
+h2::after {
+  content: '';
+  display: block;
+  width: 40%;
+  max-width: clamp(100px, 30vw, 200px);
+  height: calc(1.5px * var(--spacing-scale));
+  background: linear-gradient(90deg, transparent, var(--c-gold), transparent);
+  margin: var(--spacing-sm) auto 0;
+}
+
+h3 {
+  color: var(--c-gold);
+  width: 100%;
+  text-align: center;
+  font-size: var(--css-large);
+  margin-top: var(--spacing-sm);
+  margin-bottom: var(--spacing-xl);
+  font-family: 'playfair', Times, serif;
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: calc(2px * var(--spacing-scale));
+  font-style: italic;
+  opacity: 0.85;
+}
+
+/* ============================================
+   MENU CONTAINER - Book/carta page feel
+   ============================================ */
+.menu-container {
+  width: 100%;
+  position: relative;
+  padding: var(--spacing-lg) var(--spacing-md);
+  box-shadow:
+    inset 2px 0 8px color-mix(in srgb, var(--c-gold) 6%, transparent),
+    inset -2px 0 8px color-mix(in srgb, var(--c-gold) 6%, transparent);
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--c-gold) 2%, transparent) 0%,
+    transparent 3%,
+    transparent 97%,
+    color-mix(in srgb, var(--c-gold) 2%, transparent) 100%
+  );
+}
+
+/* Decorative top/bottom borders for book feel */
+.menu-container::before,
+.menu-container::after {
+  content: '';
+  display: block;
+  width: 80%;
+  height: calc(1.5px * var(--spacing-scale));
+  margin: var(--spacing-lg) auto;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--c-gold) 15%,
+    var(--c-gold) 85%,
+    transparent
+  );
+  opacity: 0.6;
+}
+
+/* Universal Menu items with proper scaling */
+.menu-item {
+  margin: var(--spacing-sm) 0;
+  padding: var(--padding-normal);
+  display: block;
+  height: fit-content;
+  position: relative;
+  background-color: hsla(calc(39 + var(--color-warmth)), 61%, calc(55% * var(--color-intensity)), calc(0.9 * var(--color-intensity)));
+  box-shadow: var(--shadow-md);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  transition: all var(--animation-duration-normal);
+}
+
+.menu-item:hover {
+  transform: translateY(calc(-1px * var(--spacing-scale)));
+  box-shadow: var(--shadow-lg);
+}
+
+/* Universal Item header layout */
+.item-header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: var(--spacing-xs);
+}
+
+.item-name {
+  font-weight: var(--font-weight-semibold);
+  font-size: var(--font-size-base);
+  line-height: calc(1.4 * var(--text-scale));
+  font-family: 'playfair', Times, serif;
+}
+
+.item-price {
+  font-weight: var(--font-weight-bold);
+  color: var(--c-green-aqua);
+  white-space: nowrap;
+  padding-left: var(--spacing-lg);
+  font-size: var(--font-size-lg);
+}
+
+/* Universal Allergens container */
+.allergens-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-xs);
+  margin-top: var(--spacing-xs);
+  padding-top: var(--spacing-xs);
+  border-top: calc(1px * var(--spacing-scale)) solid color-mix(in srgb, var(--c-green-aqua) calc(20% * var(--contrast-boost)), transparent);
+}
+
+.allergens-container img {
+  width: var(--icon-size);
+  height: var(--icon-size);
+  border-radius: var(--border-radius-sm);
+  transition: transform var(--animation-duration-fast);
+}
+
+.allergens-container img:hover {
+  transform: scale(1.1);
+}
+
+/* Universal Allergen text fallback */
+.allergen-text {
+  width: var(--icon-size);
+  height: var(--icon-size);
+  background-color: hsl(0, 0%, calc(94% * var(--color-intensity)));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-bold);
+  color: hsl(0, 0%, calc(40% * var(--contrast-boost)));
+  border-radius: var(--border-radius-sm);
+  transition: all var(--animation-duration-fast);
+}
+
+.allergen-text:hover {
+  background-color: hsl(0, 0%, calc(88% * var(--color-intensity)));
+  transform: scale(1.1);
+}
+
+/* Universal Allergens display section */
+.allergens {
+  display: flex;
+  flex-direction: row;
+  width: fit-content;
+  gap: var(--spacing-md);
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin: var(--spacing-xl) 0;
+}
+
+.allergens .menu-item {
+  padding: var(--padding-loose);
+  min-width: calc(120px * var(--spacing-scale));
+  text-align: center;
+}
+
+.allergens .item-price {
+  display: none;
+}
+
+.allergens .item-name {
+  text-align: center;
+  font-size: var(--font-size-lg);
+  margin-bottom: var(--spacing-sm);
+}
+
+.allergens .allergens-container {
+  justify-content: center;
+  border-top: none;
+  padding-top: 0;
+  margin-top: 0;
+}
+
+.allergens .allergens-container img,
+.allergens .allergens-container .allergen-text {
+  width: calc(var(--icon-size) * 1.5);
+  height: calc(var(--icon-size) * 1.5);
+}
+
+/* Menu item descriptions/brief */
+.item-brief {
+  font-size: var(--font-size-sm);
+  color: color-mix(in srgb, var(--c-green-aqua) calc(80% * var(--contrast-boost)), transparent);
+  margin-top: var(--spacing-xs);
+  line-height: calc(1.5 * var(--text-scale));
+  font-style: italic;
+}
+
+/* Menu category sections */
+.menu-category {
+  margin: var(--spacing-3xl) 0;
+}
+
+.menu-category h2 {
+  border-bottom: calc(2px * var(--spacing-scale)) solid var(--c-gold);
+  padding-bottom: var(--spacing-sm);
+  margin-bottom: var(--spacing-xl);
+}
+
+/* Special menu item variations */
+.menu-item.featured {
+  background: linear-gradient(135deg,
+    color-mix(in srgb, var(--c-gold) 90%, transparent),
+    color-mix(in srgb, var(--c-light-gold) 80%, transparent)
+  );
+  border: calc(2px * var(--spacing-scale)) solid var(--c-light-gold);
+}
+
+.menu-item.unavailable {
+  opacity: calc(0.6 * var(--color-intensity));
+  background-color: hsla(0, 0%, calc(50% * var(--color-intensity)), calc(0.3 * var(--color-intensity)));
+}
+
+.menu-item.unavailable .item-name {
+  text-decoration: line-through;
+}
+
+.menu-item.unavailable .item-price {
+  opacity: 0.5;
+}
+
+/* SIMPLE responsive adjustments for menu - no complex math */
+@media only screen and (max-width: 900px) {
+  .menu-item {
+    padding: var(--padding-tight);
+  }
+  
+  .item-header {
+    flex-direction: column;
+    gap: var(--spacing-xs);
+  }
+  
+  .item-price {
+    padding-left: 0;
+    align-self: flex-end;
+  }
+  
+  .allergens {
+    gap: var(--spacing-sm);
+  }
+  
+  .allergens .menu-item {
+    min-width: calc(100px * var(--spacing-scale));
+    padding: var(--padding-normal);
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  h2 {
+    font-size: var(--font-size-h2);
+    margin-top: var(--spacing-xl);
+    margin-bottom: var(--spacing-lg);
+  }
+  
+  h3 {
+    font-size: var(--font-size-h3);
+    margin-bottom: var(--spacing-md);
+  }
+  
+  .menu-item {
+    padding: var(--padding-tight);
+  }
+  
+  .item-name {
+    font-size: var(--font-size-sm);
+  }
+  
+  .item-price {
+    font-size: var(--font-size-base);
+  }
+  
+  .allergens .menu-item {
+    min-width: calc(80px * var(--spacing-scale));
+    padding: var(--padding-tight);
+  }
+  
+  .allergens .item-name {
+    font-size: var(--font-size-base);
+  }
+}
+
+/* Menu loading states */
+.menu-item.loading {
+  background: linear-gradient(90deg,
+    color-mix(in srgb, var(--c-gold) 90%, transparent),
+    color-mix(in srgb, var(--c-light-gold) 70%, transparent),
+    color-mix(in srgb, var(--c-gold) 90%, transparent)
+  );
+  background-size: 200% 100%;
+  animation: shimmer calc(1.5s / var(--animation-speed)) ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+/* Print styles for menus */
+@media print {
+  .menu-item {
+    break-inside: avoid;
+    margin-bottom: var(--spacing-sm);
+    box-shadow: none;
+    border: calc(1px * var(--spacing-scale)) solid var(--c-gold);
+  }
+  
+  .allergens-container {
+    display: none;
+  }
+  
+  h2, h3 {
+    break-after: avoid;
+  }
+}

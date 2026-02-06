@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Google Tag Manager -->
+    <script>(function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start': new Date().getTime(), event: 'gtm.js'
+            });
+            var f = d.getElementsByTagName(s)[0], j = d.createElement(s), dl = l
+                != 'dataLayer' ? '&l=' + l : '';
+            j.async = true;
+            j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+            f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-NMQLFZM7');</script>
+    <!-- End Google Tag Manager -->
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-S5JXG6GFF0"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-S5JXG6GFF0');
+    </script>
+    <script>
+        (() => {
+            const style = document.createElement('style');
+            style.textContent = `
+        /* Immediate loading screen coverage - works even before JS runs */
+        ex-loading, ex-loading:not(:defined) {
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        width: 100% !important;
+        height: 100% !important;
+        background: #0A3021 !important;
+        z-index: 10000 !important;
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        transition: opacity 0.5s ease;
+        }
+        
+        /* Show spinner immediately */
+        ex-loading:not(:defined)::before,
+        ex-loading::before {
+        content: '';
+        width: clamp(36px, 8vmin, 48px);
+        height: clamp(36px, 8vmin, 48px);
+        border: clamp(2px, 0.5vmin, 3px) solid rgba(234, 187, 109, 0.2);
+        border-top: clamp(2px, 0.5vmin, 3px) solid #EABB6D;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+        }
+        
+        /* Spinner animation */
+        @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+        }
+        
+        /* Hide the spinner once custom element renders its own */
+        ex-loading:defined::before {
+        display: none;
+        }
+    `;
+
+            // Inject styles immediately
+            if (document.head) {
+                document.head.appendChild(style);
+            } else {
+                // If head doesn't exist yet, wait for it
+                document.addEventListener('DOMContentLoaded', () => {
+                    document.head.appendChild(style);
+                });
+            }
+        })();
+    </script>
+
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="EXORA is a vibrant and welcoming dining 
+  destination in Benicassim, Spain, where bold flavors, creativity and 
+  excellence come together in an experience that transcends time. Rooted in our 
+  Romanian heritage and inspired by Mediterranean influences, our bistro offers 
+  a diverse menu that balances comfort and innovation. From expertly crafted 
+  burgers to premium steaks and fresh seafood, Exora reimagines familiar 
+  favorites with a unique twist, inviting guests on a culinary journey
+  that bridges tradition and modernity.">
+    <meta name="keywords"
+        content="restaurant, Benicassim, Romanian, Mediterranean, bistro, fine dining, seafood, steaks, burgers, Spain, Exora, Castellon, Romanian cuisine, Mediterranean food, wine, cocktails">
+
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <meta name="author" content="created by Beatrice Riess, Florin Cirnicianu, Cristian Cirnicianu and Ciprian Nicolae">
+    <link rel="shortcut icon" href="/functions/images/favicon.png" type="image/x-icon">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="EXORA Bistro | Romanian Roots, Mediterranean Heart">
+    <meta property="og:description"
+        content="A vibrant dining destination in Benicassim, Spain. Bold flavors, creativity and excellence rooted in Romanian heritage with Mediterranean influences.">
+    <meta property="og:image" content="/functions/images/ExoraLogo.webp">
+    <meta property="og:url" content="https://ex-ora.com/home/">
+    <meta property="og:type" content="restaurant">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:site_name" content="EXORA Bistro">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="EXORA Bistro | Romanian Roots, Mediterranean Heart">
+    <meta name="twitter:description"
+        content="A vibrant dining destination in Benicassim, Spain. Bold flavors, creativity and excellence.">
+    <meta name="twitter:image" content="/functions/images/ExoraLogo.webp">
+
+    <!-- Schema.org JSON-LD -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Restaurant",
+        "name": "EXORA Bistro",
+        "image": "/functions/images/ExoraLogo.webp",
+        "url": "https://ex-ora.com",
+        "telephone": ["+34642364712", "+34642364782"],
+        "email": "ioanabeatrice.riess@gmail.com",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Av. Barcelona, 87",
+            "addressLocality": "Benicassim",
+            "addressRegion": "Castellon",
+            "postalCode": "12560",
+            "addressCountry": "ES"
+        },
+        "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 40.0533,
+            "longitude": 0.0630
+        },
+        "servesCuisine": ["Romanian", "Mediterranean", "European"],
+        "priceRange": "$$",
+        "sameAs": [
+            "https://www.facebook.com/profile.php?id=61577757483443",
+            "https://www.instagram.com/exora.benicassim/"
+        ]
+    }
+    </script>
+
+    <title>EXORA</title>
+
+    <link rel="stylesheet" href="/functions/styles/general.css">
+    <link rel="stylesheet" href="/functions/styles/index.css">
+
+    <script type="module" src="/functions/modules/loading.js" fetchpriority="high"></script>
+    <script defer type="module" src="/functions/modules/ex-main.js"></script>
+    <script defer type="module" src="/functions/modules/line.js"></script>
+    <script defer type="module" src="/functions/modules/nav-button.js"></script>
+    <script defer type="module" src="/functions/modules/infini-cards.js"></script>
+    <script defer type="module" src="/functions/modules/ex-popup.js"></script>
+    <script defer type="module" src="/functions/modules/ex-translate.js"></script>
+</head>
+
+<body>
+    <a href="#main-content" class="skip-link">@T:skipToContent</a>
+
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NMQLFZM7" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <ex-loading></ex-loading>
+
+    <div class="page-leaves-bg">
+        <div class="leaves-left"></div>
+        <div class="leaves-right"></div>
+    </div>
+
+    <div class="page-noise-bg"></div>
+
+    <ex-popup id="pop-contact" popupTitle="@T:contactUs">
+        <div class="contact-popup-info">
+            <div class="contact-popup-item">
+                <svg width="24" height="24" viewBox="0 0 24 24">
+                    <path
+                        d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
+                </svg>
+                <a href="mailto:ioanabeatrice.riess@gmail.com">ioanabeatrice.riess@gmail.com</a>
+            </div>
+            <div class="contact-popup-item">
+                <svg width="24" height="24" viewBox="0 0 24 24">
+                    <path
+                        d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
+                </svg>
+                <a href="tel:+34642364712">+34 642 36 47 12</a>
+            </div>
+            <div class="contact-popup-item">
+                <svg width="24" height="24" viewBox="0 0 24 24">
+                    <path
+                        d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
+                </svg>
+                <a href="tel:+34642364782">+34 642 36 47 82</a>
+            </div>
+            <div class="contact-popup-item">
+                <svg width="24" height="24" viewBox="0 0 24 24">
+                    <path
+                        d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+                </svg>
+                <a href="https://maps.app.goo.gl/fX95wTSU1xA3bqjz5">Av. Barcelona, 87, 12560 Benicassim, Castello</a>
+            </div>
+            <div class="contact-popup-socials">
+                <a href="https://www.facebook.com/profile.php?id=61577757483443" aria-label="Facebook">
+                    <svg viewBox="0 0 24 24" width="30" height="30">
+                        <path
+                            d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                    </svg>
+                </a>
+                <a href="https://www.instagram.com/exora.benicassim/" aria-label="Instagram">
+                    <svg viewBox="0 0 24 24" width="30" height="30">
+                        <path
+                            d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </ex-popup>
+
+    <ex-popup id="pop-privacy" popupTitle="@T:privacyPolicy">
+        <div>
+            <p><strong>@T:privacy_l1</strong> <br>
+                @T:privacy_l2
+            </p><br>
+
+            <p>
+                @T:privacy_l3<br>
+                @T:privacy_l4
+            </p><br>
+
+            <p><strong>@T:privacy_l5</strong></p>
+            <p>
+                @T:privacy_l6<br>
+                @T:privacy_l7<br>
+                @T:privacy_l8<br>
+                @T:privacy_l9
+            </p><br>
+
+            <p><strong>@T:privacy_l10</strong></p>
+            <p>
+                @T:privacy_l11<br>
+                @T:privacy_l12<br>
+                @T:privacy_l13
+            </p><br>
+
+            <p><strong>@T:privacy_l14</strong></p>
+            <p>
+                @T:privacy_l15<br>
+                @T:privacy_l16<br>
+                @T:privacy_l17
+            </p><br>
+
+            <p><strong>@T:privacy_l18</strong><br>
+                @T:privacy_l19
+                <ex-nav-button name="contactmail">
+                    ioanabeatrice.riess@gmail.com
+                </ex-nav-button>
+            </p><br>
+        </div>
+    </ex-popup>
+
+    <ex-popup id="pop-legal" popupTitle="@T:legalAdvice">
+        <div>
+            <p>
+                <strong>@T:legal_l1</strong><br>
+                @T:legal_l2<br>
+                @T:legal_l3
+            </p><br>
+
+            <p>
+                <strong>@T:legal_l4</strong> [Registration Number]<br>
+                <strong>@T:legal_l5</strong> [Tax ID Number]
+            </p><br>
+
+            <p><strong>@T:legal_l6</strong></p>
+            <p>
+                @T:legal_l7<br>
+                @T:legal_l8<br>
+                @T:legal_l9<br>
+                @T:legal_l10
+            </p><br>
+
+            <p><strong>@T:legal_l11</strong></p>
+            <p>
+                @T:legal_l12<br>
+                @T:legal_l13
+            </p><br>
+
+            <p><strong>@T:legal_l14</strong></p>
+            <p>
+                @T:legal_l15<br>
+                @T:legal_l16
+            </p><br>
+
+            <p><strong>@T:legal_l17</strong>
+                <ex-nav-button name="contactmail">
+                    ioanabeatrice.riess@gmail.com
+                </ex-nav-button>
+            </p>
+        </div>
+    </ex-popup>
+
+    <!-- Cookie Consent Popup -->
+    <ex-popup id="pop-cookie-consent" popupTitle="@T:cookieSettings" style="display: none;">
+        <div class="cookie-content">
+            <p>
+                @T:cookie_l1<br>
+                @T:cookie_l2<br>
+                @T:cookie_l3
+            </p>
+            <p>
+                @T:cookie_l4
+                <button class="consent-popup-button" id="pop-consent-language-btn">
+                    @T:cookie_here
+                </button>
+            </p>
+            <p>
+                @T:cookie_l5<br>
+                @T:cookie_l6
+                <button class="consent-popup-button" id="pop-consent-privacy-btn">
+                    @T:cookie_here
+                </button>
+            </p>
+        </div>
+        <div class="cookie-buttons">
+            <button id="pop-consent-accept">@T:cookie_accept</button>
+            <button id="pop-consent-reject">@T:cookie_reject</button>
+        </div>
+    </ex-popup>
+
+    <ex-popup id="pop-langsett" popupTitle="@T:languageSettings">
+        <p>@T:languageSelect</p>
+        <button id="pop-langsett-en">English</button>
+        <button id="pop-langsett-es">Español</button>
+        <button id="pop-langsett-ro">Română</button>
+    </ex-popup>
+
+    <ex-nav-header name="contactmail">
+        <a href="mailto:ioanabeatrice.riess@gmail.com"></a>
+    </ex-nav-header>
+
+    <ex-main id="main-content">
+        <ex-nav-header name="top" role="heading">This is the top of the page</ex-nav-header>
+        <ex-nav-header name="menu" role="heading"><a href="/menu"></a></ex-nav-header>
+        <section id="greet">
+            <h1>
+                @T:slogan_l1<br>
+                @T:slogan_l2<br>
+                @T:slogan_l3<br>
+                @T:slogan_l4
+            </h1>
+            <p class="cta-link"><a href="/menu">@T:toMenu</a><ex-line width="2px"></ex-line></p>
+            <div class="scroll-down-arrow">
+                <ex-nav-button name="about start"></ex-nav-button>
+                <span class="scroll-down-arrow-icon"></span>
+            </div>
+        </section>
+
+        <div class="art-deco-diamond">
+            <div class="deco-center"></div>
+        </div>
+        <ex-nav-header name="about start" role="heading"></ex-nav-header>
+        <section>
+            <h2>@T:theAboutUs</h2>
+            <p class="infcard-text empty-infocard">
+                @T:about_l1
+                <br><br>
+                @T:about_l2
+                <br><br>
+            </p>
+            <div class="spacer-super"></div>
+            <ex-infcard-holder>
+                <ex-infcard>
+                    <ex-line dir="v" width="2px"></ex-line>
+                    <div class="image-without-header">
+                        <img loading="lazy" src="/functions/images/splash/asorted_table_cose.webp"
+                            alt="@T:alt_assortedTableClose">
+                    </div>
+                    <ex-line dir="v" width="2px"></ex-line>
+                </ex-infcard>
+
+                <ex-infcard>
+                    <ex-line dir="v" width="2px"></ex-line>
+                    <div class="image-without-header">
+                        <img loading="lazy" src="/functions/images/splash/bar_shots.webp" alt="@T:alt_barShots">
+                    </div>
+                    <ex-line dir="v" width="2px"></ex-line>
+                </ex-infcard>
+
+                <ex-infcard>
+                    <ex-line dir="v" width="2px"></ex-line>
+                    <div class="image-without-header">
+                        <img loading="lazy" src="/functions/images/splash/asorted_table_far.webp"
+                            alt="@T:alt_tableSpreadFar">
+                    </div>
+                    <ex-line dir="v" width="2px"></ex-line>
+                </ex-infcard>
+
+                <ex-infcard>
+                    <ex-line dir="v" width="2px"></ex-line>
+                    <div class="image-without-header">
+                        <img loading="lazy" src="/functions/images/splash/the_box.webp"
+                            alt="@T:alt_privateBox">
+                    </div>
+                    <ex-line dir="v" width="2px"></ex-line>
+                </ex-infcard>
+
+                <ex-infcard>
+                    <ex-line dir="v" width="2px"></ex-line>
+                    <div class="image-without-header">
+                        <img loading="lazy" src="/functions/images/splash/instagramable.webp"
+                            alt="@T:alt_instagramCorner">
+                    </div>
+                    <ex-line dir="v" width="2px"></ex-line>
+                </ex-infcard>
+            </ex-infcard-holder>
+            <div class="spacer-super"></div>
+
+            <p class="infcard-text empty-infocard">
+                @T:about_l3
+                <br><br>
+                @T:about_l4
+
+            </p>
+
+            <div class="scroll-down-arrow">
+                <ex-nav-button name="about experience"></ex-nav-button>
+                <span class="scroll-down-arrow-icon"></span>
+            </div>
+
+        </section>
+
+        <div class="art-deco-chevron">
+            <div class="deco-line-left"></div>
+            <div class="deco-spacer"></div>
+            <div class="deco-line-right"></div>
+        </div>
+        <ex-nav-header name="about experience" role="heading"></ex-nav-header>
+        <section>
+            <h2>@T:theExperience</h2>
+            <p class="infcard-text empty-infocard">
+                @T:experience_l1
+                <br><br>
+                @T:experience_l2
+            </p>
+            <div class="spacer-super"></div>
+            <ex-infcard-holder>
+                <ex-infcard>
+                    <ex-line dir="v" width="2px"></ex-line>
+                    <div class="image-without-header">
+                        <img loading="lazy" src="/functions/images/splash/octopus.webp" alt="@T:alt_octopus">
+                    </div>
+                    <ex-line dir="v" width="2px"></ex-line>
+                </ex-infcard>
+
+                <ex-infcard>
+                    <ex-line dir="v" width="2px"></ex-line>
+                    <div class="image-without-header">
+                        <img loading="lazy" src="/functions/images/splash/conopida_up.webp" alt="@T:alt_cauliflower">
+                    </div>
+                    <ex-line dir="v" width="2px"></ex-line>
+                </ex-infcard>
+
+                <ex-infcard>
+                    <ex-line dir="v" width="2px"></ex-line>
+                    <div class="image-without-header">
+                        <img loading="lazy" src="/functions/images/splash/midii.webp" alt="@T:alt_mussels">
+                    </div>
+                    <ex-line dir="v" width="2px"></ex-line>
+                </ex-infcard>
+
+                <ex-infcard>
+                    <ex-line dir="v" width="2px"></ex-line>
+                    <div class="image-without-header">
+                        <img loading="lazy" src="/functions/images/splash/steak_side.webp" alt="@T:alt_steakSide">
+                    </div>
+                    <ex-line dir="v" width="2px"></ex-line>
+                </ex-infcard>
+
+                <ex-infcard>
+                    <ex-line dir="v" width="2px"></ex-line>
+                    <div class="image-without-header">
+                        <img loading="lazy" src="/functions/images/splash/shrimp_up.webp" alt="@T:alt_shrimpCloseup">
+                    </div>
+                    <ex-line dir="v" width="2px"></ex-line>
+                </ex-infcard>
+            </ex-infcard-holder>
+
+
+            <ex-nav-header name="about vision" role="heading"></ex-nav-header>
+            <h2><br><br>@T:theVision</h2>
+            <p class="infcard-text empty-infocard">
+                @T:vision_l1
+            </p>
+            <div class="spacer-super"></div>
+
+            <ex-nav-header name="about philosophy" role="heading"></ex-nav-header>
+            <h2><br><br>@T:culinaryPhilosophy</h2>
+            <p class="infcard-text empty-infocard">
+                @T:philosophy_l1
+                <br><br>
+                @T:philosophy_l2
+            </p>
+            <div class="spacer-super"></div>
+            <ex-infcard-holder>
+                <ex-infcard>
+                    <ex-line dir="v" width="2px"></ex-line>
+                    <div class="image-without-header">
+                        <img loading="lazy" src="/functions/images/splash/Seabass.webp" alt="@T:alt_seabass">
+                    </div>
+                    <ex-line dir="v" width="2px"></ex-line>
+                </ex-infcard>
+
+                <ex-infcard>
+                    <ex-line dir="v" width="2px"></ex-line>
+                    <div class="image-without-header">
+                        <img loading="lazy" src="/functions/images/splash/steak_side_up.webp" alt="@T:alt_steakAbove">
+                    </div>
+                    <ex-line dir="v" width="2px"></ex-line>
+                </ex-infcard>
+
+                <ex-infcard>
+                    <ex-line dir="v" width="2px"></ex-line>
+                    <div class="image-without-header">
+                        <img loading="lazy" src="/functions/images/splash/steak_up.webp" alt="@T:alt_steakCloseup">
+                    </div>
+                    <ex-line dir="v" width="2px"></ex-line>
+                </ex-infcard>
+
+                <ex-infcard>
+                    <ex-line dir="v" width="2px"></ex-line>
+                    <div class="image-without-header">
+                        <img loading="lazy" src="/functions/images/splash/Porc de sus.webp" alt="@T:alt_porkAbove">
+                    </div>
+                    <ex-line dir="v" width="2px"></ex-line>
+                </ex-infcard>
+            </ex-infcard-holder>
+
+            <div class="scroll-down-arrow">
+                <ex-nav-button name="about location"></ex-nav-button>
+                <span class="scroll-down-arrow-icon"></span>
+            </div>
+        </section>
+
+
+        <div class="art-deco-triple">
+            <div class="deco-line"></div>
+            <div class="deco-line"></div>
+            <div class="deco-line"></div>
+        </div>
+        <ex-nav-header name="about location" role="heading"></ex-nav-header>
+        <section>
+            <h2>@T:theLocation</h2>
+            <p class="infcard-text empty-infocard">
+                @T:location_l1
+                <br><br>
+                @T:location_l2
+            </p>
+            <div class="spacer-super"></div>
+            <ex-infcard-holder>
+                <ex-infcard>
+                    <ex-line dir="v" width="2px"></ex-line>
+                    <div class="image-without-header">
+                        <img loading="lazy" src="/functions/images/splash/comedor.webp" alt="@T:alt_diningRoom">
+                    </div>
+                    <ex-line dir="v" width="2px"></ex-line>
+                </ex-infcard>
+
+                <ex-infcard>
+                    <ex-line dir="v" width="2px"></ex-line>
+                    <div class="image-without-header">
+                        <img loading="lazy" src="/functions/images/splash/tables.webp" alt="@T:alt_tableSettings">
+                    </div>
+                    <ex-line dir="v" width="2px"></ex-line>
+                </ex-infcard>
+
+                <ex-infcard>
+                    <ex-line dir="v" width="2px"></ex-line>
+                    <div class="image-without-header">
+                        <img loading="lazy" src="/functions/images/splash/interior_panorama.webp" alt="@T:alt_interiorPanorama">
+                    </div>
+                    <ex-line dir="v" width="2px"></ex-line>
+                </ex-infcard>
+            </ex-infcard-holder>
+
+            <div class="scroll-down-arrow">
+                <ex-nav-button name="about team"></ex-nav-button>
+                <span class="scroll-down-arrow-icon"></span>
+            </div>
+        </section>
+
+        <div class="art-deco-fan">
+            <div class="deco-center"></div>
+        </div>
+        <ex-nav-header name="about team" role="heading"></ex-nav-header>
+        <section>
+            <h2>@T:meetTheTeam</h2>
+            <ex-infcard-holder>
+
+                <ex-infcard>
+                    <ex-line dir="v" width="2px"></ex-line>
+                    <div class="image-with-header">
+                        <div>
+                            <strong>CHEF Florin Carnicianu</strong><br>
+                            @T:meet_florin<br><br>
+                        </div>
+                        <img loading="lazy" src="/functions/images/splash/florin.webp" alt="@T:alt_chefFlorin">
+                    </div>
+                    <ex-line dir="v" width="2px"></ex-line>
+                </ex-infcard>
+
+                <ex-infcard>
+                    <ex-line dir="v" width="2px"></ex-line>
+                    <div class="image-with-header">
+                        <div><strong>Cristi Cirnicianu</strong><br>
+                            @T:meet_cristi<br><br>
+                        </div>
+                        <img loading="lazy" src="https://placehold.co/400x600/000000/FFFFFF" alt="@T:alt_cristi">
+                    </div>
+                    <ex-line dir="v" width="2px"></ex-line>
+                </ex-infcard>
+
+                <ex-infcard>
+                    <ex-line dir="v" width="2px"></ex-line>
+                    <div class="image-with-header">
+                        <div><strong>Beatrice Riess</strong><br>
+                            @T:meet_beatrice<br><br>
+                        </div>
+                        <img loading="lazy" src="/functions/images/splash/betti.webp" alt="@T:alt_beatrice">
+                    </div>
+                    <ex-line dir="v" width="2px"></ex-line>
+                </ex-infcard>
+
+                <ex-infcard>
+                    <ex-line dir="v" width="2px"></ex-line>
+                    <div class="image-with-header">
+                        <div><strong>Nico Cirnicianu</strong><br>
+                            @T:meet_nico<br><br>
+                        </div>
+                        <img loading="lazy" src="https://placehold.co/400x600/000000/FFFFFF" alt="Nico Cirnicianu">
+                    </div>
+                    <ex-line dir="v" width="2px"></ex-line>
+                </ex-infcard>
+            </ex-infcard-holder>
+
+            <div class="scroll-down-arrow">
+                <ex-nav-button name="bottom"></ex-nav-button>
+                <span class="scroll-down-arrow-icon"></span>
+            </div>
+        </section>
+    </ex-main>
+</body>
+
+</html>

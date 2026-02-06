@@ -1,0 +1,1125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Google Tag Manager -->
+    <script>(function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start': new Date().getTime(), event: 'gtm.js'
+            });
+            var f = d.getElementsByTagName(s)[0], j = d.createElement(s), dl = l
+                != 'dataLayer' ? '&l=' + l : '';
+            j.async = true;
+            j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+            f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-NMQLFZM7');</script>
+    <!-- End Google Tag Manager -->
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-S5JXG6GFF0"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-S5JXG6GFF0');
+    </script>
+    <script>
+        (() => {
+            const style = document.createElement('style');
+            style.textContent = `
+        /* Immediate loading screen coverage - works even before JS runs */
+        ex-loading, ex-loading:not(:defined) {
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        width: 100% !important;
+        height: 100% !important;
+        background: #0A3021 !important;
+        z-index: 10000 !important;
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        transition: opacity 0.5s ease;
+        }
+        
+        /* Show spinner immediately */
+        ex-loading:not(:defined)::before,
+        ex-loading::before {
+        content: '';
+        width: clamp(36px, 8vmin, 48px);
+        height: clamp(36px, 8vmin, 48px);
+        border: clamp(2px, 0.5vmin, 3px) solid rgba(234, 187, 109, 0.2);
+        border-top: clamp(2px, 0.5vmin, 3px) solid #EABB6D;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+        }
+        
+        /* Spinner animation */
+        @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+        }
+        
+        /* Hide the spinner once custom element renders its own */
+        ex-loading:defined::before {
+        display: none;
+        }
+    `;
+
+            // Inject styles immediately
+            if (document.head) {
+                document.head.appendChild(style);
+            } else {
+                // If head doesn't exist yet, wait for it
+                document.addEventListener('DOMContentLoaded', () => {
+                    document.head.appendChild(style);
+                });
+            }
+        })();
+    </script>
+
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="EXORA is a vibrant and welcoming dining 
+  destination in Benicassim, Spain, where bold flavors, creativity and 
+  excellence come together in an experience that transcends time. Rooted in our 
+  Romanian heritage and inspired by Mediterranean influences, our bistro offers 
+  a diverse menu that balances comfort and innovation. From expertly crafted 
+  burgers to premium steaks and fresh seafood, Exora reimagines familiar 
+  favorites with a unique twist, inviting guests on a culinary journey
+  that bridges tradition and modernity.">
+    <meta name="keywords" content="restaurant menu, Benicassim, Romanian, Mediterranean, bistro, fine dining, seafood, steaks, burgers, Spain, Exora, Castellon, wine list, cocktails, allergens">
+
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <meta name="author" content="created by Beatrice Riess, Florin Cirnicianu, Cristian Cirnicianu and Ciprian Nicolae">
+    <link rel="shortcut icon" href="/functions/images/favicon.png" type="image/x-icon">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="EXORA Bistro | Menu">
+    <meta property="og:description" content="Explore our menu of Romanian and Mediterranean cuisine. From expertly crafted burgers to premium steaks and fresh seafood.">
+    <meta property="og:image" content="/functions/images/ExoraLogo.webp">
+    <meta property="og:url" content="https://ex-ora.com/menu/">
+    <meta property="og:type" content="restaurant.menu">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:site_name" content="EXORA Bistro">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="EXORA Bistro | Menu">
+    <meta name="twitter:description" content="Explore our menu of Romanian and Mediterranean cuisine in Benicassim, Spain.">
+    <meta name="twitter:image" content="/functions/images/ExoraLogo.webp">
+
+    <title>EXORA | Menu</title>
+
+    <link rel="stylesheet" href="/functions/styles/general.css">
+    <link rel="stylesheet" href="/functions/styles/menu.css">
+
+    <script type="module" src="/functions/modules/loading.js" fetchpriority="high"></script>
+    <script defer type="module" src="/functions/modules/ex-main.js"></script>
+    <script defer type="module" src="/functions/modules/line.js"></script>
+    <script defer type="module" src="/functions/modules/nav-button.js"></script>
+    <script defer type="module" src="/functions/modules/menu.js"></script>
+    <script defer type="module" src="/functions/modules/ex-popup.js"></script>
+    <script defer type="module" src="/functions/modules/ex-translate.js"></script>
+</head>
+
+<body>
+    <a href="#main-content" class="skip-link">Skip to content</a>
+
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NMQLFZM7" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <ex-loading></ex-loading>
+
+    <div class="page-leaves-bg">
+        <div class="leaves-left"></div>
+        <div class="leaves-right"></div>
+    </div>
+
+    <div class="page-noise-bg"></div>
+
+    <ex-popup id="pop-contact" popupTitle="@T:contactUs">
+        <div class="contact-popup-info">
+            <div class="contact-popup-item">
+                <svg width="24" height="24" viewBox="0 0 24 24">
+                    <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
+                </svg>
+                <a href="mailto:ioanabeatrice.riess@gmail.com">ioanabeatrice.riess@gmail.com</a>
+            </div>
+            <div class="contact-popup-item">
+                <svg width="24" height="24" viewBox="0 0 24 24">
+                    <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
+                </svg>
+                <a href="tel:+34642364712">+34 642 36 47 12</a>
+            </div>
+            <div class="contact-popup-item">
+                <svg width="24" height="24" viewBox="0 0 24 24">
+                    <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
+                </svg>
+                <a href="tel:+34642364782">+34 642 36 47 82</a>
+            </div>
+            <div class="contact-popup-item">
+                <svg width="24" height="24" viewBox="0 0 24 24">
+                    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+                </svg>
+                <a href="https://maps.app.goo.gl/fX95wTSU1xA3bqjz5">Av. Barcelona, 87, 12560 Benicassim, Castello</a>
+            </div>
+            <div class="contact-popup-socials">
+                <a href="https://www.facebook.com/profile.php?id=61577757483443" aria-label="Facebook">
+                    <svg viewBox="0 0 24 24" width="30" height="30"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" /></svg>
+                </a>
+                <a href="https://www.instagram.com/exora.benicassim/" aria-label="Instagram">
+                    <svg viewBox="0 0 24 24" width="30" height="30"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" /></svg>
+                </a>
+            </div>
+        </div>
+    </ex-popup>
+
+    <ex-popup id="pop-privacy" popupTitle="@T:privacyPolicy">
+        <div>
+            <p><strong>@T:privacy_l1</strong> <br>
+                @T:privacy_l2
+            </p><br>
+
+            <p>
+                @T:privacy_l3<br>
+                @T:privacy_l4
+            </p><br>
+
+            <p><strong>@T:privacy_l5</strong></p>
+            <p>
+                @T:privacy_l6<br>
+                @T:privacy_l7<br>
+                @T:privacy_l8<br>
+                @T:privacy_l9
+            </p><br>
+
+            <p><strong>@T:privacy_l10</strong></p>
+            <p>
+                @T:privacy_l11<br>
+                @T:privacy_l12<br>
+                @T:privacy_l13
+            </p><br>
+
+            <p><strong>@T:privacy_l14</strong></p>
+            <p>
+                @T:privacy_l15<br>
+                @T:privacy_l16<br>
+                @T:privacy_l17
+            </p><br>
+
+            <p><strong>@T:privacy_l18</strong><br>
+                @T:privacy_l19
+                <ex-nav-button name="contactmail">
+                    ioanabeatrice.riess@gmail.com
+                </ex-nav-button>
+            </p><br>
+        </div>
+    </ex-popup>
+
+    <ex-popup id="pop-legal" popupTitle="@T:legalAdvice">
+        <div>
+            <p>
+                <strong>@T:legal_l1</strong><br>
+                @T:legal_l2<br>
+                @T:legal_l3
+            </p><br>
+
+            <p>
+                <strong>@T:legal_l4</strong> [Registration Number]<br>
+                <strong>@T:legal_l5</strong> [Tax ID Number]
+            </p><br>
+
+            <p><strong>@T:legal_l6</strong></p>
+            <p>
+                @T:legal_l7<br>
+                @T:legal_l8<br>
+                @T:legal_l9<br>
+                @T:legal_l10
+            </p><br>
+
+            <p><strong>@T:legal_l11</strong></p>
+            <p>
+                @T:legal_l12<br>
+                @T:legal_l13
+            </p><br>
+
+            <p><strong>@T:legal_l14</strong></p>
+            <p>
+                @T:legal_l15<br>
+                @T:legal_l16
+            </p><br>
+
+            <p><strong>@T:legal_l17</strong>
+                <ex-nav-button name="contactmail">
+                    ioanabeatrice.riess@gmail.com
+                </ex-nav-button>
+            </p>
+        </div>
+    </ex-popup>
+
+    <!-- Cookie Consent Popup -->
+    <ex-popup id="pop-cookie-consent" popupTitle="@T:cookieSettings" style="display: none;">
+        <div class="cookie-content">
+            <p>
+                @T:cookie_l1<br>
+                @T:cookie_l2<br>
+                @T:cookie_l3
+            </p>
+            <p>
+                @T:cookie_l4
+                <button class="consent-popup-button" id="pop-consent-language-btn">
+                    @T:cookie_here
+                </button>
+            </p>
+            <p>
+                @T:cookie_l5<br>
+                @T:cookie_l6
+                <button class="consent-popup-button" id="pop-consent-privacy-btn">
+                    @T:cookie_here
+                </button>
+            </p>
+        </div>
+        <div class="cookie-buttons">
+            <button id="pop-consent-accept">@T:cookie_accept</button>
+            <button id="pop-consent-reject">@T:cookie_reject</button>
+        </div>
+    </ex-popup>
+
+    <ex-popup id="pop-langsett" popupTitle="@T:languageSettings">
+        <p>@T:languageSelect</p>
+        <button id="pop-langsett-en">English</button>
+        <button id="pop-langsett-es">Español</button>
+        <button id="pop-langsett-ro">Română</button>
+    </ex-popup>
+
+    <ex-nav-header name="contactmail">
+        <a href="mailto:ioanabeatrice.riess@gmail.com"></a>
+    </ex-nav-header>
+
+    <ex-main id="main-content">
+        <ex-nav-header name="top" role="heading"></ex-nav-header>
+        <ex-nav-header name="about start" role="heading">
+            <a href="/home"></a>
+        </ex-nav-header>
+        <ex-nav-header name="about experience" role="heading">
+            <a href="/home"></a>
+        </ex-nav-header>
+        <ex-nav-header name="about vision" role="heading">
+            <a href="/home"></a>
+        </ex-nav-header>
+        <ex-nav-header name="about philosophy" role="heading">
+            <a href="/home"></a>
+        </ex-nav-header>
+        <ex-nav-header name="about location" role="heading">
+            <a href="/home"></a>
+        </ex-nav-header>
+        <ex-nav-header name="about team" role="heading">
+            <a href="/home"></a>
+        </ex-nav-header>
+
+        <ex-menu>
+            <h1 class="menu-page-title">@T:menu</h1>
+            <div class="spacer"></div>
+            <ex-line width="2px"></ex-line>
+            <h2>@T:menu_starters</h2>
+            <item>
+                <name>@T:menu_romanianTaramasalata</name>
+                <price>€11.00</price>
+                <allergens>fish, wheat, milk </allergens>
+            </item>
+            <item>
+                <name>@T:menu_olivePate</name>
+                <price>€8.00</price>
+                <allergens>wheat</allergens>
+            </item>
+            <item>
+                <name>@T:menu_kidneyBean</name>
+                <price>€11.00</price>
+                <allergens>fish, wheat</allergens>
+            </item>
+            <item>
+                <name>@T:menu_chefSelection</name>
+                <price>€16.00</price>
+                <allergens>mustard, sulphites</allergens>
+            </item>
+            <item>
+                <name>@T:menu_cheeseTasting</name>
+                <price>€16.00</price>
+                <allergens>wheat, milk, nuts</allergens>
+            </item>
+            <item>
+                <name>@T:menu_cookedMeat</name>
+                <price>€23.00</price>
+                <allergens>mustard, sulphites</allergens>
+            </item>
+
+            <div class="spacer-super"></div>
+            <ex-line width="2px"></ex-line>
+            <h2>@T:menu_soupAndSalads</h2>
+            <item>
+                <name>@T:menu_octopusSalad</name>
+                <price>€16.00</price>
+                <allergens>celery, shellfish</allergens>
+            </item>
+            <item>
+                <name>@T:menu_tofuAndGarden</name>
+                <price>€9.00</price>
+                <allergens>soya</allergens>
+            </item>
+            <item>
+                <name>@T:menu_exoraSalad</name>
+                <price>€10.00</price>
+                <allergens>eggs, milk, mustard, sulphites</allergens>
+            </item>
+            <item>
+                <name>@T:menu_mushroomCream</name>
+                <price>€7.00</price>
+                <allergens>celery, wheat, milk</allergens>
+            </item>
+            <item>
+                <name>@T:menu_draculaSoup</name>
+                <price>€8.00</price>
+                <allergens>celery, wheat, milk</allergens>
+            </item>
+            <item>
+                <name>@T:menu_romanianBrined</name>
+                <price>€9.00</price>
+                <allergens>celery, fish, shellfish</allergens>
+            </item>
+
+            <div class="spacer-super"></div>
+            <ex-line width="2px"></ex-line>
+            <h2>@T:menu_fish</h2>
+            <item>
+                <name>@T:menu_seaBass</name>
+                <price>€22.00</price>
+                <allergens>celery, fish, milk, shellfish</allergens>
+            </item>
+            <item>
+                <name>@T:menu_seaBream</name>
+                <price>€21.00</price>
+                <allergens>celery, fish, wheat, milk, shellfish, soya</allergens>
+            </item>
+            <item>
+                <name>@T:menu_octopusWithChorizo</name>
+                <price>€23.00</price>
+                <allergens>celery, milk, shellfish</allergens>
+            </item>
+            <item>
+                <name>@T:menu_blackTiger</name>
+                <price>€28.00</price>
+                <allergens>celery, fish, milk, sesame, shellfish, soya, cereal
+                </allergens>
+            </item>
+            <item>
+                <name>@T:menu_sauteedMussels</name>
+                <price>€13.00</price>
+                <allergens>celery, milk, shellfish, sulphites</allergens>
+            </item>
+
+            <div class="spacer-super"></div>
+            <ex-line width="2px"></ex-line>
+            <h2>@T:menu_meat</h2>
+            <item>
+                <name>@T:menu_crispyWings</name>
+                <price>€12.00</price>
+                <allergens>eggs, mustard, sulphites</allergens>
+            </item>
+            <item>
+                <name>@T:menu_romanianMici</name>
+                <price>€16.00</price>
+                <allergens>mustard, sulphites</allergens>
+            </item>
+            <item>
+                <name>@T:menu_mediteraneanBurger</name>
+                <price>€13.00</price>
+                <allergens>eggs, wheat, milk</allergens>
+            </item>
+            <item>
+                <name>@T:menu_exoraBurger</name>
+                <price>€15.00</price>
+                <allergens>eggs , wheat, milk, mustard, sulphites</allergens>
+            </item>
+            <item>
+                <name>@T:menu_slowcookedPork</name>
+                <price>€23.00</price>
+                <allergens>milk, mustard, sulphites, nuts</allergens>
+            </item>
+            <item>
+                <name>@T:menu_ribeye</name>
+                <price>€25.00</price>
+                <allergens>milk</allergens>
+            </item>
+            <item>
+                <name>@T:menu_slowcookedBeef</name>
+                <price>€32.00</price>
+                <allergens>celery, wheat, milk, sulphites</allergens>
+            </item>
+
+            <div class="spacer-super"></div>
+            <ex-line width="2px"></ex-line>
+            <h2>@T:menu_vegan</h2>
+            <item>
+                <name>@T:menu_cauliflowerSteak</name>
+                <price>€8.00</price>
+                <allergens>wheat, soya</allergens>
+            </item>
+            <item>
+                <name>@T:menu_sauteedGreenBeans</name>
+                <price>€9.00</price>
+                <allergens>sulphites, nuts</allergens>
+            </item>
+
+            <div class="spacer-super"></div>
+            <ex-line width="2px"></ex-line>
+            <h2>@T:menu_desserts</h2>
+            <item>
+                <name>@T:menu_frenchToast</name>
+                <price>€6.00</price>
+                <allergens>eggs, wheat, milk</allergens>
+            </item>
+            <item>
+                <name>@T:menu_romanianPapanasi</name>
+                <price>€8.00</price>
+                <allergens>eggs, wheat, milk, nuts</allergens>
+            </item>
+            <item>
+                <name>@T:menu_dacianSecret</name>
+                <price>€7.00</price>
+                <allergens>eggs, wheat, barley, milk, nuts</allergens>
+            </item>
+
+            <div class="drinks">
+                <div class="spacer-super"></div>
+                <ex-line width="2px"></ex-line>
+                <h2>@T:menu_tintos</h2>
+                <h3>@T:menu_DO_CARioja</h3>
+                <item>
+                    <name>@T:menu_riojaVegaCrizana</name>
+                    <price>€17.00/€3 @T:menu_copa</price>
+                </item>
+                <item>
+                    <name>@T:menu_malpastorCrianza</name>
+                    <price>€18.00</price>
+                </item>
+                <item>
+                    <name>@T:menu_ramonBilbao_EEG</name>
+                    <price>€24.00</price>
+                </item>
+                <item>
+                    <name>@T:menu_ramonBilbao_EE</name>
+                    <price>€24.00</price>
+                </item>
+                <item>
+                    <name>@T:menu_mitroDeRamon</name>
+                    <price>€63.00</price>
+                </item>
+
+                <h3>@T:menu_DO_RiberaDelDuero</h3>
+                <item>
+                    <name>@T:menu_senorDeNavaCrianza</name>
+                    <price>€24.00</price>
+                </item>
+                <item>
+                    <name>@T:menu_bardosVineodosDeAltura</name>
+                    <price>€23.00</price>
+                </item>
+
+                <h3>@T:menu_DO_CostersDelCegre</h3>
+                <item>
+                    <name>@T:menu_pungatori</name>
+                    <price>€44.00</price>
+                </item>
+
+                <h3>@T:menu_IGP_CastillaYLeon</h3>
+                <item>
+                    <name>@T:menu_cluniaSyrah</name>
+                    <price>€31.00</price>
+                </item>
+
+                <h2>@T:menu_blancos</h2>
+                <h3>@T:menu_DO_Rueda</h3>
+                <item>
+                    <name>@T:menu_cesteVerdejo</name>
+                    <price>€17.00/€3 @T:menu_copa</price>
+                </item>
+                <item>
+                    <name>@T:menu_earlyHarvest</name>
+                    <price>€21.00</price>
+                </item>
+
+                <h3>@T:menu_DO_Penedes_Blanco</h3>
+                <item>
+                    <name>@T:menu_vinaEsperaldaBlanco</name>
+                    <price>€18.00</price>
+                </item>
+                <item>
+                    <name>@T:menu_jeanLeon</name>
+                    <price>€21.00</price>
+                </item>
+
+                <h3>@T:menu_DO_RiasBaixas</h3>
+                <item>
+                    <name>@T:menu_marDeFrades</name>
+                    <price>€31.00</price>
+                </item>
+                <item>
+                    <name>@T:menu_pazoDasBruxas</name>
+                    <price>€20.50</price>
+                </item>
+
+                <h3>@T:menu_DO_Valdeorras</h3>
+                <item>
+                    <name>@T:menu_godevalCodello</name>
+                    <price>€24.00</price>
+                </item>
+
+                <h2>@T:menu_rosados</h2>
+                <h3>@T:menu_DO_Navarra</h3>
+                <item>
+                    <name>@T:menu_wildDaliaRose</name>
+                    <price>€12.50/€3 @T:menu_copa</price>
+                </item>
+                <h3>@T:menu_DO_Penedes_Rosa</h3>
+                <item>
+                    <name>@T:menu_jeanLeonRose</name>
+                    <price>€19.00</price>
+                </item>
+
+                <h2>@T:menu_cava</h2>
+                <h3>@T:menu_DO_Cava</h3>
+                <item>
+                    <name>@T:menu_dominioDeThasys</name>
+                    <price>€18.00</price>
+                </item>
+                <h3>@T:menu_EDC</h3>
+                <item>
+                    <name>@T:menu_rovelltoBlancoBrut</name>
+                    <price>€17.00</price>
+                </item>
+
+                <h2>@T:menu_vinosRumania</h2>
+                <h3>@T:menu_S</h3>
+                <item>
+                    <name>@T:menu_soleDeRecas</name>
+                    <price>€26.00</price>
+                </item>
+                <h3>@T:menu_P</h3>
+                <item>
+                    <name>@T:menu_negroDePrucari</name>
+                    <price>€29.00</price>
+                </item>
+
+                <div class="spacer-super"></div>
+                <ex-line width="2px"></ex-line>
+                <h2>@T:menu_cocktails</h2>
+                <item>
+                    <name>@T:menu_whiteFlower</name>
+                    <price>€8.00</price>
+                </item>
+                <item>
+                    <name>@T:menu_transilvanianNegromi</name>
+                    <price>€10.00</price>
+                </item>
+                <item>
+                    <name>@T:menu_walnutRum</name>
+                    <price>€12.00</price>
+                </item>
+                <item>
+                    <name>@T:menu_captainMojito</name>
+                    <price>€9.00</price>
+                </item>
+
+                <div class="spacer-super"></div>
+                <ex-line width="2px"></ex-line>
+                <h2>@T:menu_cafe</h2>
+                <item>
+                    <name>@T:menu_cafeSolo</name>
+                    <price>€1.5</price>
+                </item>
+                <item>
+                    <name>@T:meun_cafeLargo</name>
+                    <price>€1.5</price>
+                </item>
+                <item>
+                    <name>@T:menu_cafeMacchiato</name>
+                    <price>€2</price>
+                </item>
+                <item>
+                    <name>@T:menu_cafeCortado</name>
+                    <price>€2</price>
+                </item>
+                <item>
+                    <name>@T:menu_cafeAmericano</name>
+                    <price>€1.5</price>
+                </item>
+                <item>
+                    <name>@T:menu_cafeCapuccino</name>
+                    <price>€2.5</price>
+                </item>
+                <item>
+                    <name>@T:menu_cafeFlatWhite</name>
+                    <price>€3</price>
+                </item>
+                <item>
+                    <name>@T:menu_cafeLatte</name>
+                    <price>€3.5</price>
+                </item>
+                <item>
+                    <name>@T:menu_cafeIce</name>
+                    <price>€1.6</price>
+                </item>
+                <item>
+                    <name>@T:menu_carajillo</name>
+                    <price>€2.8</price>
+                </item>
+
+
+                <div class="spacer-super"></div>
+                <ex-line width="2px"></ex-line>
+                <h2>@T:menu_naturalJuices</h2>
+                <item>
+                    <name>@T:menu_lemonade</name>
+                    <price>€2.5</price>
+                </item>
+                <item>
+                    <name>@T:menu_strawberyLemonade</name>
+                    <price>€2.5</price>
+                </item>
+                <item>
+                    <name>@T:menu_passionFruitLemonade</name>
+                    <price>€2.5</price>
+                </item>
+                <item>
+                    <name>@T:menu_orangeJuice</name>
+                    <price>€3</price>
+                </item>
+
+
+                <div class="spacer-super"></div>
+                <ex-line width="2px"></ex-line>
+                <h2>@T:menu_beers</h2>
+                <item>
+                    <name>@T:menu_jaraSanMiguel</name>
+                    <price>€4.50</price>
+                </item>
+                <item>
+                    <name>@T:menu_tercioSanMiguel</name>
+                    <price>€3.00</price>
+                </item>
+                <item>
+                    <name>@T:menu_canaSanMiguel</name>
+                    <price>€1.50</price>
+                </item>
+                <item>
+                    <name>@T:menu_mahouCincoEstrellas</name>
+                    <price>€3.50</price>
+                </item>
+                <item>
+                    <name>@T:menu_mahouCincoEstrellasGluten</name>
+                    <price>€6.00</price>
+                </item>
+                <item>
+                    <name>@T:menu_mahouReserva</name>
+                    <price>€4.00</price>
+                </item>
+                <item>
+                    <name>@T:menu_alhambraReserva</name>
+                    <price>€4.00</price>
+                </item>
+                <item>
+                    <name>@T:menu_alhambraReservaRoja</name>
+                    <price>€6.50</price>
+                </item>
+                <item>
+                    <name>@T:menu_alhambraRadler</name>
+                    <price>€3.00</price>
+                </item>
+                <item>
+                    <name>@T:menu_alhambraBotanicos</name>
+                    <price>€16.00</price>
+                </item>
+                <item>
+                    <name>@T:menu_corona</name>
+                    <price>€3.50</price>
+                </item>
+                <item>
+                    <name>@T:menu_stellaArtois</name>
+                    <price>€4.50</price>
+                </item>
+                <item>
+                    <name>@T:menu_magnaTostada</name>
+                    <price>€4.00</price>
+                </item>
+
+
+                <div class="spacer-super"></div>
+                <ex-line width="2px"></ex-line>
+                <h2>@T:menu_softDrinksAndWater</h2>
+                <item>
+                    <name>@T:menu_fanaNaranja</name>
+                    <price>€2.50</price>
+                </item>
+                <item>
+                    <name>@T:menu_fantaLimon</name>
+                    <price>€2.50</price>
+                </item>
+                <item>
+                    <name>@T:menu_royalBlissTonic</name>
+                    <price>€3.00</price>
+                </item>
+                <item>
+                    <name>@T:menu_roualBlissRosso</name>
+                    <price>€3.00</price>
+                </item>
+                <item>
+                    <name>@T:menu_fuzeTeaLimon</name>
+                    <price>€3.00</price>
+                </item>
+                <item>
+                    <name>@T:menu_fuzeTeaMaracuja</name>
+                    <price>€3.00</price>
+                </item>
+                <item>
+                    <name>@T:menu_aquariusOriginal</name>
+                    <price>€3.00</price>
+                </item>
+                <item>
+                    <name>@T:menu_burn</name>
+                    <price>€2.00</price>
+                </item>
+                <item>
+                    <name>@T:menu_cocaCola</name>
+                    <price>€2.80</price>
+                </item>
+                <item>
+                    <name>@T:menu_cocaColaZero</name>
+                    <price>€2.80</price>
+                </item>
+                <item>
+                    <name>@T:menu_cocaColaZeroZero</name>
+                    <price>€2.80</price>
+                </item>
+                <item>
+                    <name>@T:menu_limeca</name>
+                    <price>€2.50</price>
+                </item>
+                <item>
+                    <name>@T:menu_solanCabrasGas</name>
+                    <price>€3</price>
+                </item>
+                <item>
+                    <name>@T:menu_solanCabrasNatural</name>
+                    <price>€2.5</price>
+                </item>
+                <item>
+                    <name>@T:menu_solanCabrasNatural1L</name>
+                    <price>€3.5</price>
+                </item>
+
+
+                <div class="spacer-super"></div>
+                <ex-line width="2px"></ex-line>
+                <h2>@T:menu_whisky</h2>
+                <item>
+                    <name>@T:menu_johneWalkerRedLabel</name>
+                    <price>€4</price>
+                </item>
+                <item>
+                    <name>@T:menu_johneWalkerBlackLabel</name>
+                    <price>€6.5</price>
+                </item>
+                <item>
+                    <name>@T:menu_macallan</name>
+                    <price>€14</price>
+                </item>
+                <item>
+                    <name>@T:menu_johneWalkerRedLabelXL</name>
+                    <price>€55</price>
+                </item>
+                <item>
+                    <name>@T:menu_johneWalkerBlackLabelXL</name>
+                    <price>€80</price>
+                </item>
+                <item>
+                    <name>@T:menu_macallanXL</name>
+                    <price>€250</price>
+                </item>
+
+
+                <div class="spacer-super"></div>
+                <ex-line width="2px"></ex-line>
+                <h2>@T:menu_gin</h2>
+                <item>
+                    <name>@T:menu_tanqueray</name>
+                    <price>€5</price>
+                </item>
+                <item>
+                    <name>@T:menu_tanqueraySin</name>
+                    <price>€4</price>
+                </item>
+                <item>
+                    <name>@T:menu_bombayZafiro</name>
+                    <price>€5</price>
+                </item>
+                <item>
+                    <name>@T:menu_puertoDeIndias</name>
+                    <price>€5</price>
+                </item>
+                <item>
+                    <name>@T:menu_bulldog</name>
+                    <price>€6</price>
+                </item>
+                <item>
+                    <name>@T:menu_martinMillers</name>
+                    <price>€7</price>
+                </item>
+                <item>
+                    <name>@T:menu_tanquerayXL</name>
+                    <price>€55</price>
+                </item>
+                <item>
+                    <name>@T:menu_tanqueraySinXL</name>
+                    <price>€50</price>
+                </item>
+                <item>
+                    <name>@T:menu_bombayZafiroXL</name>
+                    <price>€57</price>
+                </item>
+                <item>
+                    <name>@T:menu_puertoDeIndiasXL</name>
+                    <price>€55</price>
+                </item>
+                <item>
+                    <name>@T:menu_bulldogXL</name>
+                    <price>€70</price>
+                </item>
+                <item>
+                    <name>@T:menu_martinMillersXL</name>
+                    <price>€89</price>
+                </item>
+
+
+                <div class="spacer-super"></div>
+                <ex-line width="2px"></ex-line>
+                <h2>@T:menu_rum</h2>
+                <item>
+                    <name>@T:menu_brugalAnejo</name>
+                    <price>€4</price>
+                </item>
+                <item>
+                    <name>@T:menu_calcique</name>
+                    <price>€3.8</price>
+                </item>
+                <item>
+                    <name>@T:menu_bumbu</name>
+                    <price>€9</price>
+                </item>
+                <item>
+                    <name>@T:menu_brugalAnejoXL</name>
+                    <price>€51</price>
+                </item>
+                <item>
+                    <name>@T:menu_calciqueXL</name>
+                    <price>€48</price>
+                </item>
+                <item>
+                    <name>@T:menu_bumbuXL</name>
+                    <price>€160</price>
+                </item>
+
+
+                <div class="spacer-super"></div>
+                <ex-line width="2px"></ex-line>
+                <h2>@T:menu_brandy</h2>
+                <item>
+                    <name>@T:menu_torres</name>
+                    <price>€4</price>
+                </item>
+                <item>
+                    <name>@T:menu_cardenal</name>
+                    <price>€4.5</price>
+                </item>
+                <item>
+                    <name>@T:menu_hennesy</name>
+                    <price>€42</price>
+                </item>
+                <item>
+                    <name>@T:menu_torresXL</name>
+                    <price>€45</price>
+                </item>
+                <item>
+                    <name>@T:menu_cardenalXL</name>
+                    <price>€80</price>
+                </item>
+                <item>
+                    <name>@T:menu_hennesyXL</name>
+                    <price>€950</price>
+                </item>
+
+
+                <div class="spacer-super"></div>
+                <ex-line width="2px"></ex-line>
+                <h2>@T:menu_distiladasYLicores</h2>
+                <item>
+                    <name>@T:menu_sangriaCopa</name>
+                    <price>€3</price>
+                </item>
+                <item>
+                    <name>@T:menu_vermutBendito</name>
+                    <price>€3</price>
+                </item>
+                <item>
+                    <name>@T:menu_absolutVodka</name>
+                    <price>€4</price>
+                </item>
+                <item>
+                    <name>@T:menu_joseCuervoTequila</name>
+                    <price>€3</price>
+                </item>
+                <item>
+                    <name>@T:menu_berezkoPacharan</name>
+                    <price>€4</price>
+                </item>
+                <item>
+                    <name>@T:menu_campari</name>
+                    <price>€3.3</price>
+                </item>
+                <item>
+                    <name>@T:menu_grandMarnier</name>
+                    <price>€5.5</price>
+                </item>
+                <item>
+                    <name>@T:menu_aperol</name>
+                    <price>€4</price>
+                </item>
+                <item>
+                    <name>@T:menu_villaMassaAmaretto</name>
+                    <price>€3</price>
+                </item>
+                <item>
+                    <name>@T:menu_licorLimonPaladares</name>
+                    <price>€2</price>
+                </item>
+                <item>
+                    <name>@T:menu_licorHierbasBenedito</name>
+                    <price>€1</price>
+                </item>
+                <item>
+                    <name>@T:menu_pacharanPaladares</name>
+                    <price>€1</price>
+                </item>
+                <item>
+                    <name>@T:menu_licorOrujo</name>
+                    <price>€1</price>
+                </item>
+                <item>
+                    <name>@T:menu_brandyPaladres</name>
+                    <price>€1</price>
+                </item>
+                <item>
+                    <name>@T:menu_plainca</name>
+                    <price>€4.5</price>
+                </item>
+                <item>
+                    <name>@T:menu_visinata</name>
+                    <price>€3</price>
+                </item>
+                <item>
+                    <name>@T:menu_sangria</name>
+                    <price>€11</price>
+                </item>
+                <item>
+                    <name>@T:menu_vermutBenedito</name>
+                    <price>€18</price>
+                </item>
+                <item>
+                    <name>@T:menu_absolutVodkaXL</name>
+                    <price>€54</price>
+                </item>
+                <item>
+                    <name>@T:menu_joseCuervoTequilaXL</name>
+                    <price>€55</price>
+                </item>
+                <item>
+                    <name>@T:menu_berezkoPacharanXL</name>
+                    <price>€65</price>
+                </item>
+                <item>
+                    <name>@T:menu_grandMarnierXL</name>
+                    <price>€100</price>
+                </item>
+            </div>
+
+            <div class="spacer-super"></div>
+            <ex-line width="2px"></ex-line>
+            <h2>ALERGEN INDEX</h2>
+            <div class="allergens">
+                <item>
+                    <name>@T:alergy_celery</name>
+                    <allergens>celery</allergens>
+                </item>
+                <item>
+                    <name>@T:alergy_crustaceans</name>
+                    <allergens>crustaceans</allergens>
+                </item>
+                <item>
+                    <name>@T:alergy_egg</name>
+                    <allergens>eggs</allergens>
+                </item>
+                <item>
+                    <name>@T:alergy_fish</name>
+                    <allergens>fish</allergens>
+                </item>
+                <item>
+                    <name>@T:alergy_glutenWheat</name>
+                    <allergens>wheat</allergens>
+                </item>
+                <item>
+                    <name>@T:alergy_glutenBarley</name>
+                    <allergens>barley</allergens>
+                </item>
+                <item>
+                    <name>@T:alergy_lupin</name>
+                    <allergens>lupin</allergens>
+                </item>
+                <item>
+                    <name>@T:alergy_milkDairy</name>
+                    <allergens>milk</allergens>
+                </item>
+                <item>
+                    <name>@T:alergy_mustard</name>
+                    <allergens>mustard</allergens>
+                </item>
+                <item>
+                    <name>@T:alergy_treeNuts</name>
+                    <allergens>nuts</allergens>
+                </item>
+                <item>
+                    <name>@T:alergy_shellfish</name>
+                    <allergens>shellfish</allergens>
+                </item>
+                <item>
+                    <name>@T:alergy_sesame</name>
+                    <allergens>sesame</allergens>
+                </item>
+                <item>
+                    <name>@T:alergy_soya</name>
+                    <allergens>soya</allergens>
+                </item>
+                <item>
+                    <name>@T:alergy_sulphites</name>
+                    <allergens>sulphites</allergens>
+                </item>
+            </div>
+            <div class="spacer"></div>
+        </ex-menu>
+    </ex-main>
+</body>
+
+</html>
