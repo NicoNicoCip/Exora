@@ -1,17 +1,17 @@
 class Clase extends HTMLElement {
-  constructor() {
-    super();
-  }
+    constructor() {
+        super();
+    }
 
-  connectedCallback() {
-    this.render();
-  }
+    connectedCallback() {
+        this.render();
+    }
 
-  render() {
-    this.innerHTML = /* html */`
+    render() {
+        this.innerHTML = /* html */`
       <p>Hello, World!</p>
     `;
-  }
+    }
 }
 
 customElements.define("app-clase", Clase);

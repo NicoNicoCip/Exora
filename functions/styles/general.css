@@ -666,7 +666,8 @@ footer button:hover {
 }
 
 .scroll-down-arrow {
-    margin-top: var(--spacing-2xl);
+    margin-top: auto;
+    padding-top: var(--spacing-xl);
     width: 100%;
     height: var(--spacing-3xl);
 }

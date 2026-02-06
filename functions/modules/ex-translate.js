@@ -30,7 +30,7 @@ class ExTranslate extends HTMLElement {
     loadTranslations() {
         console.log('Loading translations...');
         const translationFile = `/functions/modules/translations.${this.currentLanguage}.json`;
-        
+
         readTextFile(translationFile, (text) => {
             try {
                 this.translations = JSON.parse(text);
@@ -107,7 +107,7 @@ class ExTranslate extends HTMLElement {
             // If new content was added, translate it
             if (nodesToTranslate.length > 0) {
                 console.log(`New DOM content detected, translating ${nodesToTranslate.length} nodes...`);
-                
+
                 // Translate each new node
                 nodesToTranslate.forEach(node => {
                     this.scanAndTranslate(node);
@@ -156,7 +156,7 @@ class ExTranslate extends HTMLElement {
                 const translatedText = text.replace(translationPattern, (match, key) => {
                     return this.translations[key] || match; // Keep original if not found
                 });
-                
+
                 if (translatedText !== text) {
                     node.textContent = translatedText;
                 }
@@ -168,7 +168,7 @@ class ExTranslate extends HTMLElement {
         if (node.nodeType === Node.ELEMENT_NODE) {
             // Translate attributes (like title, placeholder, alt, aria-label, etc.)
             const attributesToTranslate = [
-                'title', 'placeholder', 'alt', 'aria-label', 
+                'title', 'placeholder', 'alt', 'aria-label',
                 'aria-description', 'data-tooltip', 'value'
             ];
 
@@ -215,7 +215,7 @@ class ExTranslate extends HTMLElement {
             console.warn('Translations not loaded yet');
             return;
         }
-        
+
         console.log('Manually translating element:', element);
         this.scanAndTranslate(element);
     }

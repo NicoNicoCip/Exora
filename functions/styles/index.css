@@ -25,10 +25,11 @@ section h2 {
 
 /* Greeting section with universal scaling */
 #greet {
-    gap: calc(var(--spacing-3xl) * 2 * var(--mobile-comfort));
+    gap: var(--spacing-2xl);
     text-wrap-mode: wrap;
     word-spacing: var(--spacing-sm);
     height: 81dvh;
+    text-align: center;
 }
 
 #greet a {
@@ -243,7 +244,7 @@ ex-infcard img {
 /* Desktop adjustments */
 @media only screen and (min-width: 1024px) {
     #greet {
-        gap: calc(var(--spacing-3xl) * 2.5 * var(--mobile-comfort) * var(--desktop-expansion));
+        gap: var(--spacing-3xl);
     }
 }
 
@@ -255,7 +256,7 @@ ex-infcard img {
     }
 
     #greet {
-        gap: calc(var(--spacing-3xl) * 0.6);
+        gap: var(--spacing-xl);
         word-spacing: var(--spacing-xs);
     }
 
@@ -277,7 +278,7 @@ ex-infcard img {
 
     #greet {
         word-spacing: 0;
-        gap: var(--spacing-2xl);
+        gap: var(--spacing-lg);
     }
 
     [class^="art-deco-"] {
