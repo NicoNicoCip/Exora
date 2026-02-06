@@ -23,8 +23,8 @@
 
 :root {
     /* 🎨 COLOR CONTROLS */
-    --color-intensity: 1.1;
-    --color-warmth: 1;
+    --color-intensity: 1;
+    --color-warmth: 0;
     --contrast-boost: 1;
 
     /* 📏 UNIVERSAL SPACING CONTROLS */
@@ -63,12 +63,12 @@
     --base-green-h: 152;
     --base-green-s: 85%;
     --base-green-l: 25%;
-    --base-gold-h: 39;
-    --base-gold-s: 50%;
-    --base-gold-l: 55%;
-    --base-light-gold-h: 39;
-    --base-light-gold-s: 71%;
-    --base-light-gold-l: 65%;
+    --base-gold-h: 35;
+    --base-gold-s: 78%;
+    --base-gold-l: 67%;
+    --base-light-gold-h: 36;
+    --base-light-gold-s: 91%;
+    --base-light-gold-l: 74%;
 
     --base-unit: 16px;
     --base-section-gap: 80px;

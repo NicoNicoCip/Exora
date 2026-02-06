@@ -230,7 +230,7 @@ ex-infcard img {
     width: 100%;
     height: fit-content;
     position: relative;
-    background-color: hsla(calc(39 + var(--color-warmth)), 61%, calc(55% * var(--color-intensity)), calc(0.9 * var(--color-intensity)));
+    background-color: hsla(calc(var(--base-gold-h) + var(--color-warmth)), calc(var(--base-gold-s) * var(--color-intensity)), calc(var(--base-gold-l) * var(--color-intensity)), calc(0.9 * var(--color-intensity)));
     box-shadow: var(--shadow-md);
     border-radius: var(--border-radius);
     overflow: hidden;
