@@ -8,8 +8,8 @@
     transform: translateX(-50%);
     z-index: 100000;
     padding: var(--spacing-sm, 12px) var(--spacing-lg, 24px);
-    background: var(--c-gold, #EABB6D);
-    color: var(--c-green-aqua, #0A3021);
+    background: var(--c-gold, #F2CB90);
+    color: var(--c-green-aqua, #08353E);
     font-weight: 700;
     font-size: var(--font-size-sm, 14px);
     text-decoration: none;
@@ -58,18 +58,18 @@
        🔧 BASE VALUES
        ======================================== */
 
-    --base-green-dark-h: 152;
+    --base-green-dark-h: 190;
     --base-green-dark-s: 75%;
-    --base-green-dark-l: 10%;
-    --base-green-h: 152;
-    --base-green-s: 85%;
-    --base-green-l: 25%;
-    --base-gold-h: 35;
-    --base-gold-s: 78%;
-    --base-gold-l: 67%;
-    --base-light-gold-h: 36;
-    --base-light-gold-s: 91%;
-    --base-light-gold-l: 74%;
+    --base-green-dark-l: 14%;
+    --base-green-h: 180;
+    --base-green-s: 65%;
+    --base-green-l: 38%;
+    --base-gold-h: 36;
+    --base-gold-s: 80%;
+    --base-gold-l: 76%;
+    --base-light-gold-h: 38;
+    --base-light-gold-s: 85%;
+    --base-light-gold-l: 84%;
 
     --base-unit: 16px;
     --base-section-gap: 80px;

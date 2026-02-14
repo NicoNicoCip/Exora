@@ -15,7 +15,7 @@ class LoadingScreen extends HTMLElement {
       left: 0 !important;
       width: 100% !important;
       height: 100% !important;
-      background: #0A3021 !important;
+      background: #08353E !important;
       z-index: 10000 !important;
       display: flex !important;
       justify-content: center !important;
@@ -60,8 +60,8 @@ class LoadingScreen extends HTMLElement {
         ex-loading .loading-spinner {
           width: clamp(36px, 8vmin, 48px);
           height: clamp(36px, 8vmin, 48px);
-          border: clamp(2px, 0.5vmin, 3px) solid color-mix(in srgb, var(--c-gold, #EABB6D) 20%, transparent);
-          border-top: clamp(2px, 0.5vmin, 3px) solid var(--c-gold, #EABB6D);
+          border: clamp(2px, 0.5vmin, 3px) solid color-mix(in srgb, var(--c-gold, #F2CB90) 20%, transparent);
+          border-top: clamp(2px, 0.5vmin, 3px) solid var(--c-gold, #F2CB90);
           border-radius: 50%;
           animation: spin 1s linear infinite;
         }
