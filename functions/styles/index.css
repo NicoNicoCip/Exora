@@ -59,7 +59,7 @@ ex-infcard-holder {
     display: flex;
     flex-direction: column;
     width: 100%;
-    height: clamp(300px, 65vmin, 550px);
+    height: clamp(350px, 75vmin, 650px);
     position: relative;
     background-color: color-mix(in srgb, var(--c-gold) 90%, transparent);
     border-radius: var(--border-radius);
@@ -74,6 +74,7 @@ ex-infcard-holder .scroll-container {
     align-items: stretch;
     user-select: none;
     will-change: transform;
+    overflow: hidden;
 }
 
 ex-infcard {
@@ -90,12 +91,25 @@ ex-infcard {
     overflow: hidden;
 }
 
+.image-without-header,
 .image-with-header {
-    display: flex;
-    justify-content: space-between;
-    flex-direction: column;
+    position: relative;
     height: 100%;
     overflow: hidden;
+}
+
+.image-with-header > div:first-child {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    padding: var(--spacing-sm) var(--spacing-xs);
+    font-size: var(--font-size-sm);
+    line-height: 1.3;
+    white-space: nowrap;
+    background: color-mix(in srgb, var(--c-gold) 90%, transparent);
+    border-radius: 0 0 4px 4px;
 }
 
 ex-infcard ex-line:first-child,
