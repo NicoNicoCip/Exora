@@ -347,6 +347,7 @@
 
     "-----COMMENT-----":" ---------------------- ALLERGENS --------------------",
 
+    "allergenIndex": "ÍNDICE DE ALÉRGENOS",
     "alergy_celery": "Apio",
     "alergy_crustaceans": "Crustáceos",
     "alergy_egg": "Huevo",

@@ -346,6 +346,7 @@
 
     "-----COMMENT-----":" ---------------------- ALLERGENS --------------------",
 
+    "allergenIndex": "ALLERGEN INDEX",
     "alergy_celery": "Celery",
     "alergy_crustaceans": "Crustaceans",
     "alergy_egg": "Egg",

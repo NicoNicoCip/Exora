@@ -11,7 +11,6 @@
   letter-spacing: calc(8px * var(--spacing-scale));
   text-transform: uppercase;
   margin-bottom: var(--spacing-xl);
-  text-shadow: var(--text-shadow-glow);
   font-weight: var(--font-weight-bold);
 }
 
@@ -65,9 +64,6 @@ h3 {
   width: 100%;
   position: relative;
   padding: var(--spacing-lg) var(--spacing-md);
-  box-shadow:
-    inset 2px 0 8px color-mix(in srgb, var(--c-gold) 6%, transparent),
-    inset -2px 0 8px color-mix(in srgb, var(--c-gold) 6%, transparent);
   background: linear-gradient(
     180deg,
     color-mix(in srgb, var(--c-gold) 2%, transparent) 0%,
@@ -103,7 +99,6 @@ h3 {
   height: fit-content;
   position: relative;
   background-color: hsla(calc(var(--base-gold-h) + var(--color-warmth)), calc(var(--base-gold-s) * var(--color-intensity)), calc(var(--base-gold-l) * var(--color-intensity)), calc(0.9 * var(--color-intensity)));
-  box-shadow: var(--shadow-md);
   border-radius: var(--border-radius);
   overflow: hidden;
   transition: all var(--animation-duration-normal);
@@ -111,7 +106,6 @@ h3 {
 
 .menu-item:hover {
   transform: translateY(calc(-1px * var(--spacing-scale)));
-  box-shadow: var(--shadow-lg);
 }
 
 /* Universal Item header layout */
@@ -347,7 +341,6 @@ h3 {
   .menu-item {
     break-inside: avoid;
     margin-bottom: var(--spacing-sm);
-    box-shadow: none;
     border: calc(1px * var(--spacing-scale)) solid var(--c-gold);
   }
   

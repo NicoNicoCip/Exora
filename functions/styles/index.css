@@ -34,7 +34,6 @@ section h2 {
 
 #greet a {
     color: var(--c-light-gold);
-    text-shadow: var(--text-shadow-glow);
     transition: color var(--animation-duration-fast) ease-out;
     font-size: var(--css-xx-large);
     font-weight: var(--font-weight-bold);
@@ -63,7 +62,6 @@ ex-infcard-holder {
     height: clamp(300px, 65vmin, 550px);
     position: relative;
     background-color: color-mix(in srgb, var(--c-gold) 90%, transparent);
-    box-shadow: var(--shadow-md);
     border-radius: var(--border-radius);
     overflow: hidden;
 }
@@ -110,7 +108,6 @@ ex-infcard img {
     width: auto;
     align-self: center;
     border-radius: 4px;
-    box-shadow: 0px 0px 20px var(--c-light-gold);
     object-fit: cover;
 }
 
@@ -231,7 +228,6 @@ ex-infcard img {
     height: fit-content;
     position: relative;
     background-color: hsla(calc(var(--base-gold-h) + var(--color-warmth)), calc(var(--base-gold-s) * var(--color-intensity)), calc(var(--base-gold-l) * var(--color-intensity)), calc(0.9 * var(--color-intensity)));
-    box-shadow: var(--shadow-md);
     border-radius: var(--border-radius);
     overflow: hidden;
     padding: var(--padding-loose);
@@ -296,12 +292,12 @@ ex-infcard img {
     }
 
     .art-deco-chevron .deco-spacer {
-        width: calc(28px * var(--spacing-scale));
+        width: calc(22px * var(--spacing-scale));
     }
 
     .art-deco-chevron::before {
-        width: calc(18px * var(--spacing-scale));
-        height: calc(18px * var(--spacing-scale));
+        width: calc(10px * var(--spacing-scale));
+        height: calc(10px * var(--spacing-scale));
     }
 }
 
@@ -359,7 +355,7 @@ ex-infcard img {
     opacity: 0.5;
 }
 
-/* Variant B: Chevron divider */
+/* Variant B: Circle divider */
 .art-deco-chevron {
     width: 100%;
     display: flex;
@@ -372,11 +368,10 @@ ex-infcard img {
 .art-deco-chevron::before {
     content: '';
     position: absolute;
-    width: calc(24px * var(--spacing-scale));
-    height: calc(24px * var(--spacing-scale));
-    border-right: calc(1.5px * var(--spacing-scale)) solid var(--c-gold);
-    border-bottom: calc(1.5px * var(--spacing-scale)) solid var(--c-gold);
-    transform: rotate(-45deg);
+    width: calc(14px * var(--spacing-scale));
+    height: calc(14px * var(--spacing-scale));
+    border: calc(1.5px * var(--spacing-scale)) solid var(--c-gold);
+    border-radius: 50%;
     z-index: 1;
 }
 
@@ -392,7 +387,7 @@ ex-infcard img {
 }
 
 .art-deco-chevron .deco-spacer {
-    width: calc(40px * var(--spacing-scale));
+    width: calc(30px * var(--spacing-scale));
     flex-shrink: 0;
 }
 

@@ -346,6 +346,7 @@
 
     "-----COMMENT-----":" ---------------------- ALLERGENS --------------------",
 
+    "allergenIndex": "INDEX ALERGENI",
     "alergy_celery": "Țelină",
     "alergy_crustaceans": "Crustacee",
     "alergy_egg": "Ou",
