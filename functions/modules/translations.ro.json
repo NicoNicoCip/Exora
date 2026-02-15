@@ -78,6 +78,7 @@
     "slogan_l4": "Experiences for the soul",
 
     "toMenu": "LA MENIU",
+    "toReserves": "REZERVĂRI",
 
     "-----COMMENT-----":" ---------------------- INDEX -------------------",
 
@@ -360,5 +361,37 @@
     "alergy_shellfish": "Fructe de Mare",
     "alergy_sesame": "Susan",
     "alergy_soya": "Soia",
-    "alergy_sulphites": "Sulfiți"
+    "alergy_sulphites": "Sulfiți",
+
+    "-----COMMENT-----": "===== PAGINA DE REZERVĂRI =====",
+    "reserve_title": "REZERVĂRI",
+    "reserve_name": "Nume Complet",
+    "reserve_namePlaceholder": "Numele tău complet",
+    "reserve_phone": "Telefon",
+    "reserve_phonePlaceholder": "+34 600 000 000",
+    "reserve_email": "Email",
+    "reserve_emailPlaceholder": "email@exemplu.com",
+    "reserve_date": "Data",
+    "reserve_time": "Ora",
+    "reserve_timePlaceholder": "Selectează ora",
+    "reserve_lunch": "Prânz",
+    "reserve_dinner": "Cină",
+    "reserve_guests": "Persoane",
+    "reserve_notes": "Cerințe Speciale",
+    "reserve_notesPlaceholder": "Nevoi alimentare, alergii, sărbători...",
+    "reserve_submit": "SOLICITĂ REZERVARE",
+    "reserve_confirmTitle": "CONFIRMĂ REZERVAREA",
+    "reserve_confirm": "CONFIRMĂ",
+    "reserve_cancel": "ANULEAZĂ",
+    "reserve_successTitle": "Mulțumim!",
+    "reserve_successMessage": "Te vom contacta în curând pentru a confirma rezervarea. Pentru modificări sau anulări, contactează-ne la:",
+    "reserve_callUs": "Sună-ne",
+    "reserve_emailUs": "Scrie-ne",
+    "reserve_newReservation": "REZERVARE NOUĂ",
+    "reserve_errorMessage": "Ceva nu a funcționat. Te rugăm să încerci din nou sau să ne contactezi direct.",
+    "reserve_location": "Locație",
+    "reserve_hours": "Program",
+    "reserve_hoursInfo": "Contactează-ne pentru programul curent.",
+    "reserve_contact": "Contact",
+    "reserve_largeParty": "Pentru grupuri de 10 sau mai multe persoane, sună-ne direct."
 }

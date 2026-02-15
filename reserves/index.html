@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Google Tag Manager -->
+    <script>(function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start': new Date().getTime(), event: 'gtm.js'
+            });
+            var f = d.getElementsByTagName(s)[0], j = d.createElement(s), dl = l
+                != 'dataLayer' ? '&l=' + l : '';
+            j.async = true;
+            j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+            f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-NMQLFZM7');</script>
+    <!-- End Google Tag Manager -->
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-S5JXG6GFF0"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-S5JXG6GFF0');
+    </script>
+    <script>
+        (() => {
+            const style = document.createElement('style');
+            style.textContent = `
+        /* Immediate loading screen coverage - works even before JS runs */
+        ex-loading, ex-loading:not(:defined) {
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        width: 100% !important;
+        height: 100% !important;
+        background: #08353E !important;
+        z-index: 10000 !important;
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        transition: opacity 0.5s ease;
+        }
+
+        /* Show spinner immediately */
+        ex-loading:not(:defined)::before,
+        ex-loading::before {
+        content: '';
+        width: clamp(36px, 8vmin, 48px);
+        height: clamp(36px, 8vmin, 48px);
+        border: clamp(2px, 0.5vmin, 3px) solid rgba(242, 203, 144, 0.2);
+        border-top: clamp(2px, 0.5vmin, 3px) solid #F2CB90;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+        }
+
+        /* Spinner animation */
+        @keyframes spin {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
+        }
+        `;
+            document.head.appendChild(style);
+        })();
+    </script>
+
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Reserve a table at EXORA Bistro in Benicassim, Spain.
+  Book your dining experience with us — Romanian heritage meets Mediterranean flavors.">
+    <meta name="keywords"
+        content="restaurant reservation, Benicassim, book a table, EXORA, bistro, dining, Spain, Castellon">
+
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <meta name="author" content="created by Beatrice Riess, Florin Cirnicianu, Cristian Cirnicianu and Ciprian Nicolae">
+    <link rel="shortcut icon" href="/functions/images/favicon.png" type="image/x-icon">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="EXORA Bistro | Reservations">
+    <meta property="og:description"
+        content="Reserve your table at EXORA Bistro. Romanian roots, Mediterranean heart — in Benicassim, Spain.">
+    <meta property="og:image" content="/functions/images/ExoraLogo.webp">
+    <meta property="og:url" content="https://ex-ora.com/reserves/">
+    <meta property="og:type" content="restaurant">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:site_name" content="EXORA Bistro">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="EXORA Bistro | Reservations">
+    <meta name="twitter:description"
+        content="Reserve your table at EXORA Bistro in Benicassim, Spain.">
+    <meta name="twitter:image" content="/functions/images/ExoraLogo.webp">
+
+    <title>EXORA | Reserves</title>
+
+    <link rel="stylesheet" href="/functions/styles/general.css">
+    <link rel="stylesheet" href="/functions/styles/reserves.css">
+
+    <script type="module" src="/functions/modules/loading.js" fetchpriority="high"></script>
+    <script defer type="module" src="/functions/modules/ex-main.js"></script>
+    <script defer type="module" src="/functions/modules/line.js"></script>
+    <script defer type="module" src="/functions/modules/nav-button.js"></script>
+    <script defer type="module" src="/functions/modules/ex-popup.js"></script>
+    <script defer type="module" src="/functions/modules/ex-translate.js"></script>
+    <script defer src="/functions/modules/squircle.js"></script>
+</head>
+
+<body>
+    <a href="#main-content" class="skip-link">@T:skipToContent</a>
+
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NMQLFZM7" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <ex-loading></ex-loading>
+
+    <div class="page-leaves-bg">
+        <div class="leaves-left"></div>
+        <div class="leaves-right"></div>
+    </div>
+
+    <div class="page-noise-bg"></div>
+
+    <ex-popup id="pop-contact" popupTitle="@T:contactUs">
+        <div class="contact-popup-info">
+            <div class="contact-popup-item">
+                <svg width="24" height="24" viewBox="0 0 24 24">
+                    <path
+                        d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
+                </svg>
+                <a href="mailto:ioanabeatrice.riess@gmail.com">ioanabeatrice.riess@gmail.com</a>
+            </div>
+            <div class="contact-popup-item">
+                <svg width="24" height="24" viewBox="0 0 24 24">
+                    <path
+                        d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
+                </svg>
+                <a href="tel:+34642364712">+34 642 36 47 12</a>
+            </div>
+            <div class="contact-popup-item">
+                <svg width="24" height="24" viewBox="0 0 24 24">
+                    <path
+                        d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
+                </svg>
+                <a href="tel:+34642364782">+34 642 36 47 82</a>
+            </div>
+            <div class="contact-popup-item">
+                <svg width="24" height="24" viewBox="0 0 24 24">
+                    <path
+                        d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+                </svg>
+                <a href="https://maps.app.goo.gl/fX95wTSU1xA3bqjz5">Av. Barcelona, 87, 12560 Benicassim,
+                    Castello</a>
+            </div>
+            <div class="contact-popup-socials">
+                <a href="https://www.facebook.com/profile.php?id=61577757483443" aria-label="Facebook">
+                    <svg viewBox="0 0 24 24" width="30" height="30">
+                        <path
+                            d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                    </svg>
+                </a>
+                <a href="https://www.instagram.com/exora.benicassim/" aria-label="Instagram">
+                    <svg viewBox="0 0 24 24" width="30" height="30">
+                        <path
+                            d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </ex-popup>
+
+    <ex-popup id="pop-privacy" popupTitle="@T:privacyPolicy">
+        <div>
+            <p><strong>@T:privacy_l1</strong> <br>
+                @T:privacy_l2<br>
+                @T:privacy_l3<br><br>
+                <strong>@T:privacy_l4</strong><br>
+                @T:privacy_l5<br><br>
+                <strong>@T:privacy_l6</strong><br>
+                @T:privacy_l7<br>
+                @T:privacy_l8<br><br>
+                <strong>@T:privacy_l9</strong><br>
+                @T:privacy_l10<br><br>
+                <strong>@T:privacy_l11</strong><br>
+                @T:privacy_l12<br><br>
+                <strong>@T:privacy_l13</strong><br>
+                @T:privacy_l14<br><br>
+                <strong>@T:privacy_l15</strong><br>
+                @T:privacy_l16<br><br>
+                <strong>@T:privacy_l17</strong><br>
+                @T:privacy_l18
+            </p>
+        </div>
+    </ex-popup>
+
+    <ex-popup id="pop-legal" popupTitle="@T:legalAdvice">
+        <div>
+            <p><strong>@T:legal_l1</strong><br>
+                @T:legal_l2<br><br>
+                <strong>@T:legal_l3</strong><br>
+                @T:legal_l4<br><br>
+                <strong>@T:legal_l5</strong><br>
+                @T:legal_l6<br><br>
+                <strong>@T:legal_l7</strong><br>
+                @T:legal_l8<br><br>
+                <strong>@T:legal_l9</strong><br>
+                @T:legal_l10<br><br>
+                <strong>@T:legal_l11</strong><br>
+                @T:legal_l12<br><br>
+                <strong>@T:legal_l13</strong><br>
+                @T:legal_l14<br>
+                @T:legal_l15<br><br>
+                <strong>@T:legal_l16</strong><br>
+                @T:legal_l17
+            </p>
+
+            <p><strong>@T:legal_l17</strong>
+                <ex-nav-button name="contactmail">
+                    ioanabeatrice.riess@gmail.com
+                </ex-nav-button>
+            </p>
+        </div>
+    </ex-popup>
+
+    <!-- Cookie Consent Popup -->
+    <ex-popup id="pop-cookie-consent" popupTitle="@T:cookieSettings" style="display: none;">
+        <div class="cookie-content">
+            <p>
+                @T:cookie_l1<br>
+                @T:cookie_l2<br>
+                @T:cookie_l3
+            </p>
+            <p>
+                @T:cookie_l4
+                <button class="consent-popup-button" id="pop-consent-language-btn">
+                    @T:cookie_here
+                </button>
+            </p>
+            <p>
+                @T:cookie_l5<br>
+                @T:cookie_l6
+                <button class="consent-popup-button" id="pop-consent-privacy-btn">
+                    @T:cookie_here
+                </button>
+            </p>
+        </div>
+        <div class="cookie-buttons">
+            <button id="pop-consent-accept">@T:cookie_accept</button>
+            <button id="pop-consent-reject">@T:cookie_reject</button>
+        </div>
+    </ex-popup>
+
+    <ex-popup id="pop-langsett" popupTitle="@T:languageSettings">
+        <p>@T:languageSelect</p>
+        <button id="pop-langsett-en">English</button>
+        <button id="pop-langsett-es">Español</button>
+        <button id="pop-langsett-ro">Română</button>
+    </ex-popup>
+
+    <ex-nav-header name="contactmail">
+        <a href="mailto:ioanabeatrice.riess@gmail.com"></a>
+    </ex-nav-header>
+
+    <ex-popup id="pop-reserve-confirm" popupTitle="@T:reserve_confirmTitle" style="display: none;">
+        <div class="reserve-confirm-summary" id="reserve-confirm-summary"></div>
+        <div class="reserve-confirm-buttons">
+            <button class="reserve-confirm-yes" id="reserve-confirm-yes">@T:reserve_confirm</button>
+            <button class="reserve-confirm-no" id="reserve-confirm-no">@T:reserve_cancel</button>
+        </div>
+    </ex-popup>
+
+    <ex-main id="main-content">
+        <ex-nav-header name="top" role="heading"></ex-nav-header>
+        <ex-nav-header name="menu" role="heading">
+            <a href="/menu"></a>
+        </ex-nav-header>
+        <ex-nav-header name="about start" role="heading">
+            <a href="/home"></a>
+        </ex-nav-header>
+
+        <section>
+            <h2>@T:reserve_title</h2>
+
+            <!-- Reservation Form -->
+            <div class="empty-infocard" id="reserve-form-card">
+                <form id="reserve-form" novalidate>
+                    <div class="reserve-row">
+                        <label for="reserve-name">@T:reserve_name</label>
+                        <input type="text" id="reserve-name" name="name" required
+                            placeholder="@T:reserve_namePlaceholder" autocomplete="name">
+                    </div>
+
+                    <div class="reserve-row">
+                        <label for="reserve-phone">@T:reserve_phone</label>
+                        <input type="tel" id="reserve-phone" name="phone" required
+                            placeholder="@T:reserve_phonePlaceholder" autocomplete="tel">
+                    </div>
+
+                    <div class="reserve-row">
+                        <label for="reserve-email">@T:reserve_email</label>
+                        <input type="email" id="reserve-email" name="email" required
+                            placeholder="@T:reserve_emailPlaceholder" autocomplete="email">
+                    </div>
+
+                    <div class="reserve-row reserve-row-inline">
+                        <div class="reserve-field">
+                            <label for="reserve-date">@T:reserve_date</label>
+                            <input type="date" id="reserve-date" name="date" required>
+                        </div>
+                        <div class="reserve-field">
+                            <label for="reserve-time">@T:reserve_time</label>
+                            <select id="reserve-time" name="time" required>
+                                <option value="" disabled selected>@T:reserve_timePlaceholder</option>
+                                <optgroup label="@T:reserve_lunch">
+                                    <option value="13:00">13:00</option>
+                                    <option value="13:30">13:30</option>
+                                    <option value="14:00">14:00</option>
+                                    <option value="14:30">14:30</option>
+                                    <option value="15:00">15:00</option>
+                                </optgroup>
+                                <optgroup label="@T:reserve_dinner">
+                                    <option value="20:00">20:00</option>
+                                    <option value="20:30">20:30</option>
+                                    <option value="21:00">21:00</option>
+                                    <option value="21:30">21:30</option>
+                                    <option value="22:00">22:00</option>
+                                </optgroup>
+                            </select>
+                        </div>
+                        <div class="reserve-field">
+                            <label for="reserve-guests">@T:reserve_guests</label>
+                            <select id="reserve-guests" name="guests" required>
+                                <option value="" disabled selected>—</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
+                                <option value="11">11</option>
+                                <option value="12">12</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="reserve-row">
+                        <label for="reserve-notes">@T:reserve_notes</label>
+                        <textarea id="reserve-notes" name="notes" rows="3"
+                            placeholder="@T:reserve_notesPlaceholder"></textarea>
+                    </div>
+
+                    <div class="reserve-row reserve-submit-row">
+                        <button type="submit" class="reserve-submit">@T:reserve_submit</button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Success State (hidden by default) -->
+            <div class="empty-infocard reserve-success" id="reserve-success" style="display: none;">
+                <h3>@T:reserve_successTitle</h3>
+                <p id="reserve-success-summary"></p>
+                <p>@T:reserve_successMessage</p>
+                <div class="reserve-contact-info">
+                    <p>
+                        <strong>@T:reserve_callUs</strong><br>
+                        <a href="tel:+34642364712">+34 642 36 47 12</a><br>
+                        <a href="tel:+34642364782">+34 642 36 47 82</a>
+                    </p>
+                    <p>
+                        <strong>@T:reserve_emailUs</strong><br>
+                        <a href="mailto:ioanabeatrice.riess@gmail.com">ioanabeatrice.riess@gmail.com</a>
+                    </p>
+                </div>
+                <button class="reserve-submit" id="reserve-new">@T:reserve_newReservation</button>
+            </div>
+
+            <div class="art-deco-diamond">
+                <div class="deco-center"></div>
+            </div>
+
+            <!-- Restaurant Info -->
+            <div class="empty-infocard reserve-info">
+                <div class="reserve-info-grid">
+                    <div class="reserve-info-block">
+                        <h3>@T:reserve_location</h3>
+                        <p>
+                            <a href="https://maps.app.goo.gl/fX95wTSU1xA3bqjz5">
+                                Av. Barcelona, 87<br>
+                                12560 Benicassim, Castellon
+                            </a>
+                        </p>
+                    </div>
+                    <div class="reserve-info-block">
+                        <h3>@T:reserve_hours</h3>
+                        <p>@T:reserve_hoursInfo</p>
+                    </div>
+                    <div class="reserve-info-block">
+                        <h3>@T:reserve_contact</h3>
+                        <p>
+                            <a href="tel:+34642364712">+34 642 36 47 12</a><br>
+                            <a href="tel:+34642364782">+34 642 36 47 82</a><br>
+                            <a href="mailto:ioanabeatrice.riess@gmail.com">ioanabeatrice.riess@gmail.com</a>
+                        </p>
+                    </div>
+                </div>
+                <p class="reserve-large-party">@T:reserve_largeParty</p>
+            </div>
+        </section>
+
+    </ex-main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const form = document.getElementById('reserve-form')
+            const formCard = document.getElementById('reserve-form-card')
+            const successCard = document.getElementById('reserve-success')
+            const successSummary = document.getElementById('reserve-success-summary')
+            const confirmPopup = document.getElementById('pop-reserve-confirm')
+            const newBtn = document.getElementById('reserve-new')
+            const dateInput = document.getElementById('reserve-date')
+
+            // Set min date to today
+            const today = new Date().toISOString().split('T')[0]
+            if (dateInput) dateInput.min = today
+
+            // Form submit -> show confirmation popup
+            form.addEventListener('submit', (e) => {
+                e.preventDefault()
+                if (!form.checkValidity()) {
+                    form.reportValidity()
+                    return
+                }
+
+                const data = new FormData(form)
+                const getString = window.getString || ((k) => k)
+
+                // Build summary for popup — query after show() renders the content
+                confirmPopup.show()
+                requestAnimationFrame(() => {
+                    const summary = confirmPopup.querySelector('#reserve-confirm-summary')
+                    if (summary) {
+                        const notes = data.get('notes')
+                        summary.innerHTML = `
+                            <div class="reserve-confirm-row">
+                                <span class="reserve-confirm-label">${getString('reserve_name')}</span>
+                                <span class="reserve-confirm-value">${data.get('name')}</span>
+                            </div>
+                            <div class="reserve-confirm-row">
+                                <span class="reserve-confirm-label">${getString('reserve_date')}</span>
+                                <span class="reserve-confirm-value">${data.get('date')}</span>
+                            </div>
+                            <div class="reserve-confirm-row">
+                                <span class="reserve-confirm-label">${getString('reserve_time')}</span>
+                                <span class="reserve-confirm-value">${data.get('time')}</span>
+                            </div>
+                            <div class="reserve-confirm-row">
+                                <span class="reserve-confirm-label">${getString('reserve_guests')}</span>
+                                <span class="reserve-confirm-value">${data.get('guests')}</span>
+                            </div>
+                            ${notes ? `<div class="reserve-confirm-row">
+                                <span class="reserve-confirm-label">${getString('reserve_notes')}</span>
+                                <span class="reserve-confirm-value">${notes}</span>
+                            </div>` : ''}
+                        `
+                    }
+                })
+            })
+
+            // Popup button clicks via event delegation (buttons only exist after render)
+            confirmPopup.addEventListener('click', async (e) => {
+                const target = e.target.closest('button')
+                if (!target) return
+
+                if (target.id === 'reserve-confirm-yes') {
+                    target.disabled = true
+                    target.textContent = '...'
+
+                    const data = new FormData(form)
+                    const getString = window.getString || ((k) => k)
+
+                    try {
+                        const res = await fetch('/reserves/send.php', {
+                            method: 'POST',
+                            body: data
+                        })
+                        const json = await res.json()
+
+                        if (json.ok) {
+                            confirmPopup.hide()
+                            successSummary.innerHTML = `
+                                <strong>${data.get('name')}</strong> — ${data.get('date')}, ${data.get('time')}, ${data.get('guests')} ${getString('reserve_guests').toLowerCase()}
+                            `
+                            formCard.style.display = 'none'
+                            successCard.style.display = 'block'
+                        } else {
+                            confirmPopup.hide()
+                            alert(getString('reserve_errorMessage') || 'Something went wrong. Please try again or contact us directly.')
+                        }
+                    } catch (err) {
+                        confirmPopup.hide()
+                        alert(getString('reserve_errorMessage') || 'Something went wrong. Please try again or contact us directly.')
+                    } finally {
+                        target.disabled = false
+                        target.textContent = getString('reserve_confirm') || 'Confirm'
+                    }
+                }
+
+                if (target.id === 'reserve-confirm-no') {
+                    confirmPopup.hide()
+                }
+            })
+
+            // New reservation button
+            newBtn.addEventListener('click', () => {
+                form.reset()
+                successCard.style.display = 'none'
+                formCard.style.display = 'block'
+            })
+        })
+    </script>
+</body>
+
+</html>

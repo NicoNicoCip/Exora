@@ -34,7 +34,6 @@ class LoadingScreen extends HTMLElement {
     render() {
         this.innerHTML = `
       <div id="loadingScreen">
-        <img class="loading-logo" src="/functions/images/ExoraLogo.webp" alt="EXORA">
         <div class="loading-spinner"></div>
       </div>
     `;
@@ -51,10 +50,9 @@ class LoadingScreen extends HTMLElement {
           gap: 24px;
         }
 
-        ex-loading .loading-logo {
-          width: clamp(80px, 20vmin, 120px);
-          height: auto;
-          animation: loadingPulse 2s ease-in-out infinite;
+        /* Hide the CSS-only fallback spinner once JS renders */
+        ex-loading:has(#loadingScreen)::before {
+          display: none;
         }
 
         ex-loading .loading-spinner {
@@ -64,11 +62,6 @@ class LoadingScreen extends HTMLElement {
           border-top: clamp(2px, 0.5vmin, 3px) solid var(--c-gold, #F2CB90);
           border-radius: 50%;
           animation: spin 1s linear infinite;
-        }
-
-        @keyframes loadingPulse {
-          0%, 100% { opacity: 0.7; }
-          50% { opacity: 1; }
         }
 
         @keyframes spin {

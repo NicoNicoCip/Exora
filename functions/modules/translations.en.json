@@ -78,6 +78,7 @@
     "slogan_l4": "Experiences for the soul",
     
     "toMenu": "TO MENU",
+    "toReserves": "RESERVATIONS",
 
     "-----COMMENT-----":" ---------------------- INDEX -------------------",
 
@@ -360,5 +361,37 @@
     "alergy_shellfish": "Shellfish",
     "alergy_sesame": "Sesame",
     "alergy_soya": "Soya",
-    "alergy_sulphites": "Sulphites"
+    "alergy_sulphites": "Sulphites",
+
+    "-----COMMENT-----": "===== RESERVATIONS PAGE =====",
+    "reserve_title": "RESERVATIONS",
+    "reserve_name": "Full Name",
+    "reserve_namePlaceholder": "Your full name",
+    "reserve_phone": "Phone",
+    "reserve_phonePlaceholder": "+34 600 000 000",
+    "reserve_email": "Email",
+    "reserve_emailPlaceholder": "your@email.com",
+    "reserve_date": "Date",
+    "reserve_time": "Time",
+    "reserve_timePlaceholder": "Select time",
+    "reserve_lunch": "Lunch",
+    "reserve_dinner": "Dinner",
+    "reserve_guests": "Guests",
+    "reserve_notes": "Special Requests",
+    "reserve_notesPlaceholder": "Dietary needs, allergies, celebrations...",
+    "reserve_submit": "REQUEST RESERVATION",
+    "reserve_confirmTitle": "CONFIRM RESERVATION",
+    "reserve_confirm": "CONFIRM",
+    "reserve_cancel": "CANCEL",
+    "reserve_successTitle": "Thank you!",
+    "reserve_successMessage": "We will contact you shortly to confirm your reservation. For changes or cancellations, please reach us at:",
+    "reserve_callUs": "Call us",
+    "reserve_emailUs": "Email us",
+    "reserve_newReservation": "NEW RESERVATION",
+    "reserve_errorMessage": "Something went wrong. Please try again or contact us directly.",
+    "reserve_location": "Location",
+    "reserve_hours": "Hours",
+    "reserve_hoursInfo": "Please contact us for our current opening hours.",
+    "reserve_contact": "Contact",
+    "reserve_largeParty": "For parties of 10 or more, please call us directly."
 }

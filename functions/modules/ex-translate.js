@@ -169,7 +169,7 @@ class ExTranslate extends HTMLElement {
             // Translate attributes (like title, placeholder, alt, aria-label, etc.)
             const attributesToTranslate = [
                 'title', 'placeholder', 'alt', 'aria-label',
-                'aria-description', 'data-tooltip', 'value'
+                'aria-description', 'data-tooltip', 'value', 'label'
             ];
 
             attributesToTranslate.forEach(attr => {
@@ -240,6 +240,7 @@ function getString(key) {
     }
     return `@T:${key}`;
 }
+window.getString = getString;
 
 function readTextFile(file, callback) {
     var rawFile = new XMLHttpRequest();

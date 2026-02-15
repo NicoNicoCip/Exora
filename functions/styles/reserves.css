@@ -1,0 +1,385 @@
+/* reserves.css - Reservation page styles */
+
+/* Section layout (mirrors index.css pattern) */
+section {
+    width: 100%;
+    min-height: 20dvh;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: var(--spacing-md);
+    margin-top: var(--spacing-3xl);
+}
+
+section h2 {
+    color: var(--c-light-gold);
+    padding: var(--spacing-sm);
+    text-align: center;
+    margin-bottom: var(--spacing-md);
+    font-size: var(--css-x-large);
+    font-family: 'playfair', Times, serif;
+    font-weight: var(--font-weight-bold);
+    letter-spacing: calc(3px * var(--spacing-scale));
+}
+
+/* Content card (same as index.css .empty-infocard) */
+.empty-infocard {
+    display: block;
+    width: 100%;
+    height: fit-content;
+    background-color: hsla(calc(var(--base-gold-h) + var(--color-warmth)), calc(var(--base-gold-s) * var(--color-intensity)), calc(var(--base-gold-l) * var(--color-intensity)), calc(0.9 * var(--color-intensity)));
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    padding: var(--padding-loose);
+    margin-top: var(--spacing-xs);
+    margin-bottom: var(--spacing-xs);
+    font-weight: var(--font-weight-normal);
+    line-height: calc(1.6 * var(--text-scale));
+}
+
+/* Form rows */
+.reserve-row {
+    margin-bottom: var(--spacing-lg);
+}
+
+.reserve-row:last-child {
+    margin-bottom: 0;
+}
+
+.reserve-row label {
+    display: block;
+    font-weight: var(--font-weight-semibold);
+    font-family: 'playfair', Times, serif;
+    margin-bottom: var(--spacing-xs);
+    font-size: var(--font-size-base);
+    letter-spacing: calc(1px * var(--spacing-scale));
+}
+
+/* Inputs, selects, textareas */
+.reserve-row input,
+.reserve-row select,
+.reserve-row textarea {
+    width: 100%;
+    padding: var(--spacing-sm) var(--spacing-md);
+    border: 1.5px solid color-mix(in srgb, var(--c-green-aqua) 25%, transparent);
+    border-radius: var(--border-radius);
+    background: color-mix(in srgb, var(--c-light-gold) 30%, transparent);
+    color: var(--c-green-aqua);
+    font-size: var(--font-size-base);
+    font-family: 'montserrat', Arial, sans-serif;
+    transition: border-color var(--animation-duration-fast),
+                background-color var(--animation-duration-fast);
+    box-sizing: border-box;
+}
+
+.reserve-row input:focus,
+.reserve-row select:focus,
+.reserve-row textarea:focus {
+    border-color: var(--c-green-aqua);
+    background: color-mix(in srgb, var(--c-light-gold) 45%, transparent);
+}
+
+.reserve-row input::placeholder,
+.reserve-row textarea::placeholder {
+    color: color-mix(in srgb, var(--c-green-aqua) 35%, transparent);
+}
+
+/* Inline row for date/time/guests */
+.reserve-row-inline {
+    display: flex;
+    gap: var(--spacing-md);
+}
+
+.reserve-field {
+    flex: 1;
+    min-width: 0;
+}
+
+.reserve-field label {
+    display: block;
+    font-weight: var(--font-weight-semibold);
+    font-family: 'playfair', Times, serif;
+    margin-bottom: var(--spacing-xs);
+    font-size: var(--font-size-base);
+    letter-spacing: calc(1px * var(--spacing-scale));
+}
+
+/* Submit button */
+.reserve-submit-row {
+    text-align: center;
+    margin-top: var(--spacing-lg);
+}
+
+.reserve-submit {
+    padding: var(--spacing-sm) var(--spacing-2xl);
+    border: none;
+    border-radius: var(--border-radius);
+    background-color: var(--c-green-normal);
+    color: white;
+    cursor: pointer;
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-semibold);
+    font-family: 'montserrat', Arial, sans-serif;
+    letter-spacing: calc(1.5px * var(--spacing-scale));
+    transition: background-color var(--animation-duration-fast),
+                transform var(--animation-duration-fast);
+}
+
+.reserve-submit:hover {
+    background-color: color-mix(in srgb, var(--c-green-normal), black 15%);
+    transform: scale(1.02);
+}
+
+.reserve-submit:active {
+    transform: scale(0.98);
+}
+
+/* Success card */
+.reserve-success {
+    text-align: center;
+}
+
+.reserve-success h3 {
+    font-family: 'playfair', Times, serif;
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-bold);
+    margin-bottom: var(--spacing-md);
+    letter-spacing: calc(2px * var(--spacing-scale));
+}
+
+.reserve-success p {
+    margin-bottom: var(--spacing-sm);
+}
+
+.reserve-contact-info {
+    display: flex;
+    gap: var(--spacing-2xl);
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: var(--spacing-lg) 0;
+}
+
+.reserve-contact-info a {
+    color: var(--c-green-normal);
+    transition: color var(--animation-duration-fast);
+}
+
+.reserve-contact-info a:hover {
+    color: var(--c-green-aqua);
+}
+
+.reserve-success .reserve-submit {
+    margin-top: var(--spacing-md);
+}
+
+/* Restaurant info section */
+.reserve-info {
+    text-align: center;
+}
+
+.reserve-info h3 {
+    font-family: 'playfair', Times, serif;
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-bold);
+    margin-bottom: var(--spacing-xs);
+    letter-spacing: calc(1.5px * var(--spacing-scale));
+    text-transform: uppercase;
+}
+
+.reserve-info-grid {
+    display: flex;
+    gap: var(--spacing-2xl);
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.reserve-info-block {
+    flex: 1;
+    min-width: 160px;
+}
+
+.reserve-info-block a {
+    color: var(--c-green-aqua);
+    text-decoration: none;
+    transition: color var(--animation-duration-fast);
+}
+
+.reserve-info-block a:hover {
+    color: var(--c-green-normal);
+}
+
+.reserve-large-party {
+    margin-top: var(--spacing-lg);
+    font-style: italic;
+    font-size: var(--font-size-sm);
+    opacity: 0.8;
+}
+
+/* Art deco diamond divider (from index.css) */
+.art-deco-diamond {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--spacing-xl) 0;
+}
+
+.art-deco-diamond::before,
+.art-deco-diamond::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--c-gold), transparent);
+}
+
+.art-deco-diamond .deco-center {
+    width: calc(50px * var(--spacing-scale));
+    height: calc(50px * var(--spacing-scale));
+    position: relative;
+    margin: 0 var(--spacing-md);
+    flex-shrink: 0;
+}
+
+.art-deco-diamond .deco-center::before {
+    content: '';
+    position: absolute;
+    inset: 15%;
+    border: calc(1.5px * var(--spacing-scale)) solid var(--c-gold);
+    transform: rotate(45deg);
+}
+
+.art-deco-diamond .deco-center::after {
+    content: '';
+    position: absolute;
+    inset: 32%;
+    background: var(--c-gold);
+    transform: rotate(45deg);
+    opacity: 0.5;
+}
+
+/* Confirmation popup */
+.reserve-confirm-summary {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+    text-align: left;
+}
+
+.reserve-confirm-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: var(--spacing-xs) 0;
+    border-bottom: 1px solid color-mix(in srgb, var(--c-green-aqua) 15%, transparent);
+}
+
+.reserve-confirm-row:last-child {
+    border-bottom: none;
+}
+
+.reserve-confirm-label {
+    font-family: 'playfair', Times, serif;
+    font-weight: var(--font-weight-semibold);
+    font-size: var(--font-size-sm);
+    letter-spacing: calc(1px * var(--spacing-scale));
+    text-transform: uppercase;
+    color: color-mix(in srgb, var(--c-green-aqua) 60%, transparent);
+    flex-shrink: 0;
+    margin-right: var(--spacing-md);
+}
+
+.reserve-confirm-value {
+    font-family: 'montserrat', Arial, sans-serif;
+    font-weight: var(--font-weight-semibold);
+    font-size: var(--font-size-base);
+    text-align: right;
+}
+
+.reserve-confirm-buttons {
+    margin-top: var(--spacing-lg);
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-md);
+}
+
+.reserve-confirm-yes {
+    padding: var(--spacing-sm) var(--spacing-2xl);
+    border: none;
+    border-radius: var(--border-radius);
+    background-color: var(--c-green-normal);
+    color: white;
+    cursor: pointer;
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-semibold);
+    font-family: 'montserrat', Arial, sans-serif;
+    letter-spacing: calc(1px * var(--spacing-scale));
+    transition: background-color var(--animation-duration-fast);
+}
+
+.reserve-confirm-yes:hover {
+    background-color: color-mix(in srgb, var(--c-green-normal), black 15%);
+}
+
+.reserve-confirm-no {
+    padding: var(--spacing-sm) var(--spacing-xl);
+    border: 1.5px solid color-mix(in srgb, var(--c-green-aqua) 40%, transparent);
+    border-radius: var(--border-radius);
+    background: transparent;
+    color: var(--c-green-aqua);
+    cursor: pointer;
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-normal);
+    font-family: 'montserrat', Arial, sans-serif;
+    transition: border-color var(--animation-duration-fast),
+                color var(--animation-duration-fast);
+}
+
+.reserve-confirm-no:hover {
+    border-color: var(--c-green-aqua);
+    color: var(--c-green-normal);
+}
+
+/* Mobile */
+@media only screen and (max-width: 768px) {
+    section {
+        margin-top: var(--spacing-xl);
+    }
+
+    .empty-infocard {
+        padding: var(--padding-normal);
+    }
+
+    .art-deco-diamond .deco-center {
+        width: calc(35px * var(--spacing-scale));
+        height: calc(35px * var(--spacing-scale));
+    }
+
+    .reserve-row-inline {
+        flex-direction: column;
+        gap: var(--spacing-sm);
+    }
+
+    .reserve-info-grid {
+        flex-direction: column;
+        gap: var(--spacing-lg);
+    }
+
+    .reserve-contact-info {
+        flex-direction: column;
+        gap: var(--spacing-md);
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    section {
+        margin-top: var(--spacing-lg);
+        margin-bottom: var(--spacing-xs);
+    }
+
+    .reserve-submit {
+        width: 100%;
+    }
+}

@@ -419,12 +419,14 @@ ex-nav-button {
     width: 100%;
     height: 100%;
     color: var(--c-green-aqua);
-    transition: color var(--animation-duration-fast) ease-in-out;
+    transition: color var(--animation-duration-fast) ease-in-out,
+                background-color var(--animation-duration-fast) ease-in-out;
     font-weight: var(--font-weight-normal);
 }
 
 ex-nav-button:hover {
     color: var(--c-green-normal);
+    background-color: color-mix(in srgb, white 12%, transparent);
 }
 
 ex-nav-header {
@@ -591,23 +593,36 @@ header.large {
 header #left,
 header #right {
     display: inline-flex;
-    width: 60%;
+    flex: 1;
 }
 
 header #navlogo {
-    padding: 0px var(--spacing-xs);
-    width: var(--nav-logo-width);
+    flex: 1;
+    padding: 0 var(--spacing-md) var(--spacing-xs);
     display: inline-flex;
     align-items: center;
-    transition: width var(--animation-duration-fast) ease-in-out;
+    justify-content: center;
+    transition: padding var(--animation-duration-fast) ease-in-out,
+                background-color var(--animation-duration-fast) ease-in-out;
 }
 
 header #navlogo img {
-    width: 100%;
+    width: auto;
+    max-height: 80%;
+    max-width: var(--nav-logo-width);
+    transition: max-width var(--animation-duration-fast) ease-in-out;
 }
 
 header.large #navlogo {
-    width: var(--nav-logo-width-large);
+    padding: 0 var(--spacing-lg) var(--spacing-sm);
+}
+
+header.large #navlogo img {
+    max-width: var(--nav-logo-width-large);
+}
+
+header #navlogo:hover {
+    background-color: color-mix(in srgb, white 25%, transparent);
 }
 
 header ex-nav-button {
@@ -615,6 +630,7 @@ header ex-nav-button {
     height: 100%;
     align-items: center;
     font-family: 'playfair', Times, serif;
+    letter-spacing: calc(2px * var(--spacing-scale));
 }
 
 nav {
@@ -643,10 +659,14 @@ footer button {
     background-color: transparent;
     color: var(--c-green-aqua);
     font-weight: var(--font-weight-normal);
+    cursor: pointer;
+    transition: color var(--animation-duration-fast) ease-in-out,
+                background-color var(--animation-duration-fast) ease-in-out;
 }
 
 footer button:hover {
     color: var(--c-green-normal);
+    background-color: color-mix(in srgb, white 12%, transparent);
 }
 
 .scroll-down-arrow {
@@ -654,6 +674,32 @@ footer button:hover {
     padding-top: var(--spacing-xl);
     width: 100%;
     height: var(--spacing-3xl);
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+.scroll-down-arrow:hover,
+.scroll-down-arrow ex-nav-button:hover {
+    background-color: transparent;
+}
+
+.scroll-down-arrow::after {
+    content: '';
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    width: calc(var(--icon-size) * 4);
+    height: calc(var(--icon-size) * 2.5);
+    transform: translate(-50%, -50%);
+    border-radius: var(--border-radius);
+    background-color: transparent;
+    transition: background-color var(--animation-duration-fast) ease-in-out;
+    pointer-events: none;
+}
+
+.scroll-down-arrow:hover::after {
+    background-color: color-mix(in srgb, white 12%, transparent);
 }
 
 .scroll-down-arrow .scroll-down-arrow-icon {
@@ -703,26 +749,26 @@ footer button:hover {
 }
 
 .cookie-buttons {
-    margin-top: var(--spacing-md);
+    margin-top: var(--spacing-lg);
     width: 100%;
     display: flex;
-    justify-content: space-evenly;
-    gap: var(--spacing-sm);
+    justify-content: center;
+    gap: var(--spacing-md);
     flex-wrap: wrap;
 }
 
-.cookie-buttons button {
-    padding: var(--spacing-sm) var(--spacing-lg);
+#pop-consent-accept {
+    padding: var(--spacing-sm) var(--spacing-2xl);
     border: none;
     border-radius: var(--border-radius);
-    cursor: pointer;
-    font-size: var(--font-size-sm);
-    font-weight: var(--font-weight-semibold);
-}
-
-#pop-consent-accept {
     background-color: var(--c-green-normal);
     color: white;
+    cursor: pointer;
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-semibold);
+    font-family: 'montserrat', Arial, sans-serif;
+    letter-spacing: calc(1px * var(--spacing-scale));
+    transition: background-color var(--animation-duration-fast);
 }
 
 #pop-consent-accept:hover {
@@ -730,12 +776,22 @@ footer button:hover {
 }
 
 #pop-consent-reject {
-    background-color: var(--c-red);
-    color: white;
+    padding: var(--spacing-sm) var(--spacing-xl);
+    border: 1.5px solid color-mix(in srgb, var(--c-green-aqua) 40%, transparent);
+    border-radius: var(--border-radius);
+    background: transparent;
+    color: var(--c-green-aqua);
+    cursor: pointer;
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-normal);
+    font-family: 'montserrat', Arial, sans-serif;
+    transition: border-color var(--animation-duration-fast),
+                color var(--animation-duration-fast);
 }
 
 #pop-consent-reject:hover {
-    background-color: var(--c-red-hover);
+    border-color: var(--c-green-aqua);
+    color: var(--c-green-normal);
 }
 
 .consent-popup-button {
@@ -745,6 +801,11 @@ footer button:hover {
     cursor: pointer;
     font-size: var(--font-size-base);
     font-weight: var(--font-weight-normal);
+    transition: background-color var(--animation-duration-fast) ease-in-out;
+}
+
+.consent-popup-button:hover {
+    background-color: color-mix(in srgb, white 12%, transparent);
 }
 
 #socials {
@@ -763,7 +824,8 @@ footer button:hover {
     width: calc(80px * var(--spacing-scale));
     height: calc(80px * var(--spacing-scale));
     border-radius: 50%;
-    transition: transform var(--animation-duration-normal);
+    transition: transform var(--animation-duration-normal),
+                background-color var(--animation-duration-fast) ease-in-out;
 }
 
 .icon {
@@ -774,6 +836,7 @@ footer button:hover {
 
 .social-link:hover {
     transform: scale(1.1);
+    background-color: color-mix(in srgb, white 12%, transparent);
 }
 
 .social-link:hover .icon {
@@ -791,16 +854,24 @@ footer button:hover {
 }
 
 #pop-langsett .popup-content button {
-    background-color: var(--c-gold);
-    border: 0px;
-    padding: var(--spacing-sm);
-    border-radius: var(--border-radius-sm);
-    font-weight: var(--font-weight-semibold);
-    transition: all var(--animation-duration-fast);
+    padding: var(--spacing-sm) var(--spacing-xl);
+    border: 1.5px solid color-mix(in srgb, var(--c-green-aqua) 40%, transparent);
+    border-radius: var(--border-radius);
+    background: transparent;
+    color: var(--c-green-aqua);
+    cursor: pointer;
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-normal);
+    font-family: 'montserrat', Arial, sans-serif;
+    transition: border-color var(--animation-duration-fast),
+                color var(--animation-duration-fast),
+                background-color var(--animation-duration-fast);
 }
 
 #pop-langsett .popup-content button:hover {
-    transform: translateY(calc(-1px * var(--spacing-scale)));
+    border-color: var(--c-green-aqua);
+    color: var(--c-green-normal);
+    background-color: color-mix(in srgb, white 8%, transparent);
 }
 
 #links {
