@@ -4,6 +4,7 @@
     "menu": "MENIU",
 
     "aria_useArrows": "Folosește săgețile ca să navighezi între itemele caruselului, sau folosește indicatoarele de puncte ca să sari la un item specific.",
+    "aria_googleReview": "Lasă-ne o recenzie pe Google",
 
     "top": "SUS",
     "aboutUs": "DESPRE NOI",
@@ -72,10 +73,10 @@
 
     "copyright": "© Copyright Exora 2025. Toate drepturile rezervate.",
 
-    "slogan_l1": "Romanian roots",
-    "slogan_l2": "Mediterranean heart",
-    "slogan_l3": "Not only food",
-    "slogan_l4": "Experiences for the soul",
+    "slogan_l1": "RĂDĂCINI ROMÂNEȘTI,",
+    "slogan_l2": "INIMĂ MEDITERANEANĂ.",
+    "slogan_l3": "NU DOAR MÂNCARE,",
+    "slogan_l4": "EXPERIENȚE PENTRU SUFLET.",
 
     "toMenu": "LA MENIU",
     "toReserves": "REZERVĂRI",
@@ -92,9 +93,7 @@
         "experience_l1": "EXORA este mai mult decât un simplu loc unde să mănânci—este un spațiu unde timpul încetinește, simțurile se trezesc și momentele se transformă în amintiri durabile.",
         "experience_l2": "Fie că este vorba de un prânz relaxat în cursul săptămânii, o cină elegantă, o celebrare specială sau o întâlnire spontană cu cei dragi, fiecare vizită la Exora este menită să fie o evadare rafinată și atemporală—o experiență care persistă mult după ultima înghițitură.",
 
-    "theVision": "VIZIUNEA",
-        "vision_l1": "Să redefinim experiențele culinare prin îmbinarea tradiției, creativității și excelenței, oferind oaspeților nu doar mese, ci amintiri durabile care transcend timpul și hrănesc sufletul.",
-        "culinaryPhilosophy": "FILOZOFIA CULINARĂ",
+    "culinaryPhilosophy": "FILOZOFIA CULINARĂ",
         "philosophy_l1": "La EXORA, credem că mâncarea ar trebui să fie atât incitantă, cât și reconfortantă. Meniul nostru combină arome îndrăznețe, note jucăușe și preparate executate cu măiestrie—fie că este vorba de o friptură perfect grătară, un burger suculent cu ingrediente neașteptate sau fructe de mare proaspete gătite cu finețe mediteraneană.",
         "philosophy_l2": "Îmbrățișăm creativitatea rămânând fideli esenței bucătăriei excepționale: ingrediente de calitate, tehnică precisă și pasiune pe farfurie. Fiecare preparat este o invitație de a ieși din timp, de a savura fiecare înghițitură și de a experimenta bucuria mâncării ca o conexiune atât cu istoria, cât și cu momentul prezent.",
 
@@ -102,7 +101,7 @@
         "location_l1": "Vei găsi Exora pe Avenida Barcelona 87, la doar 4 minute de mers pe jos de plajă și la 6 minute de Hotel Voramar. Suntem ascunși într-o parte mai liniștită a orașului, suficient de aproape pentru a te bucura de briza mării, dar departe de centrul aglomerat.",
         "location_l2": "Atenție: parcarea e cam o vânătoare de comori :), așa că recomandăm să vii pe jos, cu bicicleta sau să prinzi o cursă. Credem că mâncarea merită aventura!",
 
-    "meetTheTeam": "ECHIPA",
+    "meetTheFounders": "FONDATORII",
         "meet_florin": "Fondator și Chef Executiv",
         "meet_cristi": "Fondator, Director Juridic și HR",
         "meet_beatrice": "Fondatoare, Director Experiență Oaspeți și Comunicări",
@@ -149,7 +148,7 @@
     "menu_desserts": "DESERT",
         "menu_frenchToast": "Frigănele cu Înghețată și Dulce de Leche",
         "menu_romanianPapanasi": "Papanași cu Smântână și Dulceață",
-        "menu_dacianSecret": "Desert Dacic Reinterpretat",
+        "menu_lavaCake": "Lava cake de ciocolată",
 
     "-----COMMENT-----": " ---------------------- DRINKS ------------------",
     
@@ -391,7 +390,13 @@
     "reserve_errorMessage": "Ceva nu a funcționat. Te rugăm să încerci din nou sau să ne contactezi direct.",
     "reserve_location": "Locație",
     "reserve_hours": "Program",
-    "reserve_hoursInfo": "Contactează-ne pentru programul curent.",
     "reserve_contact": "Contact",
-    "reserve_largeParty": "Pentru grupuri de 10 sau mai multe persoane, sună-ne direct."
+    "reserve_largeParty": "Pentru grupuri de 10 sau mai multe persoane, sună-ne direct.",
+
+    "hours_wed": "Miercuri",
+    "hours_thu": "Joi",
+    "hours_fri": "Vineri",
+    "hours_sat": "Sâmbătă",
+    "hours_sun": "Duminică",
+    "hours_to": "până"
 }

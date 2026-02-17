@@ -423,8 +423,6 @@ class PopupManager {
     initConsent() {
         const existingConsent = localStorage.getItem("analytics")
 
-        console.log('Existing consent:', existingConsent)
-
         if (!existingConsent || existingConsent === 'null') {
             setTimeout(() => this.show('pop-cookie-consent'), 500)
         } else if (existingConsent === 'true') {

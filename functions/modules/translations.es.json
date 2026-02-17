@@ -4,6 +4,7 @@
     "menu": "MENÚ",
 
     "aria_useArrows": "Utiliza las flechas para navegar entre ítems del carrusel, o utiliza los indicadores de puntos para saltar a un ítem específico.",
+    "aria_googleReview": "Déjanos una reseña en Google",
 
     "top": "INICIO",
     "aboutUs": "SOBRE NOSOTROS",
@@ -72,11 +73,10 @@
     
     "copyright": "© Copyright Exora 2025. Todos los derechos reservados.",
 
-    "slogan": "Savor. Connect. Experience.",
-    "slogan_l1": "Raíces Rumanas",
-    "slogan_l2": "Sabores Mediteráneos",
-    "slogan_l3": "No solo comida",
-    "slogan_l4": "Experiencias para el alma",
+    "slogan_l1": "RAÍCES RUMANAS,",
+    "slogan_l2": "CORAZÓN MEDITERRÁNEO.",
+    "slogan_l3": "NO SOLO COMIDA,",
+    "slogan_l4": "EXPERIENCIAS PARA EL ALMA.",
 
     "toMenu": "AL MENÚ",
     "toReserves": "RESERVAS",
@@ -93,9 +93,7 @@
         "experience_l1": "EXORA es más que un lugar para comer—es un espacio donde el tiempo se ralentiza, los sentidos despiertan y los momentos se convierten en recuerdos duraderos.",
         "experience_l2": "Ya sea un almuerzo relajado entre semana, una cena elegante, una celebración especial o una reunión espontánea con seres queridos, cada visita a Exora está destinada a ser un escape refinado y atemporal—una experiencia que perdura mucho después del último bocado.",
 
-    "theVision": "LA VISIÓN",
-        "vision_l1": "Redefinir las experiencias gastronómicas fusionando tradición, creatividad y excelencia, ofreciendo a los comensales no solo comidas, sino recuerdos duraderos que trascienden el tiempo y nutren el alma.",
-        "culinaryPhilosophy": "FILOSOFÍA CULINARIA",
+    "culinaryPhilosophy": "FILOSOFÍA CULINARIA",
         "philosophy_l1": "En EXORA, creemos que la comida debe ser tanto emocionante como reconfortante. Nuestro menú combina sabores audaces, toques divertidos y platos ejecutados con maestría—ya sea un filete perfectamente asado, una hamburguesa jugosa con ingredientes inesperados o marisco fresco cocinado con delicadeza mediterránea.",
         "philosophy_l2": "Abrazamos la creatividad manteniéndonos fieles a la esencia de la cocina excepcional: ingredientes de calidad, técnica precisa y pasión en el plato. Cada plato es una invitación a salir del tiempo, a saborear cada bocado y a experimentar la alegría de la comida como una conexión tanto con la historia como con el momento presente.",
 
@@ -103,7 +101,7 @@
         "location_l1": "Encontrarás Exora en Avenida Barcelona 87, a solo 4 minutos a pie de la playa y 6 minutos del Hotel Voramar. Estamos ubicados en una zona más tranquila del pueblo, lo suficientemente cerca para disfrutar de la brisa marina, pero lejos del centro concurrido.",
         "location_l2": "Aviso: aparcar es un poco como una búsqueda del tesoro :), así que recomendamos venir a pie, en bici o en coche compartido. ¡Créenos, la comida vale la aventura!",
 
-    "meetTheTeam": "EL EQUIPO",
+    "meetTheFounders": "LOS FUNDADORES",
         "meet_florin": "Fundador y Chef Ejecutivo",
         "meet_cristi": "Fundador, Director Legal y RRHH",
         "meet_beatrice": "Fundadora, Directora de Experiencia del Cliente y Comunicaciones",
@@ -150,7 +148,7 @@
     "menu_desserts": "POSTRE",
         "menu_frenchToast": "Tostadas Francesas con Helado y Dulce de Leche",
         "menu_romanianPapanasi": "Papanasi Rumanos con Nata y Mermelada",
-        "menu_dacianSecret": "Postre Dácico Reinterpretado (Secreto Dacio)",
+        "menu_lavaCake": "Coulant de Chocolate",
     
     "-----COMMENT-----": " ---------------------- DRINKS ------------------",
     
@@ -392,7 +390,13 @@
     "reserve_errorMessage": "Algo salió mal. Por favor, inténtalo de nuevo o contáctanos directamente.",
     "reserve_location": "Ubicación",
     "reserve_hours": "Horario",
-    "reserve_hoursInfo": "Contáctanos para conocer nuestro horario actual.",
     "reserve_contact": "Contacto",
-    "reserve_largeParty": "Para grupos de 10 o más personas, llámanos directamente."
+    "reserve_largeParty": "Para grupos de 10 o más personas, llámanos directamente.",
+
+    "hours_wed": "Miércoles",
+    "hours_thu": "Jueves",
+    "hours_fri": "Viernes",
+    "hours_sat": "Sábado",
+    "hours_sun": "Domingo",
+    "hours_to": "a"
 }

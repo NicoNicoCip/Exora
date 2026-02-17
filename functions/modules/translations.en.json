@@ -4,6 +4,7 @@
     "menu": "MENU",
 
     "aria_useArrows": "Use arrow keys to navigate between carousel items, or use the dot indicators to jump to a specific item.",
+    "aria_googleReview": "Leave us a review on Google",
 
     "top": "TOP",
     "aboutUs": "ABOUT US",
@@ -72,10 +73,10 @@
     
     "copyright": "© Copyright Exora 2025. All rights reserved.",
 
-    "slogan_l1": "ROMANIAN ROOTS",
-    "slogan_l2": "MEDITERRANEAN HEART",
-    "slogan_l3": "NOT ONLY FOOD",
-    "slogan_l4": "EXPERIENCES FOR THE SOUL",
+    "slogan_l1": "ROMANIAN ROOTS,",
+    "slogan_l2": "MEDITERRANEAN HEART.",
+    "slogan_l3": "NOT ONLY FOOD,",
+    "slogan_l4": "EXPERIENCES FOR THE SOUL.",
     
     "toMenu": "TO MENU",
     "toReserves": "RESERVATIONS",
@@ -92,9 +93,7 @@
         "experience_l1": "EXORA is more than just a place to eat—it. It's a space where time slows down, senses awaken and moments turn into lasting  memories.",
         "experience_l2": "Whether it's a relaxed weekday lunch, an elegant dinner, a special celebration, or a spontaneous gathering with loved ones, every visit to Exora is meant to be a refined timeless escape — an experience that lingers long after the last bite.",
 
-    "theVision": "THE VISION",
-        "vision_l1": "To redefine dining experiences by blending tradition, creativity and excellence, offering guests not just meals, but lasting memories that transcend time and nourish the soul.",
-        "culinaryPhilosophy": "CULINARY PHILOSOPHY",
+    "culinaryPhilosophy": "CULINARY PHILOSOPHY",
         "philosophy_l1": "At EXORA, we believe food should be both exciting and comforting. Our menu combines bold flavors, playful twists and expertly executed dishes — whether it's a perfectly grilled steak, a juicy burger with unexpected ingredients, or fresh seafood cooked with Mediterranean finesse.",
         "philosophy_l2": "We embrace creativity while staying true to the essence of exceptional cuisine: quality ingredients, precise technique and passion on the plate. Every dish is an invitation to step outside time, to savor each bite and to experience the joy of food as a connection to both history and the present moment.",
 
@@ -102,7 +101,7 @@
         "location_l1": "You'll find Exora at Avenida Barcelona 87, just a 4-minute walk from the beach and 6 minutes from Hotel Voramar. We're tucked away in a quieter part of town,close enough to enjoy the sea breeze, yet away from the busy center.",
         "location_l2": "Heads up: parking's a bit of a treasure hunt :), so we recommend coming by foot, bike, or catching a ride. Trust us, the food's worth the adventure!",
 
-    "meetTheTeam": "MEET THE TEAM",
+    "meetTheFounders": "MEET THE FOUNDERS",
         "meet_florin": "Founder and Executive Chef",
         "meet_cristi": "Founder, Head of Legal & HR",
         "meet_beatrice": "Founder, Head of Guest Experience & Communications",
@@ -391,7 +390,13 @@
     "reserve_errorMessage": "Something went wrong. Please try again or contact us directly.",
     "reserve_location": "Location",
     "reserve_hours": "Hours",
-    "reserve_hoursInfo": "Please contact us for our current opening hours.",
     "reserve_contact": "Contact",
-    "reserve_largeParty": "For parties of 10 or more, please call us directly."
+    "reserve_largeParty": "For parties of 10 or more, please call us directly.",
+
+    "hours_wed": "Wednesday",
+    "hours_thu": "Thursday",
+    "hours_fri": "Friday",
+    "hours_sat": "Saturday",
+    "hours_sun": "Sunday",
+    "hours_to": "to"
 }

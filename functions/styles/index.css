@@ -9,15 +9,15 @@ section {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-bottom: var(--spacing-md);
-    margin-top: var(--spacing-3xl);
+    margin-bottom: var(--spacing-sm);
+    margin-top: var(--spacing-xl);
 }
 
 section h2 {
     color: var(--c-light-gold);
     padding: var(--spacing-sm);
     text-align: center;
-    margin-bottom: var(--spacing-sm);
+    margin-bottom: 0;
     font-size: var(--css-x-large);
     font-family: 'playfair', Times, serif;
     font-weight: var(--font-weight-bold);
@@ -26,11 +26,12 @@ section h2 {
 
 /* Greeting section with universal scaling */
 #greet {
-    gap: var(--spacing-2xl);
+    gap: var(--spacing-lg);
     text-wrap-mode: wrap;
     word-spacing: var(--spacing-sm);
     height: 81dvh;
     text-align: center;
+    padding-bottom: var(--spacing-xl);
 }
 
 #greet a {
@@ -53,6 +54,27 @@ section h2 {
     font-size: var(--font-size-h1);
     font-weight: var(--font-weight-bold);
     color: var(--c-light-gold);
+    margin-top: calc(var(--font-size-h1) * 5);
+}
+
+/* Location Map Container */
+.location-map-container {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    aspect-ratio: 16 / 9;
+    background-color: color-mix(in srgb, var(--c-gold) 90%, transparent);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    padding: var(--spacing-sm);
+    box-sizing: border-box;
+}
+
+.location-map-container iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    border-radius: 4px;
 }
 
 /* Info Cards - portrait/playing-card proportions, controls below */
@@ -271,6 +293,10 @@ ex-infcard img {
         word-spacing: var(--spacing-xs);
     }
 
+    #greet h1 {
+        margin-top: calc(var(--font-size-h1) * 3);
+    }
+
     .empty-infocard {
         padding: var(--padding-normal);
     }
@@ -289,7 +315,11 @@ ex-infcard img {
 
     #greet {
         word-spacing: 0;
-        gap: var(--spacing-lg);
+        gap: var(--spacing-md);
+    }
+
+    #greet h1 {
+        margin-top: calc(var(--font-size-h1) * 2);
     }
 
     [class^="art-deco-"] {
@@ -334,7 +364,7 @@ ex-infcard img {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: var(--spacing-xl) 0;
+    padding: var(--spacing-md) 0;
 }
 
 .art-deco-diamond::before,

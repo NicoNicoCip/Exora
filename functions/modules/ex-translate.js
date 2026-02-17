@@ -23,12 +23,9 @@ class ExTranslate extends HTMLElement {
 
         // Load translations for current language
         this.loadTranslations();
-
-        console.log(`Language set to: ${this.currentLanguage}`);
     }
 
     loadTranslations() {
-        console.log('Loading translations...');
         const translationFile = `/functions/modules/translations.${this.currentLanguage}.json`;
 
         readTextFile(translationFile, (text) => {

@@ -383,3 +383,42 @@ section h2 {
         width: 100%;
     }
 }
+
+/* Hours grid */
+.hours-grid {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    column-gap: 1em;
+    row-gap: var(--spacing-xs);
+    margin-top: var(--spacing-xs);
+    align-items: center;
+    justify-content: center;
+}
+
+.hours-row {
+    display: contents;
+}
+
+.hours-day,
+.hours-time {
+    text-align: center;
+}
+
+.hours-day {
+    font-family: 'playfair', Times, serif;
+    font-weight: var(--font-weight-semibold);
+    font-size: var(--font-size-sm);
+}
+
+.hours-time {
+    font-family: 'montserrat', Arial, sans-serif;
+    font-size: var(--font-size-sm);
+    color: var(--c-green-aqua);
+}
+
+.hours-separator {
+    font-family: 'montserrat', Arial, sans-serif;
+    font-size: var(--font-size-sm);
+    opacity: 0.6;
+    text-align: center;
+}
