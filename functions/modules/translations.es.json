@@ -79,6 +79,7 @@
     "slogan_l4": "Experiencias para el alma",
 
     "toMenu": "AL MENÚ",
+    "toReserves": "RESERVAS",
 
     "-----COMMENT-----":" ---------------------- INDEX -------------------",
 
@@ -361,5 +362,37 @@
     "alergy_shellfish": "Mariscos",
     "alergy_sesame": "Sésamo",
     "alergy_soya": "Soja",
-    "alergy_sulphites": "Sulfitos"
+    "alergy_sulphites": "Sulfitos",
+
+    "-----COMMENT-----": "===== PÁGINA DE RESERVAS =====",
+    "reserve_title": "RESERVAS",
+    "reserve_name": "Nombre Completo",
+    "reserve_namePlaceholder": "Tu nombre completo",
+    "reserve_phone": "Teléfono",
+    "reserve_phonePlaceholder": "+34 600 000 000",
+    "reserve_email": "Correo Electrónico",
+    "reserve_emailPlaceholder": "tu@email.com",
+    "reserve_date": "Fecha",
+    "reserve_time": "Hora",
+    "reserve_timePlaceholder": "Seleccionar hora",
+    "reserve_lunch": "Comida",
+    "reserve_dinner": "Cena",
+    "reserve_guests": "Comensales",
+    "reserve_notes": "Peticiones Especiales",
+    "reserve_notesPlaceholder": "Necesidades dietéticas, alergias, celebraciones...",
+    "reserve_submit": "SOLICITAR RESERVA",
+    "reserve_confirmTitle": "CONFIRMAR RESERVA",
+    "reserve_confirm": "CONFIRMAR",
+    "reserve_cancel": "CANCELAR",
+    "reserve_successTitle": "¡Gracias!",
+    "reserve_successMessage": "Nos pondremos en contacto contigo para confirmar tu reserva. Para cambios o cancelaciones, contáctanos en:",
+    "reserve_callUs": "Llámanos",
+    "reserve_emailUs": "Escríbenos",
+    "reserve_newReservation": "NUEVA RESERVA",
+    "reserve_errorMessage": "Algo salió mal. Por favor, inténtalo de nuevo o contáctanos directamente.",
+    "reserve_location": "Ubicación",
+    "reserve_hours": "Horario",
+    "reserve_hoursInfo": "Contáctanos para conocer nuestro horario actual.",
+    "reserve_contact": "Contacto",
+    "reserve_largeParty": "Para grupos de 10 o más personas, llámanos directamente."
 }

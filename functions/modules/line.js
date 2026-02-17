@@ -4,7 +4,7 @@ class Line extends HTMLElement {
         this.attachShadow({ mode: 'open' });
         this._direction = 'horizontal';
         this._width = '1px';
-        this._color = 'var(--c-gold, #EABB6D)';
+        this._color = 'var(--c-gold, #F2CB90)';
         this._margin = '0';
     }
 
@@ -32,7 +32,7 @@ class Line extends HTMLElement {
                 this._width = newValue || '1px';
                 break;
             case 'color':
-                this._color = newValue || 'var(--c-gold, #EABB6D)';
+                this._color = newValue || 'var(--c-gold, #F2CB90)';
                 break;
             case 'margin':
                 this._margin = newValue || '0';
@@ -78,7 +78,7 @@ class Line extends HTMLElement {
     updateStyles() {
         this._direction = this.getAttribute('dir') || 'horizontal';
         this._width = this.getAttribute('width') || '1px';
-        this._color = this.getAttribute('color') || 'var(--c-gold, #EABB6D)';
+        this._color = this.getAttribute('color') || 'var(--c-gold, #F2CB90)';
         this._margin = this.getAttribute('margin') || '0';
         this.render();
     }

@@ -21,6 +21,7 @@ section h2 {
     font-size: var(--css-x-large);
     font-family: 'playfair', Times, serif;
     font-weight: var(--font-weight-bold);
+    letter-spacing: calc(3px * var(--spacing-scale));
 }
 
 /* Greeting section with universal scaling */
@@ -40,7 +41,7 @@ section h2 {
 }
 
 #greet a:hover {
-    color: color-mix(in srgb, var(--c-gold), var(--c-green-aqua) 25%);
+    color: var(--c-gold);
 }
 
 #greet .cta-link {
