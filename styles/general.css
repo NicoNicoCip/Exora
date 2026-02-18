@@ -11,7 +11,7 @@
 
 @font-face {
   font-family: montserat;
-  src: url(/Exora/fonts/Montserrat-VariableFont_wght.ttf);
+  src: url(../functions/fonts/Montserrat-VariableFont_wght.ttf);
 }
 
 * {
