@@ -3,14 +3,14 @@
 /* Section layout (mirrors index.css pattern) */
 section {
     width: 100%;
-    min-height: 20dvh;
+    min-height: 20vh;
     height: fit-content;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     margin-bottom: var(--spacing-md);
-    margin-top: var(--spacing-3xl);
+    margin-top: var(--spacing-xl); /* matches index.css base rhythm */
 }
 
 section h2 {
@@ -77,8 +77,10 @@ section h2 {
 .reserve-row input:focus,
 .reserve-row select:focus,
 .reserve-row textarea:focus {
-    border-color: var(--c-green-aqua);
+    border-color: var(--c-gold);
     background: color-mix(in srgb, var(--c-light-gold) 45%, transparent);
+    box-shadow: 0 0 0 2px color-mix(in srgb, var(--c-gold) 30%, transparent);
+    outline: none;
 }
 
 .reserve-row input::placeholder,
@@ -386,22 +388,11 @@ section h2 {
 
 /* Hours grid */
 .hours-grid {
-    display: grid;
-    grid-template-columns: auto auto auto;
-    column-gap: 1em;
-    row-gap: var(--spacing-xs);
-    margin-top: var(--spacing-xs);
+    display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
-}
-
-.hours-row {
-    display: contents;
-}
-
-.hours-day,
-.hours-time {
-    text-align: center;
+    gap: var(--spacing-xs);
+    margin-top: var(--spacing-xs);
 }
 
 .hours-day {
@@ -416,9 +407,3 @@ section h2 {
     color: var(--c-green-aqua);
 }
 
-.hours-separator {
-    font-family: 'montserrat', Arial, sans-serif;
-    font-size: var(--font-size-sm);
-    opacity: 0.6;
-    text-align: center;
-}

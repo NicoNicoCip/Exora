@@ -26,7 +26,7 @@ h2 {
   margin-bottom: var(--spacing-xl);
   font-family: 'playfair', Times, serif;
   font-weight: var(--font-weight-bold);
-  letter-spacing: calc(3px * var(--spacing-scale));
+  letter-spacing: calc(5px * var(--spacing-scale));
   text-transform: uppercase;
   position: relative;
   padding-bottom: var(--spacing-md);
@@ -122,14 +122,32 @@ h3 {
   font-size: var(--font-size-base);
   line-height: calc(1.4 * var(--text-scale));
   font-family: 'playfair', Times, serif;
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+}
+
+/* Dotted leader line between name and price */
+.item-name::after {
+  content: '';
+  display: inline-block;
+  width: 100%;
+  margin-left: var(--spacing-sm);
+  border-bottom: calc(1.5px * var(--spacing-scale)) dotted color-mix(in srgb, var(--c-gold) 45%, transparent);
+  vertical-align: middle;
+  position: relative;
+  top: calc(-0.15em * var(--text-scale));
 }
 
 .item-price {
   font-weight: var(--font-weight-bold);
   color: var(--c-green-aqua);
   white-space: nowrap;
-  padding-left: var(--spacing-lg);
+  padding-left: var(--spacing-sm);
   font-size: var(--font-size-lg);
+  font-family: 'playfair', Times, serif;
+  font-style: italic;
+  flex-shrink: 0;
 }
 
 /* Universal Allergens container */
@@ -229,8 +247,6 @@ h3 {
 }
 
 .menu-category h2 {
-  border-bottom: calc(2px * var(--spacing-scale)) solid var(--c-gold);
-  padding-bottom: var(--spacing-sm);
   margin-bottom: var(--spacing-xl);
 }
 
@@ -267,11 +283,15 @@ h3 {
     gap: var(--spacing-xs);
   }
   
+  .item-name::after {
+    display: none;
+  }
+
   .item-price {
     padding-left: 0;
     align-self: flex-end;
   }
-  
+
   .allergens {
     gap: var(--spacing-sm);
   }
@@ -287,8 +307,9 @@ h3 {
     font-size: var(--font-size-h2);
     margin-top: var(--spacing-xl);
     margin-bottom: var(--spacing-lg);
+    letter-spacing: calc(2px * var(--spacing-scale));
   }
-  
+
   h3 {
     font-size: var(--font-size-h3);
     margin-bottom: var(--spacing-md);

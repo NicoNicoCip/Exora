@@ -81,7 +81,6 @@ class ExTranslate extends HTMLElement {
         this.observer = new MutationObserver((mutations) => {
             // Check if translations are loaded before attempting to translate
             if (!this.translationsLoaded) {
-                console.log('Translations not loaded yet, skipping...');
                 return;
             }
 
@@ -103,8 +102,6 @@ class ExTranslate extends HTMLElement {
 
             // If new content was added, translate it
             if (nodesToTranslate.length > 0) {
-                console.log(`New DOM content detected, translating ${nodesToTranslate.length} nodes...`);
-
                 // Translate each new node
                 nodesToTranslate.forEach(node => {
                     this.scanAndTranslate(node);
@@ -213,7 +210,6 @@ class ExTranslate extends HTMLElement {
             return;
         }
 
-        console.log('Manually translating element:', element);
         this.scanAndTranslate(element);
     }
 }

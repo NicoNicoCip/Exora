@@ -78,6 +78,7 @@ class ExMenuElement extends HTMLElement {
     createAllergensContainer(allergensText) {
         const allergensContainer = document.createElement('div');
         allergensContainer.className = 'allergens-container';
+        allergensContainer.setAttribute('aria-label', 'Allergens');
 
         // Split by comma, clean up, and filter valid allergens
         const allergenNames = allergensText
@@ -102,6 +103,7 @@ class ExMenuElement extends HTMLElement {
                 span.className = 'allergen-icon allergen-text';
                 span.textContent = allergenName.charAt(0).toUpperCase();
                 span.title = allergenName.charAt(0).toUpperCase() + allergenName.slice(1);
+                span.setAttribute('aria-label', allergenName.charAt(0).toUpperCase() + allergenName.slice(1));
                 this.parentNode.replaceChild(span, this);
             };
 

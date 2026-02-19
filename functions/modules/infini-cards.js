@@ -65,7 +65,11 @@ class InfiniCardHolder extends HTMLElement {
         this.cardCount = cards.length;
         this._render(cards);
         this._setupEvents();
-        this._waitForImages().then(() => this._measure());
+        this._waitForImages().then(() => {
+            this._measure();
+            // Safety re-measure in case images were still pending (lazy load race)
+            setTimeout(() => this._measure(), 500);
+        });
     }
 
     disconnectedCallback() {
@@ -441,7 +445,7 @@ class InfiniCardHolder extends HTMLElement {
     _waitForImages() {
         const imgs = this._els.container?.querySelectorAll('img') || [];
         return Promise.all(Array.from(imgs).map(img => {
-            if (img.complete) return Promise.resolve();
+            if (img.complete && img.naturalWidth > 0) return Promise.resolve();
             return new Promise(r => {
                 img.addEventListener('load',  r, { once: true });
                 img.addEventListener('error', r, { once: true });

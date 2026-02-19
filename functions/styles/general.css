@@ -21,6 +21,27 @@
     top: 0;
 }
 
+/* ============================================
+   MOBILE / CROSS-BROWSER BASELINE
+   ============================================ */
+
+/* Prevent iOS Safari from auto-scaling fonts on orientation change */
+html {
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+}
+
+/* Remove tap flash highlight on Android/iOS */
+* {
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* Reset browser-native styling on form controls for consistent cross-platform look */
+input, select, textarea, button {
+    -webkit-appearance: none;
+    appearance: none;
+}
+
 :root {
     /* 🎨 COLOR CONTROLS */
     --color-intensity: 1;
@@ -155,8 +176,8 @@
     --icon-size: calc(var(--base-icon-size) * var(--spacing-scale) * var(--mobile-comfort));
     --popup-size: calc(200px * var(--spacing-scale) * var(--mobile-comfort));
 
-    --nav-logo-width: calc(220px * var(--spacing-scale) * var(--mobile-comfort));
-    --nav-logo-width-large: calc(270px * var(--spacing-scale) * var(--mobile-comfort));
+    --nav-logo-width: calc(160px * var(--spacing-scale) * var(--mobile-comfort));
+    --nav-logo-width-large: calc(200px * var(--spacing-scale) * var(--mobile-comfort));
 
     /* Mobile layout */
     --content-max-width: calc(53.5rem * var(--content-width));
@@ -225,10 +246,14 @@
         --clock-min-width: calc(20dvw * var(--desktop-expansion));
         --clock-max-width: calc(35dvw * var(--desktop-expansion));
     }
+
+    footer {
+        height: calc(440px * var(--spacing-scale)); /* taller on desktop to accommodate horizontal scroll layout */
+    }
 }
 
 /* ========================================
-   💻 ULTRA WIDE SCREENS - 1600px+ 
+   💻 ULTRA WIDE SCREENS - 1600px+
    ======================================== */
 
 @media only screen and (min-width: 1600px) {
@@ -251,19 +276,35 @@
 }
 
 /* ========================================
+   📱 SMALL PHONE HEADER - 480px and below
+   ======================================== */
+
+@media only screen and (max-width: 480px) {
+    :root {
+        --nav-logo-width: calc(120px * var(--spacing-scale) * var(--mobile-comfort));
+        --nav-logo-width-large: calc(150px * var(--spacing-scale) * var(--mobile-comfort));
+    }
+
+    header ex-nav-button {
+        font-size: var(--font-size-base);
+        letter-spacing: calc(1.5px * var(--spacing-scale));
+    }
+}
+
+/* ========================================
    🎨 UNIVERSAL STYLES
    ======================================== */
 
 @font-face {
     font-family: montserrat;
     font-display: swap;
-    src: url(/functions/fonts/Montserrat-VariableFont_wght.ttf);
+    src: url(/functions/fonts/Montserrat-VariableFont_wght.woff2) format('woff2');
 }
 
 @font-face {
     font-family: playfair;
     font-display: swap;
-    src: url(/functions/fonts/PlayfairDisplay-Regular.ttf);
+    src: url(/functions/fonts/PlayfairDisplay-Regular.woff2) format('woff2');
 }
 
 * {
@@ -273,8 +314,6 @@
     text-decoration: none;
     font-family: 'montserrat', Times, serif;
     color: var(--c-green-aqua);
-    font-size: var(--font-size-base);
-    font-weight: var(--font-weight-normal);
 }
 
 html {
@@ -293,6 +332,8 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-normal);
 }
 
 h1 {
@@ -361,6 +402,8 @@ h3 {
     background-blend-mode: multiply;
     opacity: 0.07;
     animation: pan_noise calc(45s / var(--animation-speed)) linear infinite;
+    will-change: background-position;
+    contain: strict;
 }
 
 /* Background decoration leaves - NOW FULLY RESPONSIVE TO ALL DESKTOP CONTROLS */
@@ -451,6 +494,7 @@ ex-popup {
     border: 0px;
     min-width: var(--popup-size);
     min-height: var(--popup-size);
+    max-width: min(560px, 90vw);
     text-align: center;
 }
 
@@ -562,18 +606,17 @@ ex-popup {
 }
 
 main {
-    min-height: 100dvh;
+    min-height: 100vh;
     max-width: var(--content-max-width);
     width: 100%;
     position: relative;
     z-index: 25;
-    margin: calc(var(--header-height) + var(--spacing-md)) 0 var(--spacing-md) 0;
+    margin: 0 0 var(--spacing-md) 0; /* no top margin needed — header is sticky, not fixed */
     padding: 0 var(--spacing-lg);
-    top: var(--spacing-md);
 }
 
 header {
-    position: fixed;
+    position: sticky;
     top: 0;
     z-index: 100;
     max-width: var(--content-max-width);
@@ -584,6 +627,7 @@ header {
     background-color: var(--c-gold);
     border-radius: 0 0 var(--border-radius) var(--border-radius);
     transition: height var(--animation-duration-fast) ease-in-out;
+    padding-top: env(safe-area-inset-top, 0px); /* notch / status bar clearance */
 }
 
 header.large {
@@ -630,7 +674,10 @@ header ex-nav-button {
     height: 100%;
     align-items: center;
     font-family: 'playfair', Times, serif;
-    letter-spacing: calc(2px * var(--spacing-scale));
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-semibold);
+    letter-spacing: calc(2.5px * var(--spacing-scale));
+    color: var(--c-green-aqua);
 }
 
 nav {
@@ -643,14 +690,15 @@ nav {
 footer {
     max-width: var(--content-max-width);
     width: 100%;
-    height: calc(480px * var(--spacing-scale));
+    height: calc(320px * var(--spacing-scale)); /* reduced from 480px — less dominant on mobile */
     z-index: 50;
     display: inline-flex;
     justify-content: space-between;
     padding: var(--spacing-sm);
     background-color: var(--c-gold);
     border-radius: var(--border-radius) var(--border-radius) 0 0;
-    overflow: hidden;
+    overflow: clip; /* clip (not hidden) prevents oversized children from contributing to page intrinsic width */
+    contain: layout;
 }
 
 footer button {
@@ -847,6 +895,24 @@ footer button:hover {
     display: none;
 }
 
+.popup-text {
+    text-align: left;
+    line-height: calc(1.6 * var(--text-scale));
+}
+
+.popup-text p {
+    margin-bottom: var(--spacing-sm);
+}
+
+.popup-text p:last-child {
+    margin-bottom: 0;
+}
+
+.popup-text a {
+    color: var(--c-green-normal);
+    word-break: break-all;
+}
+
 #pop-langsett .popup-content {
     display: flex;
     flex-direction: column;
@@ -881,6 +947,7 @@ footer button:hover {
     text-align: center;
     flex-direction: column;
     padding: var(--spacing-sm);
+    contain: layout size; /* prevent this oversized element from leaking into page intrinsic width */
 }
 
 #links h2 {

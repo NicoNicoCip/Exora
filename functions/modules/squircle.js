@@ -179,7 +179,7 @@ function init() {
     new MutationObserver(() => {
         // Debounce — batch DOM mutations
         clearTimeout(init._t);
-        init._t = setTimeout(scan, 50);
+        init._t = setTimeout(scan, 200);
     }).observe(document.body, { childList: true, subtree: true });
 }
 

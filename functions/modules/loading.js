@@ -127,7 +127,10 @@ class LoadingScreen extends HTMLElement {
 
     startChecking() {
         const checkReady = () => {
-            if (this.isRemoved) return;
+            if (this.isRemoved) {
+                clearInterval(this.checkInterval);
+                return;
+            }
 
             let allReady = true;
             let hasRequiredElements = false;
@@ -154,20 +157,17 @@ class LoadingScreen extends HTMLElement {
             const maxTimeReached = elapsed >= this.maxWaitTime;
 
             if ((allReady && minTimeReached && hasRequiredElements) || maxTimeReached) {
+                clearInterval(this.checkInterval);
                 this.fadeOut();
-            } else {
-                requestAnimationFrame(checkReady);
             }
         };
 
         if (document.readyState === 'complete') {
-            requestAnimationFrame(checkReady);
+            this.checkInterval = setInterval(checkReady, 100);
         } else {
             window.addEventListener('load', () => {
-                setTimeout(() => requestAnimationFrame(checkReady), 16);
+                this.checkInterval = setInterval(checkReady, 100);
             }, { once: true });
-
-            requestAnimationFrame(checkReady);
         }
     }
 
@@ -189,6 +189,7 @@ class LoadingScreen extends HTMLElement {
         if (this.isRemoved) return;
 
         this.isRemoved = true;
+        clearInterval(this.checkInterval);
         this.style.opacity = '0';
 
         setTimeout(() => {

@@ -3,7 +3,7 @@
 /* Universal Section Layout */
 section {
     width: 100%;
-    min-height: 20dvh;
+    min-height: 20vh;
     height: fit-content;
     display: flex;
     flex-direction: column;
@@ -11,6 +11,10 @@ section {
     align-items: center;
     margin-bottom: var(--spacing-sm);
     margin-top: var(--spacing-xl);
+}
+
+section + section {
+    margin-top: var(--spacing-2xl); /* enforce consistent gap between consecutive sections */
 }
 
 section h2 {
@@ -29,7 +33,8 @@ section h2 {
     gap: var(--spacing-lg);
     text-wrap-mode: wrap;
     word-spacing: var(--spacing-sm);
-    height: 81dvh;
+    height: 81vh;
+    height: 81svh; /* svh = small viewport height: excludes browser chrome, correct on mobile */
     text-align: center;
     padding-bottom: var(--spacing-xl);
 }
@@ -54,7 +59,7 @@ section h2 {
     font-size: var(--font-size-h1);
     font-weight: var(--font-weight-bold);
     color: var(--c-light-gold);
-    margin-top: calc(var(--font-size-h1) * 5);
+    margin-top: clamp(24px, 10vh, 200px);
 }
 
 /* Location Map Container */
@@ -284,17 +289,27 @@ ex-infcard img {
 /* Tablet / small desktop */
 @media only screen and (max-width: 768px) {
     section {
+        margin-top: var(--spacing-lg);
+        margin-bottom: var(--spacing-xs);
+    }
+
+    section + section {
         margin-top: var(--spacing-xl);
-        margin-bottom: var(--spacing-sm);
     }
 
     #greet {
-        gap: var(--spacing-xl);
+        gap: var(--spacing-lg);
         word-spacing: var(--spacing-xs);
     }
 
     #greet h1 {
-        margin-top: calc(var(--font-size-h1) * 3);
+        font-size: calc(var(--font-size-h1) * 0.8);
+        margin-bottom: var(--spacing-xl);
+    }
+
+    #greet a,
+    #greet .cta-link {
+        font-size: var(--css-x-large);
     }
 
     .empty-infocard {
@@ -309,8 +324,12 @@ ex-infcard img {
 /* Small phones */
 @media only screen and (max-width: 480px) {
     section {
-        margin-top: var(--spacing-lg);
+        margin-top: var(--spacing-md);
         margin-bottom: var(--spacing-xs);
+    }
+
+    section + section {
+        margin-top: var(--spacing-lg);
     }
 
     #greet {
@@ -319,7 +338,13 @@ ex-infcard img {
     }
 
     #greet h1 {
-        margin-top: calc(var(--font-size-h1) * 2);
+        font-size: calc(var(--font-size-h1) * 0.65);
+        margin-bottom: var(--spacing-lg);
+    }
+
+    #greet a,
+    #greet .cta-link {
+        font-size: var(--css-large);
     }
 
     [class^="art-deco-"] {
@@ -350,7 +375,7 @@ ex-infcard img {
 @media only screen and (max-height: 500px) {
     #greet {
         height: auto;
-        min-height: 100dvh;
+        min-height: 100vh;
     }
 }
 

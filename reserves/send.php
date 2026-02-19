@@ -15,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     exit;
 }
 
-$to = 'contact@nikosoft.space';
+$to = 'cir.ciprian.nicolae@gmail.com';
 
 $name   = strip_tags(trim($_POST['name'] ?? ''));
 $phone  = strip_tags(trim($_POST['phone'] ?? ''));

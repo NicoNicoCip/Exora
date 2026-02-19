@@ -2,28 +2,6 @@
 <html lang="en">
 
 <head>
-    <!-- Google Tag Manager -->
-    <script>(function (w, d, s, l, i) {
-            w[l] = w[l] || []; w[l].push({
-                'gtm.start': new Date().getTime(), event: 'gtm.js'
-            });
-            var f = d.getElementsByTagName(s)[0], j = d.createElement(s), dl = l
-                != 'dataLayer' ? '&l=' + l : '';
-            j.async = true;
-            j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
-            f.parentNode.insertBefore(j, f);
-        })(window, document, 'script', 'dataLayer', 'GTM-NMQLFZM7');</script>
-    <!-- End Google Tag Manager -->
-
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-S5JXG6GFF0"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
-
-        gtag('config', 'G-S5JXG6GFF0');
-    </script>
     <script>
         (() => {
             const style = document.createElement('style');
@@ -81,7 +59,7 @@
 
 
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <meta name="description" content="EXORA is a vibrant and welcoming dining 
   destination in Benicassim, Spain, where bold flavors, creativity and 
   excellence come together in an experience that transcends time. Rooted in our 
@@ -131,11 +109,6 @@
 
 <body>
     <a href="#main-content" class="skip-link">@T:skipToContent</a>
-
-    <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NMQLFZM7" height="0" width="0"
-            style="display:none;visibility:hidden"></iframe></noscript>
-    <!-- End Google Tag Manager (noscript) -->
 
     <ex-loading></ex-loading>
 
@@ -194,44 +167,22 @@
     </ex-popup>
 
     <ex-popup id="pop-privacy" popupTitle="@T:privacyPolicy">
-        <div>
-            <p><strong>@T:privacy_l1</strong> <br>
-                @T:privacy_l2
-            </p><br>
+        <div class="popup-text">
+            <p><strong>@T:privacy_l1</strong> @T:privacy_l2</p>
 
-            <p>
-                @T:privacy_l3<br>
-                @T:privacy_l4
-            </p><br>
+            <p>@T:privacy_l3 @T:privacy_l4</p>
 
             <p><strong>@T:privacy_l5</strong></p>
-            <p>
-                @T:privacy_l6<br>
-                @T:privacy_l7<br>
-                @T:privacy_l8<br>
-                @T:privacy_l9
-            </p><br>
+            <p>@T:privacy_l6 @T:privacy_l7 @T:privacy_l8 @T:privacy_l9</p>
 
             <p><strong>@T:privacy_l10</strong></p>
-            <p>
-                @T:privacy_l11<br>
-                @T:privacy_l12<br>
-                @T:privacy_l13
-            </p><br>
+            <p>@T:privacy_l11 @T:privacy_l12 @T:privacy_l13</p>
 
             <p><strong>@T:privacy_l14</strong></p>
-            <p>
-                @T:privacy_l15<br>
-                @T:privacy_l16<br>
-                @T:privacy_l17
-            </p><br>
+            <p>@T:privacy_l15 @T:privacy_l16 @T:privacy_l17</p>
 
-            <p><strong>@T:privacy_l18</strong><br>
-                @T:privacy_l19
-                <ex-nav-button name="contactmail">
-                    ioanabeatrice.riess@gmail.com
-                </ex-nav-button>
-            </p><br>
+            <p><strong>@T:privacy_l18</strong></p>
+            <p>@T:privacy_l19 <a href="mailto:ioanabeatrice.riess@gmail.com">ioanabeatrice.riess@gmail.com</a></p>
         </div>
     </ex-popup>
 
@@ -316,24 +267,24 @@
     </ex-nav-header>
 
     <ex-main id="main-content">
-        <ex-nav-header name="top" role="heading"></ex-nav-header>
-        <ex-nav-header name="menu" role="heading"></ex-nav-header>
-        <ex-nav-header name="about start" role="heading">
+        <ex-nav-header name="top"></ex-nav-header>
+        <ex-nav-header name="menu"></ex-nav-header>
+        <ex-nav-header name="about start">
             <a href="../home"></a>
         </ex-nav-header>
-        <ex-nav-header name="about experience" role="heading">
+        <ex-nav-header name="about experience">
             <a href="../home"></a>
         </ex-nav-header>
-        <ex-nav-header name="about vision" role="heading">
+        <ex-nav-header name="about vision">
             <a href="../home"></a>
         </ex-nav-header>
-        <ex-nav-header name="about philosophy" role="heading">
+        <ex-nav-header name="about philosophy">
             <a href="../home"></a>
         </ex-nav-header>
-        <ex-nav-header name="about location" role="heading">
+        <ex-nav-header name="about location">
             <a href="../home"></a>
         </ex-nav-header>
-        <ex-nav-header name="about team" role="heading">
+        <ex-nav-header name="about team">
             <a href="../home"></a>
         </ex-nav-header>
 
